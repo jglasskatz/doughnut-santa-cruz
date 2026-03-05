@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+MIT License
+
+Copyright (c) 2021-23, 2025 Jeremy Johnson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doughnut Creator</title>
+</head>
+<style>
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: small;
+    }
+
+    #doughnutDiv {
+        max-width: 600px;
+    }
+
+    #box {
+        max-width: 600px;
+        border-style: solid;
+        border-width: thin;
+        border-color: #000000;
+        border-radius: 25px;
+        padding-top: 0px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    #note {
+        font-size: smaller;
+    }
+
+    input[type=button] {
+        width: 180px;
+    }
+
+    label {
+        margin-right: 20px;
+    }
+</style>
+
+<body>
+    <div id="box">
+        <h1>Doughnut Creator v4.6.1</h1>
+        <p> Welcome to the doughnut creator, where you can play with creating your own
+            personal doughnut, or think about and explore a local or global doughnut.
+        </p>
+        <p> To find out how you could use creator, have a look at this
+            <a href="https://www.cambridgedoughnut.org.uk/creating-doughnut-graphs/">blogpost.</a>
+        </p>
+        <p> And here are some more thoughts on the usage of
+            <a href="https://www.cambridgedoughnut.org.uk/the-big-personal-doughnut-debate/">personal doughnuts</a>
+        </p>
+
+        <p>Find more info about data portraits on the <a href="https://doughnuteconomics.org">DEAL (Doughnut Economics Action Lab)</a> website:
+            <ul>
+                <li><a href="https://doughnuteconomics.org/tools/doughnut-data-portraits-a-methodological-guide
+">Data portraits - a methodological guide.</a></li>
+                <li><a href="https://doughnuteconomics.org/tools/downscaling-the-doughnut-data-portraits-in-action
+">Downscaling the doughnut - data portraits in action.</a></li>
+                <li>Or perform a search on the DEAL website for "data portrait" which is what they are referred to.
+</li>
+            </ul>
+        </p>
+    </div>
+    <div id="box">
+        <h3>Set up and Testing</h3>
+        <form name="Options">
+            <p>Doughnut Type: <input type="radio" id="personalType" name="donutType" value="personal" checked="checked"
+                    onclick="setType(1)">
+                    <label for="personal">Personal</label>
+                    <input type="radio" id="globalType" name="donutType" value="global" onClick="setType(2)">
+                    <label for="global">Global/Local</label>
+            </p>
+            <p>Doughnut Colours (Personal only):
+                <input type="color" id="innerCol" name="innerCol" value="#883251" onChange="setColours()">
+                <label for="outerCol">Inner</label>
+                <input type="color" id="outerCol" name="outerCol" value="#E096C6" onChange="setColours()">
+                <label for="outerCol">Outer</label>
+                <input type="radio" id="linearCol" name="colorType" value="linear" checked="checked" onclick="setColours()">
+                <label for="linear">linear</label>
+                <input type="radio" id="branchCol" name="colorType" value="branch" onclick="setColours()">
+                <label for="branch">branching</label>
+            </p>
+            <p>Doughnut Size: <input type="radio" id="smallSize" name="donutSize" value="small" 
+                onclick="setSize(1)">
+                <label for="small">Small</label>
+                <input type="radio" id="mediumSize" name="donutSize" value="medium" checked="checked" onClick="setSize(2)">
+                <label for="medium">Medium</label>
+                <input type="radio" id="largeSize" name="donutSize" value="large" onClick="setSize(3)">
+                <label for="large">Large</label>
+            </p>
+            <p>Doughnut Ring Size: <input type="range" min="0.5" max="1.5" value="1.0" class="slider" id="ringSize" step="0.25"
+                onchange="setRingSize()">
+            </p>
+            <p><input name="test1Button" type="button" value=" Test Personal " onclick="testIt(1)">
+                <input name="test2Button" type="button" value=" Test Global " onclick="testIt(2)">
+                <input name="clearButton" type="button" value=" Clear " onclick="clearDoughnut()">
+            </p>
+        </form>
+    </div>
+
+    <div id="doughnutDiv">
+        <canvas id="doughnutCanvas">Your browser does not support the HTML5 canvas
+            tag. :(</canvas>
+    </div>
+
+    <div id="box">
+        <h3>Dimension Info</h3>
+        <p id="dimensionInfo">Hover over or select dimensions on the doughnut drawing.</p>
+        <form name="editDims">
+            <p><input name="editDimButton" type="button" value=" Edit Dimension " onclick="editDim()">
+                <input name="delDimButton" type="button" value=" Remove Dim. or Measure " onclick="delDim()">
+            </p>
+            <p id="note">Notes:
+                <ul>
+                    <li id="note">Edit allows you to change the level value of the selected dimension using the controls below.</li>
+                    <li id="note">Renaming it will add a new dimension, but you can then use Remove to delete the original dimension.</li>
+                </ul>
+            </p>
+        </form>
+    </div>
+
+    <div id="box">
+        <h3>Add/Edit Dimension</h3>
+        <form name="addDims">
+            <p>Type: <input type="radio" id="dimOuter" name="dimType" value="outer" checked="checked">
+                    <label for="dimOuter">outer</label>
+                    <input type="radio" id="dimInner" name="dimType" value="inner">
+                    <label for="dimInner">inner</label></p>
+            <p>Name: <input id="dimName" list="suggestions" size="50px" onfocus="fillSuggestions()">
+                <datalist id="suggestions">
+                </datalist>
+            </p>
+            <p>Level: <input type="range" min="-150" max="150" value="50" class="slider" id="dimLevel" step="50"
+                    onchange="updateLevelName()">
+                <input id="dimLevelName" type="text" value="" size="15px" readonly>
+            </p>
+            <p>Measure (optional): <input id="dimLabel" type="text" size="20px"></p>
+
+            <p><input id="addDimButton" type="button" value=" Add or Update Dimension "
+                    onclick="addDim(addDims.dimType.value, addDims.dimName.value, addDims.dimLevel.value, addDims.dimLabel.value)">
+            </p>
+
+            <p id="note">Notes:
+                <ul>
+                    <li id="note">Levels inside the doughnut are negative values where as positive values are outside the doughnut.</li>
+                    <li id="note">Level scales are in percentages:  ((current value - boundary value) / boundary value) * 100.</li>
+                    <li id="note">(I.e -100% is 0 impact, whereas +100% is double the boundary.)</li>
+                    <li id="note">Level values that exceed the boundary can be expressed as 150.</li>
+                    <li id="note">Level values that are unknown can be entered as "NaN" (not a number).</li>
+                    <li id="note">It is optional to have extra values called measures.</li>
+                </ul>
+            </p>
+        </form>
+    </div>
+
+    <div id="box">
+        <h3>Dimension lists</h3>
+        <p id="innerDims"></p>
+        <p id="outerDims"></p>
+        <form name="importDims">
+            <h3>CSV export/import</h3>
+            <p><input name="importButton" type="button" value=" Import " onclick="importDoughnut(csv.value)"></p>
+            <textarea id="csv" name="CSV" rows="4" cols="50">
+            </textarea>
+        </form>
+        <p id="note">Notes:
+            <ul>
+                <li id="note">The format of this form is using comma separated values (CSV).</li>
+                <li id="note">To export - copy all the CSV text from the above box.</li>
+                <li id="note">To import - paste the CSV text into the above box (on a CLEAR new doughnut) and press import.</li>
+                <li id="note">The fields of an entry "1,2,3,4":</li>
+                <ul>
+                    <li id="note">1. "inner" or "outer"</li>
+                    <li id="note">2. name of dimension</li>
+                    <li id="note">3. level of dimension - negative is GOOD - within the doughnut, positive is BAD - overshoot or shortfall, NaN means unknown</li>
+                    <li id="note">4. OPTIONAL name of secondary indicator/measure (for inner dimensions if you split them into two)</li>
+                </ul>
+                <li id="note">The ordering of the dimensions starts from 3 o'clock and goes clockwise, so if you want to rearrange things, just move them in the list.</li>
+                <li id="note">You could paste/load the CSV into excel to alter it, but remember to save as CSV and open it in notepad or a text viewer to then copy and paste back into the web form.</li>
+            </ul>
+        </p>
+    </div>
+    <p id="debug"></p>
+
+    <p>Created by Jezz at 
+        <a href="https://www.cambridgedoughnut.org.uk">Cambridge Doughnut Economics - contact us via our website</a></p>
+    <p>Copyright (c) 2021-23,2025</p>
+    <p>Open source project on <a href="https://github.com/flodskum/doughnut-economics-graph">GithHub</a></p>
+</body>
+
+
+<!-- Update value to force reload of new version of script -->
+<script src="doughnut.js?4.6"></script>
+
+<script>
+    const testPInner = ["moral code", "relationships", "security/respect", "health", "nutrition", "community", "home", "income", "nature", "self aware"];
+    const testPOuter = ["your fair share", "manage your prejudice", "stewardship not ownership", "living space", "care for surroundings", "give back more", "lobby for positive change"];
+    const testGInner = ["income & work", "peace & justice", "political voice", "social equity", "gender equality", "housing", "networks", "energy", "water", "food", "health", "education"];
+    const testGOuter = ["nitrogen & phosphorus loading", "freshwater withdrawals", "land conversion", "biodiversity loss", "air pollution", "ozone layer depletion", "climate change", "ocean acidification", "chemical pollution"];
+
+    const levelNamesG = { "-150": "unknown", "-100": "no problem", "-50": "under control", "0": "on track", "50": "not good", "100": "out of control", "150": "run away disaster" }
+    const levelNamesP = { "-150": "unsure", "-100": "wonderful", "-50": "happy", "0": "spot on", "50": "concerning", "100": "needs work", "150": "needs work" }
+
+    function getDonutType() {
+        return document.querySelector('input[name="donutType"]:checked').value;
+    }
+
+    function updateLevelName() {
+        let value = document.getElementById("dimLevel").value;
+        let name = document.getElementById("dimLevelName")
+        let donut = getDonutType();
+        if (donut == "personal") {
+            name.value = levelNamesP[value] + " (" + value + ")";
+        } else {
+            name.value = levelNamesG[value] + " (" + value + ")";
+        }
+    }
+
+    function fillSuggestions() {
+        let suggestions = document.getElementById("suggestions");
+        suggestions.innerHTML = ""; // Reset
+        let type = document.querySelector('input[name="dimType"]:checked').value;
+        let donut = getDonutType();
+        let selection = null;
+        if (donut == "personal") {
+            if (type == "outer") { selection = testPOuter; } else { selection = testPInner; }
+        } else {
+            if (type == "outer") { selection = testGOuter; } else { selection = testGInner; }
+        }
+        let values = '';
+        for (dim = 0; dim < selection.length; dim++) {
+            values += '<option value="' + selection[dim] + '" />';
+        }
+        suggestions.innerHTML = values;
+    }
+
+    function _randInt() {
+        return Math.round(Math.random() * 100)
+    }
+
+    function _randPersonalValue() {
+        let type = _randInt();
+        if (type <= 10) {
+            return -150;
+        } else if (type <= 20) {
+            return -100;
+        } else if (type <= 40) {
+            return -50;
+        } else if (type <= 60) {
+            return 0;
+        } else if (type <= 80) {
+            return 50;
+        } else {
+            return 100;
+        }
+    }
+    function _randGlobalValue() {
+        let type = _randInt();
+        if (type <= 70) {
+            return _randInt();
+        } else if (type <= 80) {
+            return -(_randInt());
+        } else if (type <= 90) {
+            return 150;
+        } else {
+            return "NaN";
+        }
+    }
+
+    function testIt(number) {
+        if (clearDoughnut()) {
+            switch (number) {
+                case 1: // Personal
+                    for (dim = 0; dim < testPInner.length; dim++) {
+                        myDonut.addDimension("inner", testPInner[dim], _randPersonalValue(), "");
+                    }
+                    for (dim = 0; dim < testPOuter.length; dim++) {
+                        myDonut.addDimension("outer", testPOuter[dim], _randPersonalValue(), "");
+                    }
+                    setType(1);
+                    break;
+                case 2: // Global
+                    for (dim = 0; dim < testGInner.length; dim++) {
+                        myDonut.addDimension("inner", testGInner[dim], _randGlobalValue(), "one");
+                        myDonut.addDimension("inner", testGInner[dim], _randGlobalValue(), "two");
+                    }
+                    for (dim = 0; dim < testGOuter.length; dim++) {
+                        myDonut.addDimension("outer", testGOuter[dim], _randGlobalValue());
+                    }
+                    setType(2);
+                    break;
+            }
+        }
+    }
+
+    function setType(number) {
+        if (number == 1) {
+            document.getElementById("personalType").checked = true;
+        } else if (number == 2) {
+            document.getElementById("globalType").checked = true;
+        } else {
+            // Use radio settings to discern type
+            number = 1;
+            if (document.getElementById("globalType").checked) {
+                number = 2;
+            }
+        }
+        let inner = document.getElementById("innerCol").value;
+        let outer = document.getElementById("outerCol").value;
+        let style = 1;
+        if (document.getElementById("branchCol").checked) {
+            style = 2;
+        }
+        myDonut.setColours(number, style, inner, outer);
+        updateLevelName();
+    }
+
+    function setColours() {
+        // Use the currently set type, but update the colours
+        setType(0);
+    }
+
+    function setSize(number) {
+        if (myDonut == null || clearDoughnut())
+        {
+            let size = 640;
+            let textSize = 14;
+            if (number == 1) {
+                size = 350;
+                textSize = 10;
+            } else if (number == 3) {
+                size = 960;
+                textSize = 21;
+            }
+            let scale = document.getElementById("ringSize").value;
+            myDonut = new Doughnut(size, scale, textSize, "doughnutCanvas", "doughnutDiv", "dimensionInfo", "innerDims", "outerDims", "csv");
+            setColours()
+            updateLevelName();
+        }
+    }
+
+    function setRingSize() {
+        if (document.getElementById("smallSize").checked) {
+            number = 1;
+        } else if (document.getElementById("largeSize").checked) {
+            number = 3;
+        } else {
+            number = 2;
+        }
+        setSize(number);
+    }
+
+    function clearDoughnut() {
+        if (!myDonut.isEmptyDoughnut()) {
+            if (confirm("This will clear the current doughnut, are you sure?")) {
+                myDonut.clearDoughnut();
+                return true;
+            }
+            return false;
+        }
+        return true;
+    }
+
+    function addDim(type, name, level, label) {
+        let donut = getDonutType();
+        if (!name) {
+            alert("Please enter a dimension name.")
+        } else {
+            // Clip personal levels to 100
+            if (donut == "personal" && level > 100) { level = 100; }
+            // Turn -150 and lower into NaN
+            if (level < -100) { level = "NaN" }
+            myDonut.addDimension(type, name, level, label);
+        }
+    }
+
+    function delDim() {
+        myDonut.delSelectedDimension();
+    }
+
+    function editDim() {
+        let dim = myDonut.getSelectedDimension();
+        if (dim) {
+            if (dim.type == "outer") {
+                document.getElementById("dimOuter").checked = true;
+            } else {
+                document.getElementById("dimInner").checked = true;
+            }
+            document.getElementById("dimName").value = dim.name;
+            document.getElementById("dimLabel").value = dim.label;
+            document.getElementById("dimLevel").value = dim.level;
+            updateLevelName();
+        }
+    }
+
+    function importDoughnut(csv) {
+        myDonut.import(csv);
+    }
+
+    // Main setup - create donut variable by setting size
+    myDonut = null;
+    setSize(2);
+
+</script>
+
+</html>

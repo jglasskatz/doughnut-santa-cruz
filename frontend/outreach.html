@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outreach Directory — Santa Cruz Doughnut Economics</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f8f9fa;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+        .top-bar {
+            background: #2d3436;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .top-bar h1 { font-size: 1.3rem; font-weight: 600; }
+        .top-bar .subtitle { opacity: 0.7; font-size: 0.85rem; }
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-links a { color: #74b9ff; text-decoration: none; font-size: 0.85rem; }
+        .nav-links a:hover { text-decoration: underline; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+
+        /* Intro */
+        .intro {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .intro h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+        .intro p { font-size: 0.9rem; color: #636e72; }
+
+        /* Filter tabs */
+        .filter-bar {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .filter-btn {
+            padding: 0.4rem 0.9rem;
+            border: 1px solid #dfe6e9;
+            border-radius: 2rem;
+            background: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #636e72;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { border-color: #2d3436; color: #2d3436; }
+        .filter-btn.active { background: #2d3436; color: white; border-color: #2d3436; }
+
+        /* Contact cards */
+        .contact-card {
+            background: white;
+            border-radius: 0.75rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        .card-header {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            user-select: none;
+            border-bottom: 1px solid #f1f3f5;
+        }
+        .card-header:hover { background: #f8f9fa; }
+        .card-chevron {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+            color: #b2bec3;
+        }
+        .card-header.open .card-chevron { transform: rotate(90deg); }
+        .card-org { font-weight: 700; font-size: 1rem; flex: 1; }
+        .card-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+        .card-tag {
+            display: inline-block;
+            padding: 0.1rem 0.45rem;
+            border-radius: 0.25rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .tag-social { background: #dfe6dc; color: #2d5016; }
+        .tag-ecological { background: #ffcdd2; color: #6b1a0e; }
+        .tag-cross { background: #e8eaf6; color: #283593; }
+        .tag-priority { background: #d63031; color: white; }
+
+        .card-body {
+            display: none;
+            padding: 1.25rem 1.5rem;
+        }
+        .card-body.open { display: block; }
+
+        /* Contact info */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .ci-item {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+        .ci-label {
+            font-weight: 600;
+            color: #636e72;
+            min-width: 55px;
+            flex-shrink: 0;
+        }
+        .ci-value { color: #2d3436; word-break: break-word; }
+        .ci-value a { color: #0984e3; text-decoration: none; }
+        .ci-value a:hover { text-decoration: underline; }
+
+        /* Data needs */
+        .data-needs {
+            background: #fff3cd;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+        }
+        .data-needs h4 {
+            font-size: 0.8rem;
+            color: #6c5c00;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.3rem;
+        }
+        .data-needs ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            font-size: 0.85rem;
+            color: #6c5c00;
+        }
+        .data-needs li { margin-bottom: 0.2rem; }
+
+        /* Why this contact */
+        .why-section {
+            font-size: 0.85rem;
+            color: #636e72;
+            margin-bottom: 1rem;
+        }
+
+        /* Draft message */
+        .draft-section { margin-top: 0.75rem; }
+        .draft-section h4 {
+            font-size: 0.8rem;
+            color: #2d5016;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .copy-btn {
+            padding: 0.15rem 0.5rem;
+            border: 1px solid #dfe6e9;
+            border-radius: 0.25rem;
+            background: white;
+            cursor: pointer;
+            font-size: 0.7rem;
+            color: #636e72;
+            transition: all 0.15s;
+        }
+        .copy-btn:hover { background: #2d3436; color: white; border-color: #2d3436; }
+        .copy-btn.copied { background: #2d5016; color: white; border-color: #2d5016; }
+        .draft-text {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-size: 0.82rem;
+            color: #2d3436;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            font-family: inherit;
+        }
+        .draft-text .subject-line {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        @media print {
+            .filter-bar, .copy-btn { display: none; }
+            .card-body { display: block !important; }
+            .contact-card { break-inside: avoid; }
+        }
+        @media (max-width: 700px) {
+            .container { padding: 1rem; }
+            .contact-info { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div>
+            <h1>Outreach Directory & Draft Messages</h1>
+            <div class="subtitle">Key contacts for filling data gaps in the Santa Cruz Doughnut portrait</div>
+        </div>
+        <div class="nav-links">
+            <a href="research.html">Data Gap Analysis</a>
+            <a href="index.html">Doughnut</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <h2>How to use this directory</h2>
+            <p>Each card below identifies a person or institution who can provide data for one or more missing dimensions. Cards include contact info, the specific data we need, why this contact is relevant, and a draft outreach message you can copy and customize. Click any card to expand it. Use the filters to focus on a specific gap area.</p>
+        </div>
+
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="priority">Priority Gaps</button>
+            <button class="filter-btn" data-filter="social">Social Foundation</button>
+            <button class="filter-btn" data-filter="ecological">Ecological Ceiling</button>
+            <button class="filter-btn" data-filter="cross">Cross-cutting</button>
+            <button class="filter-btn" data-filter="county">County Data</button>
+            <button class="filter-btn" data-filter="watsonville">Watsonville Data</button>
+        </div>
+
+        <div id="cardsContainer"></div>
+    </div>
+
+    <script>
+    // ── Contact data ─────────────────────────────────────────────────
+
+    const CONTACTS = [
+        // ─── PRIORITY: Cross-cutting data hub ────────────────────────
+        {
+            org: "DataShare Santa Cruz County / Community Foundation",
+            tags: ["cross", "priority", "county", "watsonville"],
+            person: "Christina Cuevas, Program Director",
+            phone: "(831) 662-2070",
+            email: "ccuevas@cfscc.org",
+            altEmail: "cfhelp@cfscc.org",
+            address: "7807 Soquel Drive, Aptos, CA 95003",
+            website: "https://www.datasharescc.org/",
+            dataNeeds: [
+                "All 12 social indicators at county AND city-of-Watsonville level",
+                "Gini coefficient (city-level, not just county)",
+                "Life expectancy by jurisdiction",
+                "ALICE (Asset Limited, Income Constrained, Employed) household counts by city",
+                "Gender pay gap data disaggregated by jurisdiction"
+            ],
+            why: "DataShare SCC is THE central hub for 475+ community wellbeing indicators in the county. It's maintained by the Community Foundation in partnership with Conduent Healthy Communities Institute. They already have most of the data we need — we just need to know which indicators map to our doughnut dimensions, and whether they can break data down by city (Santa Cruz vs Watsonville vs unincorporated).",
+            draft: `Subject: Data partnership request — Santa Cruz Doughnut Economics portrait
+
+Dear Christina,
+
+I'm building an open-source Doughnut Economics portrait for Santa Cruz County — a data visualization that maps social and ecological wellbeing across the City of Santa Cruz, Santa Cruz County, and the City of Watsonville, following the framework developed by economist Kate Raworth and the Doughnut Economics Action Lab (DEAL).
+
+DataShare SCC has been an invaluable resource, but I have several data gaps that I believe your team could help fill:
+
+1. Can any of the 475+ indicators be disaggregated by city (Santa Cruz city vs Watsonville vs unincorporated areas)? We currently have county-level data for many social dimensions but need city-level breakdowns.
+
+2. Specifically, we're seeking city-level data for: Gini coefficient, life expectancy, food insecurity rates, uninsured rates, ALICE household counts, and crime rates.
+
+3. Would you be open to a brief call to walk through which DataShare indicators best map to the doughnut's 12 social foundation dimensions?
+
+The project is entirely open-source and community-focused — the goal is to make data accessible and actionable for residents and policymakers. I'd be happy to share what we've built so far and discuss how this could complement DataShare's mission.
+
+Thank you for your time,
+[Your name]`
+        },
+        {
+            org: "DEAL — Doughnut Economics Action Lab",
+            tags: ["cross", "priority"],
+            person: "DEAL Team (via contact form)",
+            phone: null,
+            email: null,
+            website: "https://doughnuteconomics.org/",
+            contactForm: "https://doughnuteconomics.org/contact",
+            dataNeeds: [
+                "Methodology validation for our city portrait approach",
+                "Access to Creating City Portraits guide resources",
+                "Connection to other city portrait practitioners for data methodology advice"
+            ],
+            why: "DEAL created the framework we're using. They've supported city portraits in Amsterdam, Portland, Philadelphia, and many other cities. They can validate our indicator choices, scoring methodology, and connect us with practitioners who've solved similar data gap challenges.",
+            draft: `Subject: Community-led Doughnut portrait for Santa Cruz, CA — seeking methodology guidance
+
+Dear DEAL Team,
+
+I'm leading a community-driven effort to create a Doughnut Economics city portrait for Santa Cruz County, California, covering three jurisdictions: City of Santa Cruz, Santa Cruz County, and City of Watsonville.
+
+We've built a working prototype with data for all 9 ecological ceiling dimensions and 12 social foundation dimensions, but we'd welcome guidance on:
+
+1. Indicator selection and scoring methodology — are there recommended best practices for translating local data into the -100 to +150 severity scale?
+2. Handling data gaps where city-level data doesn't exist (e.g., nitrogen loading only available at county level)
+3. Connecting with other community-led portrait efforts in US cities for peer learning
+
+Our project is open-source and emphasizes primary source documentation — every data point links to its source document. We'd love to learn from DEAL's experience and potentially share our process as a case study for other mid-size US cities.
+
+Is there someone on the team we could schedule a 30-minute call with?
+
+Thank you,
+[Your name]`
+        },
+
+        // ─── FOOD ────────────────────────────────────────────────────
+        {
+            org: "Second Harvest Food Bank Santa Cruz County",
+            tags: ["social", "priority", "county", "watsonville"],
+            person: "Erica Padilla-Chavez, CEO",
+            phone: null,
+            email: null,
+            website: "https://www.thefoodbank.org/",
+            address: "800 Ohlone Pkwy, Watsonville, CA 95076",
+            contactForm: "https://www.thefoodbank.org/contact/",
+            dataNeeds: [
+                "Food insecurity rate for Watsonville city specifically (vs county-wide 1-in-3)",
+                "Monthly people served broken down by city/zip code",
+                "Year-over-year trends in food bank usage by jurisdiction",
+                "CalFresh enrollment rates by city"
+            ],
+            why: "Second Harvest is the primary food bank serving all of Santa Cruz County and has the most granular data on food insecurity. They serve 70,000+ people/month and track demand by location. CEO Erica Padilla-Chavez has been vocal about the 2025 federal funding crisis and likely has detailed geographic breakdowns.",
+            draft: `Subject: Data request for Santa Cruz Doughnut Economics research — food insecurity by city
+
+Dear Ms. Padilla-Chavez,
+
+I'm building an open-source Doughnut Economics portrait for Santa Cruz County that visualizes social and ecological wellbeing across the City of Santa Cruz, the County, and Watsonville. Food security is one of 12 social foundation dimensions we track.
+
+We currently use the county-wide "1 in 3 residents food insecure" figure, but for our jurisdiction comparison we need more granular data:
+
+- Do you track the number of people served per month by city or zip code? We'd especially value data for Watsonville vs Santa Cruz city.
+- Do you have year-over-year trends we could chart (e.g., 2019 vs 2023 vs 2025)?
+- Are there CalFresh enrollment rates broken down by city?
+
+The project is community-focused and open-source — the goal is helping residents and policymakers understand where needs are greatest. We prominently credit all data sources and link directly to your organization.
+
+I know your team is stretched thin given the federal funding crisis. Even high-level numbers or a pointer to existing reports would be incredibly helpful.
+
+Thank you for all that Second Harvest does for our community.
+
+Best regards,
+[Your name]`
+        },
+
+        // ─── HEALTH ──────────────────────────────────────────────────
+        {
+            org: "Santa Cruz County Health Services Agency",
+            tags: ["social", "priority", "county", "watsonville"],
+            person: "Public Health Division / Community Health Assessment team",
+            altPerson: "Corinne Hyland, CHA/CHIP Coordinator",
+            phone: "(831) 454-4100",
+            altPhone: "(831) 566-4370",
+            email: null,
+            website: "https://www.santacruzhealth.org/",
+            dataNeeds: [
+                "Uninsured rate by city (SC vs Watsonville vs county)",
+                "Life expectancy by city or zip code",
+                "Infant mortality rate by city",
+                "Access to primary care — provider-to-population ratios by area",
+                "Mental health service utilization data"
+            ],
+            why: "The county HSA conducted the 2024 Community Health Assessment (CHA) and maintains the Community Health Improvement Plan (CHIP). The CHA contains detailed health data often disaggregated by geography. Corinne Hyland is the CHA/CHIP coordinator and the best entry point for data requests.",
+            draft: `Subject: Data request for community health indicators — Santa Cruz Doughnut Economics
+
+Dear Corinne,
+
+I'm developing an open-source Doughnut Economics portrait for Santa Cruz County, and the 2024 Community Health Assessment has been a valuable reference. I'm writing to request additional health data that would strengthen our social foundation analysis:
+
+1. Uninsured rates disaggregated by city (City of Santa Cruz vs Watsonville vs unincorporated)
+2. Life expectancy estimates by city or census tract
+3. Infant mortality rates by jurisdiction
+4. Primary care provider-to-population ratios by service area
+
+If these breakdowns exist in the full CHA dataset (even if not published in the summary report), we'd be grateful for access. We're also happy to sign any data use agreements if needed.
+
+Our project maps 12 social and 9 ecological dimensions across three jurisdictions and makes data accessible to residents through an interactive visualization. All sources are cited and linked.
+
+Would it be possible to schedule a brief call to discuss which data points are available?
+
+Thank you,
+[Your name]`
+        },
+        {
+            org: "Salud Para La Gente",
+            tags: ["social", "watsonville"],
+            person: "Main office",
+            phone: "(831) 728-0222",
+            email: null,
+            address: "P.O. Box 1870, Watsonville, CA 95077",
+            website: "https://splg.org/",
+            dataNeeds: [
+                "Uninsured/underinsured rates among Watsonville farmworker community",
+                "Health access barriers specific to Watsonville residents",
+                "Patient demographics and service volume trends"
+            ],
+            why: "Salud Para La Gente is the primary federally qualified health center serving Watsonville's predominantly Latino/farmworker community. They have direct insight into health access disparities that county-level data may mask.",
+            draft: `Subject: Community health data request — Watsonville Doughnut Economics portrait
+
+Dear Salud Para La Gente team,
+
+I'm building a Doughnut Economics community portrait for Watsonville that visualizes social and ecological wellbeing. Health access is a key dimension, and your organization serves the population most affected by health disparities in our area.
+
+Would you be able to share any of the following (even estimates or ranges)?
+
+- Approximate uninsured/underinsured rate among your patient population
+- Top health access barriers your patients face (cost, language, transportation, etc.)
+- How patient volume has changed year-over-year (as a proxy for unmet need)
+
+This project aims to highlight where communities like Watsonville need the most support. All data sources are credited prominently. I'd welcome a brief conversation at your convenience.
+
+Gracias,
+[Your name]`
+        },
+
+        // ─── EDUCATION ───────────────────────────────────────────────
+        {
+            org: "Santa Cruz County Office of Education",
+            tags: ["social", "priority", "county", "watsonville"],
+            person: "Dr. Faris Sabbah, Superintendent",
+            altPerson: "Nick Ibarra, Director of Communications",
+            phone: "(831) 466-5900",
+            altPhone: "(831) 466-5886",
+            email: null,
+            address: "400 Encinal Street, Santa Cruz, CA 95060",
+            website: "https://santacruzcoe.org/",
+            dataNeeds: [
+                "Graduation rates by district (Santa Cruz City Schools vs Pajaro Valley USD)",
+                "Math and reading proficiency by district and demographic group",
+                "Chronic absenteeism rates by city",
+                "College/career readiness indicators for Watsonville"
+            ],
+            why: "The COE oversees all school districts in the county and has access to disaggregated education data. Dr. Sabbah can direct us to the right data analyst. They also partner with Equal Access Santa Cruz on digital divide issues, making them relevant for the 'networks' dimension too.",
+            draft: `Subject: Education data for Santa Cruz Doughnut Economics community portrait
+
+Dear Dr. Sabbah (or Nick),
+
+I'm developing an open-source Doughnut Economics portrait for Santa Cruz County that visualizes social and ecological wellbeing. Education is one of 12 social foundation dimensions.
+
+We have strong data for City of Santa Cruz schools (97% graduation at SC High, CAASPP scores), but we need comparable data for the Pajaro Valley Unified School District to complete our Watsonville portrait:
+
+- Graduation rates for PVUSD high schools (Watsonville High, Pajaro Valley High)
+- Math and reading proficiency rates (CAASPP) for PVUSD
+- Chronic absenteeism rates compared across districts
+- Any college/career readiness indicators specific to Watsonville
+
+We're also interested in the COE's perspective on achievement gaps between the northern and southern parts of the county — context that would help our visualization tell a more complete story.
+
+Would you or someone on your data team be available for a brief conversation?
+
+Best regards,
+[Your name]`
+        },
+
+        // ─── HOUSING & HOMELESSNESS ──────────────────────────────────
+        {
+            org: "Housing Matters",
+            tags: ["social", "priority", "county", "watsonville"],
+            person: "Phil Kramer, CEO",
+            phone: "(831) 458-6020",
+            email: "contact@housingmatterssc.org",
+            address: "115 Coral Street, Santa Cruz, CA 95060",
+            website: "https://housingmatterssc.org/",
+            dataNeeds: [
+                "PIT count data disaggregated by city (SC vs Watsonville vs unincorporated)",
+                "Rent burden rates by city",
+                "Wait times for permanent supportive housing",
+                "Year-over-year homelessness trends by jurisdiction"
+            ],
+            why: "Housing Matters manages the Homeless Management Information System (HMIS) for Santa Cruz County and conducts the annual PIT count. CEO Phil Kramer has deep knowledge of homelessness data and can provide city-level breakdowns that aren't in public reports.",
+            draft: `Subject: Homelessness data by jurisdiction — Santa Cruz Doughnut Economics
+
+Dear Phil,
+
+I'm building a Doughnut Economics portrait that compares social wellbeing across the City of Santa Cruz, Santa Cruz County, and Watsonville. Housing is our most critical dimension — we know Santa Cruz has the highest per-capita homelessness in the nation, but we need more granular data.
+
+Could your team help with:
+- 2024 or 2025 PIT count numbers broken down by city (City of SC vs Watsonville vs unincorporated)
+- Rent burden rates (% spending >30% and >50% on housing) by jurisdiction
+- Any year-over-year trends by city
+
+We'd also value Housing Matters' perspective on what indicators best capture the housing crisis at a city level.
+
+Our project makes all data open and accessible to the community, and we prominently credit sources. Happy to share what we've built and discuss how it might support your advocacy work.
+
+Best,
+[Your name]`
+        },
+        {
+            org: "Housing Authority of Santa Cruz County",
+            tags: ["social", "county", "watsonville"],
+            person: "General office",
+            phone: "(831) 454-9455",
+            email: "hacosc@hacosantacruz.org",
+            address: "2160 41st Avenue, Capitola, CA 95010",
+            website: "https://hacosantacruz.org/",
+            dataNeeds: [
+                "Housing Choice Voucher utilization by city",
+                "Affordable housing unit counts by jurisdiction",
+                "Waitlist lengths by city"
+            ],
+            why: "The Housing Authority administers federal housing programs and has detailed data on voucher utilization and affordable housing stock across jurisdictions.",
+            draft: null
+        },
+
+        // ─── INCOME & POVERTY ────────────────────────────────────────
+        {
+            org: "United Way of Santa Cruz County / 211",
+            tags: ["social", "county", "watsonville"],
+            person: "General office",
+            phone: "(831) 479-5466",
+            email: null,
+            address: "4450 Capitola Road, Suite 106, Capitola, CA 95010",
+            website: "https://www.unitedwaysc.org/",
+            altWebsite: "https://211santacruzcounty.org/",
+            dataNeeds: [
+                "ALICE household data by city (Asset Limited, Income Constrained, Employed)",
+                "211 call volume and needs categories by zip code/city",
+                "Poverty and income data for Watsonville vs Santa Cruz city"
+            ],
+            why: "United Way publishes the ALICE report — households above the poverty line but unable to afford basic necessities — which is a better measure of economic stress than poverty rate alone. Their 211 helpline data reveals real-time community needs by geography.",
+            draft: `Subject: ALICE data and 211 trends by city — Doughnut Economics research
+
+Dear United Way team,
+
+I'm developing a Doughnut Economics portrait for Santa Cruz County that maps social wellbeing across the City of Santa Cruz, the County, and Watsonville.
+
+For our "income & work" dimension, poverty rate alone doesn't capture the full picture — your ALICE data is much more telling. I have two requests:
+
+1. Do you have ALICE household counts or percentages broken down by city (Santa Cruz city vs Watsonville vs unincorporated)?
+2. Can you share any 211 call data showing the most common needs by city or zip code?
+
+This data would help us show the true scale of economic stress in each jurisdiction, which we believe would support your advocacy as well.
+
+Thank you,
+[Your name]`
+        },
+
+        // ─── PEACE & JUSTICE / CRIME ─────────────────────────────────
+        {
+            org: "Santa Cruz Police Department",
+            tags: ["social", "county"],
+            person: "Community Services Unit",
+            phone: "(831) 420-5844",
+            altPhone: "(831) 471-1131 (non-emergency)",
+            email: "SantaCops@cityofsantacruz.com",
+            website: "https://www.santacruzca.gov/Government/City-Departments/Police",
+            dataNeeds: [
+                "Annual crime statistics report for the city (violent + property)",
+                "Year-over-year crime trends",
+                "Crime rates by neighborhood/area"
+            ],
+            why: "We have FBI UCR aggregate data for the city but could benefit from the department's own annual reports for more detailed and current crime statistics.",
+            draft: null
+        },
+        {
+            org: "Watsonville Police Department",
+            tags: ["social", "watsonville"],
+            person: "General office",
+            phone: "(831) 768-3350",
+            email: null,
+            website: "https://www.watsonville.gov/155/Police-Department",
+            address: "215 Union Street, Watsonville, CA 95076",
+            dataNeeds: [
+                "Annual crime statistics for Watsonville (violent + property rates per 1,000)",
+                "Year-over-year trends",
+                "Community safety programs data"
+            ],
+            why: "We have no crime rate data for Watsonville specifically. The police department's annual report would give us the violent crime and property crime rates needed for the 'peace & justice' dimension.",
+            draft: `Subject: Crime statistics request for community research project
+
+Dear Watsonville Police Department,
+
+I'm building a community data portrait for Watsonville using the Doughnut Economics framework — a visualization of social and ecological wellbeing. One of our 12 social dimensions is "peace & justice," and we currently lack crime rate data specific to Watsonville.
+
+Could you provide or direct me to:
+- Annual violent crime and property crime rates (per 1,000 residents) for 2023 or 2024
+- Year-over-year crime trend data (even 3-5 years would be helpful)
+
+We'd also be interested in highlighting community safety programs in our "ways to get involved" section.
+
+This is a community-focused, open-source project — all data sources are cited. Thank you for your service to Watsonville.
+
+Best regards,
+[Your name]`
+        },
+
+        // ─── POLITICAL VOICE ─────────────────────────────────────────
+        {
+            org: "Santa Cruz County Elections Department",
+            tags: ["social", "county", "watsonville"],
+            person: "Tricia Webber, County Clerk",
+            phone: "(831) 454-2060",
+            email: "tricia.webber@santacruzcountyca.gov",
+            address: "701 Ocean Street, Room 310, Santa Cruz, CA 95060",
+            website: "https://votescount.santacruzcountyca.gov/",
+            dataNeeds: [
+                "Voter turnout for 2024 general election broken down by city (SC city vs Watsonville)",
+                "Voter registration rates by city",
+                "Historical turnout trends by jurisdiction (2016, 2018, 2020, 2022, 2024)"
+            ],
+            why: "We have county-wide turnout (81.8%) but need city-level breakdowns. The County Clerk's office has precinct-level data that can be aggregated by city boundaries.",
+            draft: `Subject: Voter turnout data by city — Santa Cruz Doughnut Economics
+
+Dear Ms. Webber,
+
+I'm building a community data portrait for Santa Cruz County using the Doughnut Economics framework, and "political voice" is one of our social foundation dimensions. We have county-wide voter turnout data (81.8% for the Nov 2024 general), but we need city-level breakdowns.
+
+Could you provide or direct me to:
+- Voter turnout percentages for the 2024 general election disaggregated by the City of Santa Cruz and the City of Watsonville
+- Voter registration rates by city
+- If available, historical turnout by city for the last 3-4 election cycles
+
+I believe this data would be in your precinct-level results, aggregated by city boundary. Even a pointer to the right dataset would be helpful.
+
+Thank you,
+[Your name]`
+        },
+
+        // ─── GENDER EQUALITY ─────────────────────────────────────────
+        {
+            org: "Santa Cruz County Women's Commission",
+            tags: ["social", "county", "watsonville"],
+            person: "Commission staff",
+            phone: "(831) 454-2772",
+            email: "commissions@santacruzcounty.ca.gov",
+            address: "701 Ocean Street, Room 510, Santa Cruz, CA 95060",
+            website: "https://www.sccwc.org/",
+            dataNeeds: [
+                "Gender pay gap data for Watsonville specifically",
+                "Women in elected office / leadership by jurisdiction",
+                "Domestic violence and gender-based violence rates by city",
+                "Childcare cost burden data by area"
+            ],
+            why: "The Women's Commission is actively partnering with DataShare SCC to fill data gaps in six categories (healthcare, economic empowerment, education, violence, criminal justice, political participation). They have CEDAW backing from the Board of Supervisors and are the best conduit for gender-specific data.",
+            draft: `Subject: Gender equity data for Watsonville — Doughnut Economics portrait
+
+Dear Women's Commission,
+
+I'm building a Doughnut Economics community portrait for Santa Cruz County, and "gender equality" is one of our 12 social foundation dimensions. For the City of Santa Cruz, we have the county-wide wage ratio (0.85) and know about the equal pay in sports policy, but we lack data specific to Watsonville.
+
+Given the Commission's partnership with DataShare SCC on the Women's Wellbeing dashboard, could you help with:
+- Gender pay gap data disaggregated by city (especially Watsonville)
+- Domestic violence/gender-based violence rates by jurisdiction
+- Women's representation in elected office and leadership roles by city
+
+We'd also welcome the Commission's guidance on which indicators best capture gender equity at the local level. The 2024 CEDAW resolution is an important milestone we're documenting.
+
+Thank you,
+[Your name]`
+        },
+
+        // ─── WATER / ECOLOGICAL ──────────────────────────────────────
+        {
+            org: "Pajaro Valley Water Management Agency",
+            tags: ["ecological", "watsonville", "priority"],
+            person: "Brian Lockwood, General Manager",
+            phone: "(831) 722-9292",
+            email: "lockwood@pvwater.org",
+            address: "36 Brennan Street, Watsonville, CA 95076",
+            website: "https://www.pvwater.org/",
+            dataNeeds: [
+                "Current nitrate levels in Watsonville drinking water wells (mg/L NO3-N)",
+                "Seawater intrusion extent — current maps and measurements",
+                "Groundwater overdraft rate (acre-feet/year)",
+                "Progress on managed aquifer recharge projects"
+            ],
+            why: "PVWMA manages the critically overdrafted Pajaro Valley groundwater basin that supplies Watsonville's drinking water. GM Brian Lockwood has the most current data on nitrate contamination, seawater intrusion, and overdraft status. This fills gaps in both 'nitrogen loading' and 'freshwater withdrawals' dimensions for Watsonville.",
+            draft: `Subject: Groundwater data request for Watsonville Doughnut Economics portrait
+
+Dear Brian,
+
+I'm building a Doughnut Economics portrait for Watsonville that visualizes ecological and social wellbeing. Two of our ecological dimensions — nitrogen loading and freshwater withdrawals — depend on Pajaro Valley groundwater data.
+
+We currently cite PVWMA's finding that 87% of groundwater nitrate is from agricultural sources (2015 data), but we'd like to update with more current numbers:
+
+1. What are the current average nitrate levels (mg/L NO3-N) in Watsonville's drinking water wells?
+2. What is the current annual groundwater overdraft rate (acre-feet/year)?
+3. Is there an updated seawater intrusion boundary map we could reference?
+4. What progress has been made on managed aquifer recharge since the SGMA plan?
+
+This project makes data accessible to the public and could help communicate the urgency of PVWMA's mission. Happy to share the visualization and discuss.
+
+Thank you,
+[Your name]`
+        },
+
+        // ─── OCEAN ACIDIFICATION ─────────────────────────────────────
+        {
+            org: "MBARI — Monterey Bay Aquarium Research Institute",
+            tags: ["ecological"],
+            person: "Dr. James Barry, Senior Scientist (Biological Oceanography)",
+            phone: null,
+            email: null,
+            website: "https://www.mbari.org/person/james-barry/",
+            altWebsite: "https://www.mbari.org/data/ocean-acidification-1-oa1-mooring/",
+            dataNeeds: [
+                "Localized ocean pH measurements from OA1/OA2 moorings in Monterey Bay",
+                "pH trend data over time (is acidification accelerating locally?)",
+                "Local impacts on shellfish, kelp forests, and marine life",
+                "How to translate regional ocean chemistry data to a city-scale indicator"
+            ],
+            why: "MBARI operates Ocean Acidification moorings (OA1 and OA2) in Monterey Bay with continuous pH measurements. Dr. Barry leads research on biological impacts of ocean acidification. Currently our 'ocean acidification' dimension says 'monitored regionally' — MBARI can give us actual numbers.",
+            draft: `Subject: Monterey Bay ocean acidification data for community Doughnut Economics portrait
+
+Dear Dr. Barry,
+
+I'm building a Doughnut Economics portrait for Santa Cruz that maps ecological and social wellbeing. Ocean acidification is one of nine ecological ceiling dimensions, and Monterey Bay's unique upwelling dynamics make this particularly relevant for our coast.
+
+Currently our dataset simply notes "monitored regionally" for ocean acidification. I'd love to include more specific data:
+
+1. What are the current pH trends from MBARI's OA1 and OA2 moorings?
+2. Is acidification accelerating in Monterey Bay specifically?
+3. What local biological impacts have been documented (shellfish, kelp, etc.)?
+4. How would you recommend translating regional ocean pH data into a meaningful indicator for a city-scale portrait?
+
+The goal is making this science accessible to Santa Cruz residents and connecting it to local action. We'd credit MBARI prominently and link to your data portals.
+
+Thank you for considering this request.
+
+Best regards,
+[Your name]`
+        },
+
+        // ─── ENERGY ──────────────────────────────────────────────────
+        {
+            org: "Central Coast Community Energy (3CE)",
+            tags: ["social", "ecological", "county", "watsonville"],
+            person: "General inquiries",
+            phone: "(831) 316-1400",
+            email: null,
+            website: "https://3ce.org/",
+            contactForm: "https://3ce.org/contact/",
+            dataNeeds: [
+                "Renewable energy mix for Santa Cruz County customers",
+                "Enrollment rates in 3CE Prime (100% renewable) by city",
+                "Energy burden — % of low-income households struggling with energy costs",
+                "GHG reduction from 3CE vs PG&E baseline"
+            ],
+            why: "3CE (formerly Monterey Bay Community Power) is the community choice energy provider for Santa Cruz County. They have data on renewable energy adoption and can provide info on energy equity programs. Relevant for both 'energy' (social) and 'climate change' (ecological) dimensions.",
+            draft: null
+        },
+
+        // ─── CLIMATE / SUSTAINABILITY ────────────────────────────────
+        {
+            org: "City of Santa Cruz — Sustainability & Climate Action",
+            tags: ["ecological", "cross"],
+            person: "Tiffany Wise-West, Sustainability & Climate Action Manager",
+            phone: "(831) 420-5433",
+            email: "TWise-West@cityofsantacruz.com",
+            address: "809 Center Street, Santa Cruz, CA 95060",
+            website: "https://www.santacruzca.gov/Government/City-Departments/City-Manager/Climate-Action-Program",
+            dataNeeds: [
+                "Updated GHG inventory (more recent than 2019)",
+                "Climate Action Plan 2030 implementation progress metrics",
+                "City-specific waste diversion rate (current)",
+                "EV adoption rate within city limits"
+            ],
+            why: "Tiffany leads the city's climate action program and has access to the most current GHG data and CAP implementation metrics. She can also connect us with other city departments for social data.",
+            draft: `Subject: Data for Santa Cruz Doughnut Economics portrait — climate & sustainability metrics
+
+Dear Tiffany,
+
+I'm building an open-source Doughnut Economics portrait for Santa Cruz — a data visualization mapping our city's social and ecological wellbeing. Your Climate Action Plan 2030 has been a primary source for our ecological ceiling data.
+
+I have a few data update requests:
+
+1. Is there a more recent GHG inventory than the 2019 data (4.22 MT CO2e/person)?
+2. Are there CAP 2030 implementation progress metrics available?
+3. What is the current city-specific waste diversion rate?
+4. Are there any EV adoption or mode-shift metrics being tracked?
+
+I'd also welcome your perspective on which ecological indicators matter most at the city scale. Our project currently covers 9 planetary boundary dimensions and links each to primary sources and local actions.
+
+Would you be open to a brief call?
+
+Thank you for your leadership on climate action,
+[Your name]`
+        },
+
+        // ─── NETWORKS / BROADBAND ────────────────────────────────────
+        {
+            org: "Cruzio Internet / Equal Access Santa Cruz",
+            tags: ["social", "county", "watsonville"],
+            person: "General office",
+            phone: "(831) 459-6301",
+            email: null,
+            address: "877 Cedar Street, Suite 150, Santa Cruz, CA 95060",
+            website: "https://cruzio.com/",
+            altWebsite: "https://equalaccesssantacruz.com/",
+            dataNeeds: [
+                "Number of households connected through Equal Access by city",
+                "Broadband coverage gaps mapped by neighborhood/city",
+                "Digital divide statistics for Watsonville specifically",
+                "Internet speeds available by area"
+            ],
+            why: "Cruzio runs the Equal Access program providing $15/month internet to low-income families. They have direct data on the digital divide by geography and can break down broadband access gaps for Watsonville (where the divide is likely worse).",
+            draft: `Subject: Broadband access data by city — Doughnut Economics research
+
+Dear Cruzio / Equal Access team,
+
+I'm building a Doughnut Economics portrait for Santa Cruz County, and "networks" (connectivity and social cohesion) is one of our social dimensions. Your Equal Access program is a key part of this story.
+
+We currently cite the C- broadband grade and ~16,000 households lacking adequate internet county-wide, but we need city-level data:
+
+- How many households have been connected through Equal Access, broken down by city?
+- What does broadband access look like in Watsonville specifically vs Santa Cruz city?
+- Are there maps of coverage gaps by neighborhood we could reference?
+
+We'd love to highlight Equal Access as a model solution in our "ways to get involved" section. Happy to share the project and discuss.
+
+Thank you,
+[Your name]`
+        },
+
+        // ─── UC SANTA CRUZ ──────────────────────────────────────────
+        {
+            org: "UC Santa Cruz — Sustainability Office / CAPECA",
+            tags: ["cross", "ecological"],
+            person: "Sustainability Office staff",
+            phone: "(831) 502-0046",
+            email: "ekericks@ucsc.edu",
+            altEmail: "elvaugha@ucsc.edu",
+            website: "https://sustainability.ucsc.edu/",
+            address: "Kerr Hall 118, UC Santa Cruz",
+            dataNeeds: [
+                "Campus GHG emissions (as contributor to city totals)",
+                "Community-Academic Partnerships (CAPECA) data on climate equity",
+                "Student housing/food insecurity research",
+                "Faculty expertise connections for specific dimensions"
+            ],
+            why: "UCSC has ~19,000 students who are part of the city's population (and poverty rate). The Sustainability Office runs CAPECA, which facilitates community-led climate equity research. Faculty in environmental studies, sociology, and economics may have relevant unpublished data or student research.",
+            draft: `Subject: Partnership opportunity — Santa Cruz Doughnut Economics community portrait
+
+Dear UCSC Sustainability Office,
+
+I'm leading a community effort to build a Doughnut Economics portrait for Santa Cruz — mapping social and ecological wellbeing using Kate Raworth's framework. Given UCSC's deep commitment to sustainability and community engagement, I see several partnership opportunities:
+
+1. CAPECA alignment: Our portrait covers the same climate equity themes CAPECA addresses. Could we share findings?
+2. Student research: Are there thesis projects or research papers with relevant local data (food insecurity, housing, environmental justice)?
+3. Campus data: UCSC's ~19,000 students significantly affect city-level poverty and housing statistics. Does the Sustainability Office track campus-specific GHG emissions we could incorporate?
+
+We'd be happy to present this project to the Sustainability & Resiliency Committee or Student Environmental Center. The project is open-source and designed to drive community action.
+
+Best regards,
+[Your name]`
+        },
+
+        // ─── WATSONVILLE CITY ────────────────────────────────────────
+        {
+            org: "City of Watsonville — City Manager's Office",
+            tags: ["cross", "watsonville", "priority"],
+            person: "City Manager's Office",
+            phone: "(831) 768-3010",
+            email: null,
+            address: "275 Main Street, Suite 400, Watsonville, CA 95076",
+            website: "https://www.watsonville.gov/236/City-Manager",
+            dataNeeds: [
+                "All 12 social foundation metrics for Watsonville specifically",
+                "CAAP 2030 implementation progress data",
+                "City-specific poverty, housing, and employment data",
+                "Water quality / nitrate contamination data from city perspective"
+            ],
+            why: "The City Manager's office is the best single entry point for all Watsonville-specific data. They can route us to the right departments and may have internal data dashboards not publicly available. Watsonville has the most data gaps of our three jurisdictions.",
+            draft: `Subject: Community data request for Watsonville Doughnut Economics portrait
+
+Dear City Manager's Office,
+
+I'm building an open-source Doughnut Economics portrait — a data visualization of social and ecological wellbeing — for three Santa Cruz County jurisdictions: City of Santa Cruz, the County, and the City of Watsonville.
+
+Watsonville currently has the most data gaps in our portrait, particularly for social foundation metrics. I'm hoping you can help connect me to the right departments or data sources for:
+
+- Poverty rate and median household income (city-specific)
+- Housing cost burden and homelessness data
+- Health insurance coverage rates
+- Educational attainment and graduation rates (PVUSD data)
+- Crime rates (from WPD annual reports)
+- Voter turnout (city-level from county elections)
+- CAAP 2030 implementation progress
+
+The Doughnut Economics framework was developed by Kate Raworth and has been used by cities worldwide (Amsterdam, Portland, etc.) to create holistic portraits of community wellbeing. Our project makes Watsonville's data visible and accessible to residents.
+
+I'd welcome a brief meeting to discuss the project and which departments could assist. I can share the current visualization at any time.
+
+Thank you for your service to the Watsonville community.
+
+Best regards,
+[Your name]`
+        },
+
+        // ─── PESTICIDES / CHEMICAL POLLUTION ─────────────────────────
+        {
+            org: "Santa Cruz County Agricultural Commissioner",
+            tags: ["ecological", "watsonville"],
+            person: "Agricultural Commissioner's Office",
+            phone: "(831) 763-8080",
+            email: null,
+            address: "175 Westridge Drive, Watsonville, CA 95076",
+            website: "https://agcomm.santacruzcountyca.gov/",
+            dataNeeds: [
+                "Pesticide use trends year-over-year (is fumigant use declining?)",
+                "Pesticide use by crop and geography within the county",
+                "Progress on integrated pest management (IPM) adoption",
+                "Buffer zone enforcement data near schools/residences"
+            ],
+            why: "The Ag Commissioner's office collects and reports all pesticide use data to the state DPR. They have the most granular local data on what's being applied, where, and trends over time. Key for updating the 'chemical pollution' dimension.",
+            draft: null
+        }
+    ];
+
+    // ── Render ───────────────────────────────────────────────────────
+
+    function renderCards(filter) {
+        const container = document.getElementById('cardsContainer');
+        let html = '';
+
+        const filtered = filter === 'all' ? CONTACTS :
+            CONTACTS.filter(c => c.tags.includes(filter));
+
+        filtered.forEach((c, idx) => {
+            const tagHtml = c.tags.map(t => {
+                if (t === 'priority') return '<span class="card-tag tag-priority">Priority</span>';
+                if (t === 'social') return '<span class="card-tag tag-social">Social</span>';
+                if (t === 'ecological') return '<span class="card-tag tag-ecological">Ecological</span>';
+                if (t === 'cross') return '<span class="card-tag tag-cross">Cross-cutting</span>';
+                return '';
+            }).join('');
+
+            let contactHtml = '<div class="contact-info">';
+            if (c.person) contactHtml += `<div class="ci-item"><span class="ci-label">Contact</span><span class="ci-value">${c.person}</span></div>`;
+            if (c.altPerson) contactHtml += `<div class="ci-item"><span class="ci-label">Alt</span><span class="ci-value">${c.altPerson}</span></div>`;
+            if (c.phone) contactHtml += `<div class="ci-item"><span class="ci-label">Phone</span><span class="ci-value"><a href="tel:${c.phone}">${c.phone}</a></span></div>`;
+            if (c.altPhone) contactHtml += `<div class="ci-item"><span class="ci-label">Alt</span><span class="ci-value"><a href="tel:${c.altPhone}">${c.altPhone}</a></span></div>`;
+            if (c.email) contactHtml += `<div class="ci-item"><span class="ci-label">Email</span><span class="ci-value"><a href="mailto:${c.email}">${c.email}</a></span></div>`;
+            if (c.altEmail) contactHtml += `<div class="ci-item"><span class="ci-label">Alt</span><span class="ci-value"><a href="mailto:${c.altEmail}">${c.altEmail}</a></span></div>`;
+            if (c.contactForm) contactHtml += `<div class="ci-item"><span class="ci-label">Form</span><span class="ci-value"><a href="${c.contactForm}" target="_blank">Contact form</a></span></div>`;
+            if (c.website) contactHtml += `<div class="ci-item"><span class="ci-label">Web</span><span class="ci-value"><a href="${c.website}" target="_blank">${c.website.replace('https://','').replace('http://','')}</a></span></div>`;
+            if (c.address) contactHtml += `<div class="ci-item"><span class="ci-label">Address</span><span class="ci-value">${c.address}</span></div>`;
+            contactHtml += '</div>';
+
+            let needsHtml = '';
+            if (c.dataNeeds && c.dataNeeds.length) {
+                needsHtml = '<div class="data-needs"><h4>Specific Data We Need</h4><ul>';
+                c.dataNeeds.forEach(n => needsHtml += `<li>${n}</li>`);
+                needsHtml += '</ul></div>';
+            }
+
+            let draftHtml = '';
+            if (c.draft) {
+                const draftId = 'draft_' + idx;
+                const lines = c.draft.trim().split('\n');
+                const subjectLine = lines[0].replace('Subject: ', '');
+                const body = lines.slice(1).join('\n').trim();
+                draftHtml = `<div class="draft-section">
+                    <h4>Draft Outreach Message <button class="copy-btn" onclick="copyDraft(${idx}, this)">Copy to clipboard</button></h4>
+                    <div class="draft-text" id="${draftId}"><span class="subject-line">Subject: ${subjectLine}</span>${body}</div>
+                </div>`;
+            }
+
+            html += `<div class="contact-card" data-tags="${c.tags.join(' ')}">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    <span class="card-org">${c.org}</span>
+                    <div class="card-tags">${tagHtml}</div>
+                </div>
+                <div class="card-body">
+                    ${contactHtml}
+                    ${needsHtml}
+                    <div class="why-section"><strong>Why this contact:</strong> ${c.why}</div>
+                    ${draftHtml}
+                </div>
+            </div>`;
+        });
+
+        container.innerHTML = html;
+    }
+
+    function toggleCard(header) {
+        header.classList.toggle('open');
+        header.nextElementSibling.classList.toggle('open');
+    }
+
+    function copyDraft(idx, btn) {
+        const el = document.getElementById('draft_' + idx);
+        const text = el.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copy to clipboard';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    // Filter buttons
+    document.getElementById('filterBar').addEventListener('click', (e) => {
+        if (!e.target.classList.contains('filter-btn')) return;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        renderCards(e.target.dataset.filter);
+    });
+
+    // Initial render
+    renderCards('all');
+    </script>
+</body>
+</html>

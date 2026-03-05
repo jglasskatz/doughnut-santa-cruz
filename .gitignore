@@ -1,0 +1,14 @@
+# PDFs are large — download them using sources/INDEX.md URLs
+sources/*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Editor
+*.swp
+*.swo
+*~
