@@ -181,7 +181,7 @@ async function main() {
     if (args.dimensions) console.error(`Dimensions: ${args.dimensions}`);
     console.error("");
 
-    const portrait = await agent.buildPortrait(city, state, args.population, args.description);
+    const portrait = await agent.buildPortrait(city, state, args.population, args.description, options);
     const format = args.format || "json";
     const output = format === "datajs" ? toDataJS(portrait) : JSON.stringify(portrait, null, 2);
 
