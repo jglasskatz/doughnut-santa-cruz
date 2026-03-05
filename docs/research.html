@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Gap Analysis — Santa Cruz Doughnut Economics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f8f9fa;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .top-bar {
+            background: #2d3436;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .top-bar h1 { font-size: 1.3rem; font-weight: 600; }
+        .top-bar .subtitle { opacity: 0.7; font-size: 0.85rem; }
+        .top-bar a {
+            color: #74b9ff;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .top-bar a:hover { text-decoration: underline; }
+
+        /* Summary strip */
+        .summary-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1px;
+            background: #dfe6e9;
+        }
+        .summary-card {
+            background: white;
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+        }
+        .summary-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .summary-card .label {
+            font-size: 0.8rem;
+            color: #636e72;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+        .num-good { color: #2d5016; }
+        .num-caution { color: #d4a017; }
+        .num-bad { color: #d63031; }
+        .num-unknown { color: #636e72; }
+
+        /* Main content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section headers */
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3436;
+            margin: 2rem 0 0.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #2d3436;
+        }
+        .section-subtitle {
+            color: #636e72;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Charts grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .chart-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .chart-card h3 {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            color: #2d3436;
+        }
+        .chart-card canvas {
+            width: 100% !important;
+        }
+
+        /* Gap table */
+        .gap-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            margin-bottom: 2rem;
+        }
+        .gap-table thead {
+            background: #2d3436;
+            color: white;
+        }
+        .gap-table th {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+        .gap-table td {
+            padding: 0.6rem 1rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #f1f3f5;
+            vertical-align: top;
+        }
+        .gap-table tr:hover { background: #f8f9fa; }
+        .gap-table .dim-name { font-weight: 600; text-transform: capitalize; }
+
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .badge-complete { background: #dfe6dc; color: #2d5016; }
+        .badge-partial { background: #ffeaa7; color: #6c5c00; }
+        .badge-missing { background: #fab1a0; color: #6b1a0e; }
+        .badge-no-source { background: #dfe6e9; color: #636e72; }
+
+        /* Quality flags */
+        .quality-flags {
+            display: flex;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+        }
+        .flag {
+            display: inline-block;
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .flag-no-year { background: #ffeaa7; color: #6c5c00; }
+        .flag-no-source { background: #fab1a0; color: #6b1a0e; }
+        .flag-no-screenshot { background: #dfe6e9; color: #636e72; }
+        .flag-nan { background: #d63031; color: white; }
+        .flag-no-context { background: #fdcb6e; color: #6c5c00; }
+        .flag-no-actions { background: #e17055; color: white; }
+        .flag-stale { background: #a29bfe; color: white; }
+
+        /* Report section */
+        .report {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            margin-bottom: 2rem;
+        }
+        .report h3 {
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.5rem 0;
+            color: #2d3436;
+        }
+        .report h3:first-child { margin-top: 0; }
+        .report p {
+            font-size: 0.9rem;
+            color: #636e72;
+            margin-bottom: 0.75rem;
+        }
+        .report ul {
+            margin: 0.5rem 0 0.75rem 1.5rem;
+            font-size: 0.9rem;
+            color: #636e72;
+        }
+        .report li { margin-bottom: 0.3rem; }
+        .report strong { color: #2d3436; }
+        .report .priority-high { border-left: 3px solid #d63031; padding-left: 0.75rem; margin: 0.75rem 0; }
+        .report .priority-med { border-left: 3px solid #fdcb6e; padding-left: 0.75rem; margin: 0.75rem 0; }
+        .report .priority-low { border-left: 3px solid #74b9ff; padding-left: 0.75rem; margin: 0.75rem 0; }
+
+        /* Heatmap */
+        .heatmap-wrap {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+        .heatmap {
+            border-collapse: collapse;
+            min-width: 100%;
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .heatmap th, .heatmap td {
+            padding: 0.5rem 0.75rem;
+            text-align: center;
+            font-size: 0.8rem;
+            border: 1px solid #f1f3f5;
+        }
+        .heatmap th {
+            background: #2d3436;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .heatmap .row-label {
+            text-align: left;
+            font-weight: 600;
+            text-transform: capitalize;
+            background: #f8f9fa;
+            min-width: 160px;
+        }
+        .cell-complete { background: #c8e6c9; }
+        .cell-partial { background: #fff9c4; }
+        .cell-missing { background: #ffcdd2; }
+        .cell-unknown { background: #eceff1; }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            font-size: 0.8rem;
+            color: #636e72;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Print styles */
+        @media print {
+            .top-bar { background: #333; }
+            .chart-card, .report, .gap-table { break-inside: avoid; }
+            body { font-size: 11pt; }
+        }
+
+        @media (max-width: 700px) {
+            .charts-grid { grid-template-columns: 1fr; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div>
+            <h1>Researcher Data Gap Analysis</h1>
+            <div class="subtitle">Santa Cruz Doughnut Economics — Data Completeness & Quality Report</div>
+        </div>
+        <div style="display:flex;gap:1rem;">
+            <a href="outreach.html">Outreach Directory</a>
+            <a href="index.html">Back to Doughnut</a>
+        </div>
+    </div>
+
+    <div class="summary-strip" id="summaryStrip"></div>
+
+    <div class="container">
+
+        <!-- Completeness Heatmap -->
+        <div class="section-title">Data Completeness Heatmap</div>
+        <div class="section-subtitle">Each cell shows data quality across jurisdictions and dimensions. Color = completeness level.</div>
+        <div class="legend">
+            <div class="legend-item"><div class="legend-swatch" style="background:#c8e6c9;"></div> Complete (source + value + year)</div>
+            <div class="legend-item"><div class="legend-swatch" style="background:#fff9c4;"></div> Partial (value but missing source/year)</div>
+            <div class="legend-item"><div class="legend-swatch" style="background:#ffcdd2;"></div> Missing or placeholder data</div>
+            <div class="legend-item"><div class="legend-swatch" style="background:#eceff1;"></div> Unknown (NaN level)</div>
+        </div>
+        <div class="heatmap-wrap" id="heatmapSection"></div>
+
+        <!-- Charts -->
+        <div class="section-title">Visual Analysis</div>
+        <div class="section-subtitle">Charts showing data coverage, quality distribution, and gaps by jurisdiction.</div>
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>Data Completeness by Jurisdiction</h3>
+                <canvas id="chartCompleteness"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Missing Fields Breakdown</h3>
+                <canvas id="chartMissingFields"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Data Staleness (Year of Most Recent Data)</h3>
+                <canvas id="chartStaleness"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Screenshot Coverage (Primary Source Evidence)</h3>
+                <canvas id="chartScreenshots"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Severity Distribution by Jurisdiction</h3>
+                <canvas id="chartSeverity"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Social vs Ecological Completeness</h3>
+                <canvas id="chartRingCompare"></canvas>
+            </div>
+        </div>
+
+        <!-- Detailed Gap Table -->
+        <div class="section-title">Detailed Gap Inventory</div>
+        <div class="section-subtitle">Every dimension across all jurisdictions, with quality flags showing what's missing.</div>
+        <table class="gap-table" id="gapTable">
+            <thead>
+                <tr>
+                    <th>Jurisdiction</th>
+                    <th>Ring</th>
+                    <th>Dimension</th>
+                    <th>Status</th>
+                    <th>Value</th>
+                    <th>Year</th>
+                    <th>Quality Flags</th>
+                </tr>
+            </thead>
+            <tbody id="gapTableBody"></tbody>
+        </table>
+
+        <!-- Written Report -->
+        <div class="section-title">Research Gaps Report</div>
+        <div class="section-subtitle">Narrative analysis of data gaps, priorities, and recommended next steps.</div>
+        <div class="report" id="reportContent"></div>
+
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+    // ── Analysis engine ──────────────────────────────────────────────
+
+    const CURRENT_YEAR = 2026;
+    const STALE_THRESHOLD = 3; // years
+
+    function analyzeDataPoint(dim, ring) {
+        const issues = [];
+        const isNaN_ = dim.level === "NaN" || (typeof dim.level === 'string' && dim.level === 'NaN');
+        const hasSource = dim.source && dim.source.length > 0;
+        const hasSourceUrl = dim.sourceUrl && dim.sourceUrl.length > 0;
+        const hasYear = dim.year != null;
+        const hasScreenshot = dim.screenshot != null && dim.screenshot !== null;
+        const hasContext = dim.context && dim.context.length > 0;
+        const hasActions = dim.actions && dim.actions.length > 0;
+        const hasTarget = dim.target && dim.target.length > 0;
+        const isPlaceholder = !dim.value || dim.value === 'Data needed' ||
+            dim.value.includes('data needed') || dim.value.includes('Data needed') ||
+            dim.value.includes('County data needed');
+        const isStale = hasYear && (CURRENT_YEAR - dim.year) > STALE_THRESHOLD;
+
+        if (isNaN_) issues.push('nan');
+        if (!hasYear) issues.push('no-year');
+        if (!hasSource) issues.push('no-source');
+        if (!hasSourceUrl) issues.push('no-source-url');
+        if (!hasScreenshot) issues.push('no-screenshot');
+        if (!hasContext) issues.push('no-context');
+        if (!hasActions) issues.push('no-actions');
+        if (!hasTarget) issues.push('no-target');
+        if (isPlaceholder) issues.push('placeholder');
+        if (isStale) issues.push('stale');
+
+        let status;
+        if (isNaN_ || isPlaceholder) {
+            status = 'missing';
+        } else if (!hasSource || !hasYear || !hasContext) {
+            status = 'partial';
+        } else {
+            status = 'complete';
+        }
+
+        return { issues, status, isNaN_, hasSource, hasSourceUrl, hasYear, hasScreenshot,
+                 hasContext, hasActions, hasTarget, isPlaceholder, isStale, ring };
+    }
+
+    function analyzeAll() {
+        const results = {};
+        for (const [jKey, jData] of Object.entries(JURISDICTIONS)) {
+            results[jKey] = { name: jData.name, ecological: [], social: [] };
+            for (const dim of jData.ecological) {
+                results[jKey].ecological.push({ ...dim, analysis: analyzeDataPoint(dim, 'ecological') });
+            }
+            for (const dim of jData.social) {
+                results[jKey].social.push({ ...dim, analysis: analyzeDataPoint(dim, 'social') });
+            }
+        }
+        return results;
+    }
+
+    const analysis = analyzeAll();
+
+    // ── Summary strip ────────────────────────────────────────────────
+
+    function buildSummary() {
+        let total = 0, complete = 0, partial = 0, missing = 0, noScreenshot = 0;
+        for (const jData of Object.values(analysis)) {
+            for (const dim of [...jData.ecological, ...jData.social]) {
+                total++;
+                if (dim.analysis.status === 'complete') complete++;
+                else if (dim.analysis.status === 'partial') partial++;
+                else missing++;
+                if (!dim.analysis.hasScreenshot) noScreenshot++;
+            }
+        }
+        const strip = document.getElementById('summaryStrip');
+        strip.innerHTML = `
+            <div class="summary-card"><div class="number">${total}</div><div class="label">Total Data Points</div></div>
+            <div class="summary-card"><div class="number num-good">${complete}</div><div class="label">Complete</div></div>
+            <div class="summary-card"><div class="number num-caution">${partial}</div><div class="label">Partial</div></div>
+            <div class="summary-card"><div class="number num-bad">${missing}</div><div class="label">Missing / Placeholder</div></div>
+            <div class="summary-card"><div class="number num-unknown">${noScreenshot}</div><div class="label">No Screenshot</div></div>
+            <div class="summary-card"><div class="number">${Math.round(complete/total*100)}%</div><div class="label">Overall Coverage</div></div>
+        `;
+    }
+
+    // ── Heatmap ──────────────────────────────────────────────────────
+
+    function buildHeatmap() {
+        const jKeys = Object.keys(analysis);
+        // Collect all dimension names (union of all jurisdictions)
+        const ecoDims = new Set();
+        const socDims = new Set();
+        for (const jData of Object.values(analysis)) {
+            jData.ecological.forEach(d => ecoDims.add(d.name));
+            jData.social.forEach(d => socDims.add(d.name));
+        }
+
+        let html = '<table class="heatmap"><thead><tr><th></th><th>Ring</th>';
+        jKeys.forEach(k => html += `<th>${analysis[k].name}</th>`);
+        html += '</tr></thead><tbody>';
+
+        function addRow(dimName, ring) {
+            html += `<tr><td class="row-label">${dimName}</td><td style="font-size:0.7rem;text-transform:uppercase;color:#636e72;">${ring}</td>`;
+            jKeys.forEach(k => {
+                const dims = ring === 'ecological' ? analysis[k].ecological : analysis[k].social;
+                const dim = dims.find(d => d.name === dimName);
+                if (!dim) {
+                    html += '<td class="cell-unknown">N/A</td>';
+                    return;
+                }
+                const s = dim.analysis.status;
+                const cls = s === 'complete' ? 'cell-complete' : s === 'partial' ? 'cell-partial' : dim.analysis.isNaN_ ? 'cell-unknown' : 'cell-missing';
+                const label = s === 'complete' ? 'OK' : s === 'partial' ? 'Partial' : dim.analysis.isNaN_ ? 'Unknown' : 'Missing';
+                html += `<td class="${cls}">${label}</td>`;
+            });
+            html += '</tr>';
+        }
+
+        [...ecoDims].forEach(d => addRow(d, 'ecological'));
+        [...socDims].forEach(d => addRow(d, 'social'));
+
+        html += '</tbody></table>';
+        document.getElementById('heatmapSection').innerHTML = html;
+    }
+
+    // ── Gap table ────────────────────────────────────────────────────
+
+    function buildGapTable() {
+        const tbody = document.getElementById('gapTableBody');
+        let rows = '';
+        for (const [jKey, jData] of Object.entries(analysis)) {
+            for (const dim of [...jData.ecological, ...jData.social]) {
+                const a = dim.analysis;
+                const badgeClass = a.status === 'complete' ? 'badge-complete' : a.status === 'partial' ? 'badge-partial' : 'badge-missing';
+                const badgeLabel = a.status === 'complete' ? 'Complete' : a.status === 'partial' ? 'Partial' : 'Missing';
+
+                let flags = '';
+                if (a.isNaN_) flags += '<span class="flag flag-nan">NaN</span>';
+                if (a.issues.includes('placeholder')) flags += '<span class="flag flag-nan">Placeholder</span>';
+                if (!a.hasYear) flags += '<span class="flag flag-no-year">No year</span>';
+                if (!a.hasSource) flags += '<span class="flag flag-no-source">No source</span>';
+                if (!a.hasScreenshot) flags += '<span class="flag flag-no-screenshot">No screenshot</span>';
+                if (!a.hasContext) flags += '<span class="flag flag-no-context">No context</span>';
+                if (!a.hasActions) flags += '<span class="flag flag-no-actions">No actions</span>';
+                if (a.isStale) flags += '<span class="flag flag-stale">Stale (' + dim.year + ')</span>';
+
+                if (a.status === 'complete' && a.hasScreenshot) flags = '<span class="flag" style="background:#c8e6c9;color:#2d5016;">All good</span>';
+
+                rows += `<tr>
+                    <td>${jData.name}</td>
+                    <td style="text-transform:capitalize;font-size:0.8rem;">${a.ring}</td>
+                    <td class="dim-name">${dim.name}</td>
+                    <td><span class="badge ${badgeClass}">${badgeLabel}</span></td>
+                    <td style="max-width:200px;font-size:0.8rem;">${dim.value || '—'}</td>
+                    <td>${dim.year || '—'}</td>
+                    <td><div class="quality-flags">${flags}</div></td>
+                </tr>`;
+            }
+        }
+        tbody.innerHTML = rows;
+    }
+
+    // ── Charts ───────────────────────────────────────────────────────
+
+    function buildCharts() {
+        const jKeys = Object.keys(analysis);
+        const jNames = jKeys.map(k => analysis[k].name);
+
+        // 1. Completeness stacked bar
+        const compData = jKeys.map(k => {
+            const all = [...analysis[k].ecological, ...analysis[k].social];
+            return {
+                complete: all.filter(d => d.analysis.status === 'complete').length,
+                partial: all.filter(d => d.analysis.status === 'partial').length,
+                missing: all.filter(d => d.analysis.status === 'missing').length
+            };
+        });
+
+        new Chart(document.getElementById('chartCompleteness'), {
+            type: 'bar',
+            data: {
+                labels: jNames,
+                datasets: [
+                    { label: 'Complete', data: compData.map(d => d.complete), backgroundColor: '#81c784' },
+                    { label: 'Partial', data: compData.map(d => d.partial), backgroundColor: '#fff176' },
+                    { label: 'Missing', data: compData.map(d => d.missing), backgroundColor: '#ef9a9a' }
+                ]
+            },
+            options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // 2. Missing fields breakdown (radar)
+        const fieldNames = ['Year', 'Source', 'Source URL', 'Screenshot', 'Context', 'Actions', 'Target'];
+        const fieldKeys = ['no-year', 'no-source', 'no-source-url', 'no-screenshot', 'no-context', 'no-actions', 'no-target'];
+        const radarColors = ['rgba(214,48,49,0.5)', 'rgba(253,203,110,0.5)', 'rgba(116,185,255,0.5)'];
+        const radarBorders = ['#d63031', '#fdcb6e', '#74b9ff'];
+
+        new Chart(document.getElementById('chartMissingFields'), {
+            type: 'radar',
+            data: {
+                labels: fieldNames,
+                datasets: jKeys.map((k, i) => {
+                    const all = [...analysis[k].ecological, ...analysis[k].social];
+                    return {
+                        label: analysis[k].name,
+                        data: fieldKeys.map(fk => all.filter(d => d.analysis.issues.includes(fk)).length),
+                        backgroundColor: radarColors[i],
+                        borderColor: radarBorders[i],
+                        borderWidth: 2
+                    };
+                })
+            },
+            options: { responsive: true, scales: { r: { beginAtZero: true, ticks: { stepSize: 2 } } }, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // 3. Data staleness
+        const yearBuckets = ['No year', '2015-2018', '2019-2021', '2022-2023', '2024-2025'];
+        function bucketYear(y) {
+            if (!y) return 0;
+            if (y <= 2018) return 1;
+            if (y <= 2021) return 2;
+            if (y <= 2023) return 3;
+            return 4;
+        }
+        const staleColors = ['#ef9a9a', '#ffcc80', '#fff176', '#a5d6a7', '#81c784'];
+
+        new Chart(document.getElementById('chartStaleness'), {
+            type: 'bar',
+            data: {
+                labels: jNames,
+                datasets: yearBuckets.map((label, bi) => ({
+                    label: label,
+                    data: jKeys.map(k => {
+                        const all = [...analysis[k].ecological, ...analysis[k].social];
+                        return all.filter(d => bucketYear(d.year) === bi).length;
+                    }),
+                    backgroundColor: staleColors[bi]
+                }))
+            },
+            options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // 4. Screenshot coverage (doughnut chart per jurisdiction)
+        const ssData = jKeys.map(k => {
+            const all = [...analysis[k].ecological, ...analysis[k].social];
+            const has = all.filter(d => d.analysis.hasScreenshot).length;
+            return { has, missing: all.length - has };
+        });
+
+        new Chart(document.getElementById('chartScreenshots'), {
+            type: 'bar',
+            data: {
+                labels: jNames,
+                datasets: [
+                    { label: 'Has Screenshot', data: ssData.map(d => d.has), backgroundColor: '#81c784' },
+                    { label: 'No Screenshot', data: ssData.map(d => d.missing), backgroundColor: '#ef9a9a' }
+                ]
+            },
+            options: { responsive: true, indexAxis: 'y', scales: { x: { stacked: true, beginAtZero: true }, y: { stacked: true } }, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // 5. Severity distribution
+        function severityBucket(level) {
+            if (level === "NaN" || typeof level === 'string') return 'Unknown';
+            if (level <= -50) return 'Good';
+            if (level <= 0) return 'On Track';
+            if (level <= 50) return 'Attention';
+            if (level <= 100) return 'Critical';
+            return 'Severe';
+        }
+        const sevLabels = ['Good', 'On Track', 'Attention', 'Critical', 'Severe', 'Unknown'];
+        const sevColors = ['#81c784', '#a5d6a7', '#fff176', '#ffcc80', '#ef9a9a', '#bdbdbd'];
+
+        new Chart(document.getElementById('chartSeverity'), {
+            type: 'bar',
+            data: {
+                labels: jNames,
+                datasets: sevLabels.map((label, si) => ({
+                    label: label,
+                    data: jKeys.map(k => {
+                        const all = [...analysis[k].ecological, ...analysis[k].social];
+                        return all.filter(d => severityBucket(d.level) === label).length;
+                    }),
+                    backgroundColor: sevColors[si]
+                }))
+            },
+            options: { responsive: true, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // 6. Social vs Ecological completeness
+        const ringData = jKeys.map(k => {
+            const eco = analysis[k].ecological;
+            const soc = analysis[k].social;
+            const ecoComp = eco.filter(d => d.analysis.status === 'complete').length / eco.length * 100;
+            const socComp = soc.filter(d => d.analysis.status === 'complete').length / soc.length * 100;
+            return { eco: Math.round(ecoComp), soc: Math.round(socComp) };
+        });
+
+        new Chart(document.getElementById('chartRingCompare'), {
+            type: 'bar',
+            data: {
+                labels: jNames,
+                datasets: [
+                    { label: 'Ecological Ceiling', data: ringData.map(d => d.eco), backgroundColor: '#ef9a9a' },
+                    { label: 'Social Foundation', data: ringData.map(d => d.soc), backgroundColor: '#81c784' }
+                ]
+            },
+            options: { responsive: true, scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } } }, plugins: { legend: { position: 'bottom' } } }
+        });
+    }
+
+    // ── Written report ───────────────────────────────────────────────
+
+    function buildReport() {
+        // Compute gap stats per jurisdiction
+        const jStats = {};
+        for (const [jKey, jData] of Object.entries(analysis)) {
+            const all = [...jData.ecological, ...jData.social];
+            const missingDims = all.filter(d => d.analysis.status === 'missing');
+            const partialDims = all.filter(d => d.analysis.status === 'partial');
+            const completeDims = all.filter(d => d.analysis.status === 'complete');
+            const noScreenshot = all.filter(d => !d.analysis.hasScreenshot);
+            const stale = all.filter(d => d.analysis.isStale);
+            const noSource = all.filter(d => !d.analysis.hasSource);
+
+            jStats[jKey] = { name: jData.name, total: all.length, missing: missingDims, partial: partialDims,
+                             complete: completeDims, noScreenshot, stale, noSource, all };
+        }
+
+        // Find dimensions that are missing across ALL jurisdictions
+        const universalGaps = [];
+        const allDimNames = new Set();
+        for (const jData of Object.values(analysis)) {
+            [...jData.ecological, ...jData.social].forEach(d => allDimNames.add(d.analysis.ring + ':' + d.name));
+        }
+
+        let html = '';
+
+        // Executive Summary
+        html += '<h3>Executive Summary</h3>';
+        const totalPoints = Object.values(jStats).reduce((s, j) => s + j.total, 0);
+        const totalComplete = Object.values(jStats).reduce((s, j) => s + j.complete.length, 0);
+        const totalMissing = Object.values(jStats).reduce((s, j) => s + j.missing.length, 0);
+        const totalPartial = Object.values(jStats).reduce((s, j) => s + j.partial.length, 0);
+        const overallPct = Math.round(totalComplete / totalPoints * 100);
+
+        html += `<p>This report analyzes <strong>${totalPoints} data points</strong> across 3 jurisdictions (City of Santa Cruz, Santa Cruz County, City of Watsonville), covering 9 ecological ceiling dimensions and 12 social foundation dimensions each.</p>`;
+        html += `<p>Overall completeness: <strong>${overallPct}%</strong> (${totalComplete} complete, ${totalPartial} partial, ${totalMissing} missing/placeholder).</p>`;
+
+        // Per-jurisdiction summary
+        html += '<h3>Coverage by Jurisdiction</h3>';
+        for (const [jKey, stats] of Object.entries(jStats)) {
+            const pct = Math.round(stats.complete.length / stats.total * 100);
+            html += `<p><strong>${stats.name}</strong>: ${pct}% complete (${stats.complete.length}/${stats.total}). `;
+            html += `${stats.missing.length} missing, ${stats.partial.length} partial, ${stats.noScreenshot.length} without screenshots.</p>`;
+        }
+
+        // Priority 1: Completely missing data
+        html += '<h3>Priority 1: Missing Data (Immediate Research Needed)</h3>';
+        html += '<p>These dimensions have placeholder values, no source citations, or NaN severity levels. They require primary research to fill.</p>';
+
+        for (const [jKey, stats] of Object.entries(jStats)) {
+            if (stats.missing.length === 0) continue;
+            html += `<div class="priority-high"><p><strong>${stats.name}</strong> — ${stats.missing.length} dimensions missing:</p><ul>`;
+            stats.missing.forEach(d => {
+                html += `<li><strong>${d.name}</strong> (${d.analysis.ring}): ${d.value || 'No value'}</li>`;
+            });
+            html += '</ul></div>';
+        }
+
+        // Priority 2: Partial data
+        html += '<h3>Priority 2: Partial Data (Needs Source Documentation)</h3>';
+        html += '<p>These dimensions have values but are missing critical fields like source citations, year of data, or contextual information.</p>';
+
+        for (const [jKey, stats] of Object.entries(jStats)) {
+            if (stats.partial.length === 0) continue;
+            html += `<div class="priority-med"><p><strong>${stats.name}</strong> — ${stats.partial.length} dimensions partial:</p><ul>`;
+            stats.partial.forEach(d => {
+                const flags = d.analysis.issues.filter(i => i !== 'no-screenshot').join(', ');
+                html += `<li><strong>${d.name}</strong> (${d.analysis.ring}): Missing ${flags}</li>`;
+            });
+            html += '</ul></div>';
+        }
+
+        // Priority 3: Screenshots
+        html += '<h3>Priority 3: Source Evidence (Screenshots Needed)</h3>';
+        html += '<p>These dimensions have data but no screenshot of the primary source document. Adding screenshots strengthens research credibility.</p>';
+
+        for (const [jKey, stats] of Object.entries(jStats)) {
+            const needsScreenshot = stats.all.filter(d => d.analysis.status !== 'missing' && !d.analysis.hasScreenshot);
+            if (needsScreenshot.length === 0) continue;
+            html += `<div class="priority-low"><p><strong>${stats.name}</strong> — ${needsScreenshot.length} dimensions without screenshots:</p><ul>`;
+            needsScreenshot.forEach(d => {
+                html += `<li><strong>${d.name}</strong> (${d.analysis.ring})</li>`;
+            });
+            html += '</ul></div>';
+        }
+
+        // Stale data
+        html += '<h3>Data Freshness Concerns</h3>';
+        const allStale = [];
+        for (const [jKey, stats] of Object.entries(jStats)) {
+            stats.stale.forEach(d => allStale.push({ ...d, jurisdiction: stats.name }));
+        }
+        if (allStale.length > 0) {
+            html += `<p>${allStale.length} data points are more than ${STALE_THRESHOLD} years old and should be refreshed:</p><ul>`;
+            allStale.forEach(d => {
+                html += `<li><strong>${d.jurisdiction} / ${d.name}</strong>: Data from ${d.year} (${CURRENT_YEAR - d.year} years old)</li>`;
+            });
+            html += '</ul>';
+        } else {
+            html += '<p>No data points are older than the staleness threshold.</p>';
+        }
+
+        // Recommended data sources
+        html += '<h3>Recommended Data Sources for Filling Gaps</h3>';
+        html += '<p>The following sources are recommended for filling the identified gaps, organized by dimension type:</p>';
+
+        html += '<p><strong>Social Foundation (County & Watsonville):</strong></p><ul>';
+        html += '<li><strong>Food</strong>: Second Harvest Food Bank (thefoodbank.org), USDA Food Environment Atlas, Feeding America Map the Meal Gap</li>';
+        html += '<li><strong>Health</strong>: Census ACS (data.census.gov), County Health Rankings (countyhealthrankings.org), DataShare SCC</li>';
+        html += '<li><strong>Education</strong>: CA Dept of Education DataQuest (dq.cde.ca.gov), Public School Review, CAASPP test results</li>';
+        html += '<li><strong>Income & Work</strong>: Census QuickFacts, BLS Local Area Unemployment, DataShare SCC</li>';
+        html += '<li><strong>Housing</strong>: HUD CHAS data, CHPC Housing Needs Reports (chpc.net), PIT Count reports</li>';
+        html += '<li><strong>Water</strong>: Annual Water Quality Reports (CCR), PVWMA for Watsonville, State Water Board</li>';
+        html += '<li><strong>Energy</strong>: EnergySage, PG&E rate schedules, CEC, 3 Clean Energy</li>';
+        html += '<li><strong>Social Equity</strong>: Census ACS Gini index (B19083), CalEnviroScreen</li>';
+        html += '<li><strong>Peace & Justice</strong>: FBI UCR (crime-data-explorer.fr.cloud.gov), NeighborhoodScout, CA DOJ OpenJustice</li>';
+        html += '<li><strong>Political Voice</strong>: CA Secretary of State voter stats, Santa Cruz County Elections</li>';
+        html += '<li><strong>Gender Equality</strong>: CA Civil Rights Dept pay gap data, DataShare SCC Women\'s Wellbeing</li>';
+        html += '<li><strong>Networks</strong>: CA Broadband Report Card, FCC broadband maps, Equal Access SC</li>';
+        html += '</ul>';
+
+        html += '<p><strong>Ecological Ceiling:</strong></p><ul>';
+        html += '<li><strong>Ocean Acidification</strong>: MBARI publications, NOAA Ocean Acidification Program — need localized pH data</li>';
+        html += '<li><strong>Nitrogen Loading</strong>: PVWMA reports for south county; City of SC Water Dept for city-level — city data gap may be unfillable (different water source)</li>';
+        html += '</ul>';
+
+        // Methodology notes
+        html += '<h3>Methodology Notes</h3>';
+        html += '<p>Data completeness is assessed on these fields: <strong>value</strong> (non-placeholder), <strong>year</strong>, <strong>source citation</strong>, <strong>source URL</strong>, <strong>context narrative</strong>, <strong>action items</strong>, <strong>target/threshold</strong>, and <strong>screenshot</strong>.</p>';
+        html += '<p>A dimension is "complete" when it has a real value, year, source, and context. "Partial" means it has a value but is missing source, year, or context. "Missing" means placeholder values, NaN levels, or no substantive data.</p>';
+        html += '<p>Staleness threshold: data older than ' + STALE_THRESHOLD + ' years from ' + CURRENT_YEAR + ' is flagged for refresh.</p>';
+        html += '<p><em>Report generated: ' + new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) + '</em></p>';
+
+        document.getElementById('reportContent').innerHTML = html;
+    }
+
+    // ── Initialize ───────────────────────────────────────────────────
+    buildSummary();
+    buildHeatmap();
+    buildGapTable();
+    buildCharts();
+    buildReport();
+    </script>
+</body>
+</html>
