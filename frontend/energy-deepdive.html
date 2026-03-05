@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Deep-Dive — Doughnut Economics</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f9fa; color: #2d3436; }
+        header {
+            background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+            color: white; padding: 1.5rem 2rem;
+        }
+        header h1 { font-size: 1.5rem; }
+        header p { opacity: 0.85; font-size: 0.9rem; }
+        .back-link { color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8; }
+        .back-link:hover { opacity: 1; }
+        .content { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .card {
+            background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .card h2 { color: #e67e22; font-size: 1.2rem; margin-bottom: 0.75rem; }
+        .card h3 { color: #2d3436; font-size: 1rem; margin: 1rem 0 0.5rem; }
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0; }
+        .metric {
+            background: #fef9f2; border-radius: 8px; padding: 1rem; border-left: 4px solid #e67e22;
+        }
+        .metric .label { font-size: 0.8rem; color: #636e72; text-transform: uppercase; letter-spacing: 0.05em; }
+        .metric .value { font-size: 1.5rem; font-weight: 700; color: #2d3436; }
+        .metric .note { font-size: 0.8rem; color: #b2bec3; }
+        .source { font-size: 0.85rem; color: #636e72; margin-top: 0.5rem; }
+        .source a { color: #0984e3; text-decoration: none; }
+        .source a:hover { text-decoration: underline; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        th { background: #f1f3f5; text-align: left; padding: 0.5rem; font-weight: 600; }
+        td { padding: 0.5rem; border-bottom: 1px solid #f1f3f5; }
+        .cta-box {
+            background: linear-gradient(135deg, #2d5016, #4a8c1c); color: white;
+            border-radius: 12px; padding: 2rem; text-align: center; margin-top: 2rem;
+        }
+        .cta-box h2 { color: white; margin-bottom: 0.5rem; }
+        .cta-box p { opacity: 0.9; margin-bottom: 1rem; }
+        .cta-btn {
+            display: inline-block; padding: 0.75rem 2rem;
+            background: white; color: #2d5016; border-radius: 2rem;
+            text-decoration: none; font-weight: 700; font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        .cta-btn:hover { transform: scale(1.05); }
+        .bar { height: 20px; border-radius: 4px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index-d3.html" class="back-link">← Back to Doughnut Portrait</a>
+        <h1>⚡ Energy Deep-Dive</h1>
+        <p>Energy burden, renewable share, distributed generation & microgrid potential</p>
+    </header>
+
+    <div class="content">
+        <!-- Energy Burden -->
+        <div class="card">
+            <h2>🏠 Energy Burden by Income</h2>
+            <p>Energy burden = % of household income spent on energy. Low-income households bear a disproportionate cost.</p>
+            <div class="metric-grid">
+                <div class="metric">
+                    <div class="label">Avg Residential Rate (CA)</div>
+                    <div class="value">33.5¢/kWh</div>
+                    <div class="note">PG&E territory (Santa Cruz)</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Avg Monthly Bill</div>
+                    <div class="value">$321/mo</div>
+                    <div class="note">CA residential average</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Energy Burden (Low Income)</div>
+                    <div class="value">8-14%</div>
+                    <div class="note">vs. 3% for median income</div>
+                </div>
+                <div class="metric">
+                    <div class="label">CARE/FERA Eligible</div>
+                    <div class="value">~30%</div>
+                    <div class="note">Households qualifying for discounts</div>
+                </div>
+            </div>
+            <p class="source">Sources: <a href="https://www.energysage.com/local-data/electricity-cost/ca/santa-cruz-county/santa-cruz/">EnergySage</a>, <a href="https://www.energy.gov/scep/low-income-energy-affordability-data-lead-tool">DOE LEAD Tool</a>, <a href="https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/electric-rates/care-fera-program">CPUC CARE/FERA</a></p>
+
+            <h3>Energy Burden by City</h3>
+            <table>
+                <thead>
+                    <tr><th>City</th><th>Median Income</th><th>Est. Energy Burden (Median)</th><th>Est. Energy Burden (Low-Income)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>City of Santa Cruz</td><td>$111,427</td><td>~3.5%</td><td>~12%</td></tr>
+                    <tr><td>Watsonville</td><td>$74,785</td><td>~5.1%</td><td>~14%</td></tr>
+                    <tr><td>Portland, OR</td><td>$88,792</td><td>~2.5%</td><td>~8%</td></tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.85rem;color:#636e72">Portland benefits from cheaper hydropower (~12¢/kWh vs 33.5¢/kWh in CA), dramatically reducing energy burden.</p>
+        </div>
+
+        <!-- Renewable Share -->
+        <div class="card">
+            <h2>🌱 Renewable Energy Share</h2>
+            <div class="metric-grid">
+                <div class="metric">
+                    <div class="label">CA Grid Renewable</div>
+                    <div class="value">51%</div>
+                    <div class="note">2025 (CEC)</div>
+                </div>
+                <div class="metric">
+                    <div class="label">OR Grid Renewable</div>
+                    <div class="value">~40%</div>
+                    <div class="note">Hydro-dominant</div>
+                </div>
+                <div class="metric">
+                    <div class="label">3CE Default (SC County)</div>
+                    <div class="value">100%</div>
+                    <div class="note">Carbon-free electricity</div>
+                </div>
+                <div class="metric">
+                    <div class="label">PGE Green Future (Portland)</div>
+                    <div class="value">100%</div>
+                    <div class="note">Optional clean energy</div>
+                </div>
+            </div>
+            <p class="source">Sources: <a href="https://www.energy.ca.gov/">CA Energy Commission</a>, <a href="https://3ce.org/">3 Clean Energy</a>, <a href="https://portlandgeneral.com/energy-choices/renewable-power/green-future">PGE Green Future</a></p>
+        </div>
+
+        <!-- Distributed Generation -->
+        <div class="card">
+            <h2>☀️ Distributed Generation & Storage</h2>
+            <p>Rooftop solar, battery storage, and Virtual Power Plant (VPP) participation create resilience AND revenue.</p>
+            <div class="metric-grid">
+                <div class="metric">
+                    <div class="label">Santa Cruz Solar Potential</div>
+                    <div class="value">5.5 kWh/m²/day</div>
+                    <div class="note">Peak sun hours (annual avg)</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Portland Solar Potential</div>
+                    <div class="value">4.2 kWh/m²/day</div>
+                    <div class="note">Lower than CA but still viable</div>
+                </div>
+                <div class="metric">
+                    <div class="label">VPP Revenue (CA)</div>
+                    <div class="value">$300-500/yr</div>
+                    <div class="note">PG&E ELRP program</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Solar Payback (CA)</div>
+                    <div class="value">7-9 years</div>
+                    <div class="note">With current rates & incentives</div>
+                </div>
+            </div>
+
+            <h3>Why Microgrids Matter for Energy Equity</h3>
+            <p style="margin:0.5rem 0;font-size:0.95rem;">Centralized grids create single points of failure and price vulnerability. Distributed energy (solar + storage + smart management) enables:</p>
+            <ul style="padding-left:1.5rem;font-size:0.9rem;line-height:1.8">
+                <li><strong>Energy autonomy</strong> — Generate your own power, reduce utility dependence</li>
+                <li><strong>Resilience</strong> — Keep lights on during grid outages (wildfires, PSPS events)</li>
+                <li><strong>Revenue</strong> — Earn money through VPP programs ($300-500/yr in CA)</li>
+                <li><strong>Equity</strong> — Community solar and PCEF-type programs make clean energy accessible to renters and low-income households</li>
+                <li><strong>Grid stability</strong> — Distributed storage reduces peak demand and defers expensive grid upgrades</li>
+            </ul>
+        </div>
+
+        <!-- Microgrid.me CTA -->
+        <div class="cta-box">
+            <h2>Design Your Microgrid</h2>
+            <p>Explore solar, storage, and microgrid options for your home or community with our free AI-powered design tool.</p>
+            <a href="https://microgridme.xyz" target="_blank" class="cta-btn">🔋 Try microgridme.xyz →</a>
+            <p style="margin-top:1rem;font-size:0.8rem;opacity:0.7">Free • No account required • AI-guided system design</p>
+        </div>
+
+        <!-- Local Programs -->
+        <div class="card" style="margin-top:2rem">
+            <h2>📋 Local Energy Programs & Resources</h2>
+            <table>
+                <thead>
+                    <tr><th>Program</th><th>Location</th><th>What</th><th>Link</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CARE/FERA</td><td>CA (PG&E territory)</td><td>30-35% electricity discount for low-income</td><td><a href="https://www.pge.com/en/account/rate-plans/find-your-best-rate-plan/care-fera-programs.html" target="_blank">PG&E CARE</a></td></tr>
+                    <tr><td>3CE Prime</td><td>Santa Cruz County</td><td>100% renewable electricity option</td><td><a href="https://3ce.org/" target="_blank">3CE</a></td></tr>
+                    <tr><td>PCEF</td><td>Portland, OR</td><td>Clean energy grants for frontline communities</td><td><a href="https://www.portland.gov/bps/cleanenergy" target="_blank">PCEF</a></td></tr>
+                    <tr><td>PGE ELRP</td><td>CA (PG&E territory)</td><td>VPP demand response — $2/kWh events</td><td><a href="https://www.pge.com/en/save-energy-and-money/energy-saving-programs/demand-response-programs.html" target="_blank">PG&E DR</a></td></tr>
+                    <tr><td>Oregon Solar + Storage Rebate</td><td>Oregon</td><td>25% state tax credit + federal ITC</td><td><a href="https://www.oregon.gov/energy/incentives/pages/solar-storage-rebate.aspx" target="_blank">OR Energy</a></td></tr>
+                    <tr><td>SOMAH</td><td>CA</td><td>Solar on Multifamily Affordable Housing</td><td><a href="https://calsomah.org/" target="_blank">SOMAH</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

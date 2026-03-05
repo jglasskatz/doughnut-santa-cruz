@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Doughnut Economics City Portrait",
+  "description": "Schema for a city/region doughnut economics portrait with 12 social foundations and 9 ecological ceilings",
+  "type": "object",
+  "required": ["meta", "social", "ecological"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["id", "name", "region", "country", "population"],
+      "properties": {
+        "id": { "type": "string", "description": "URL-safe identifier, e.g. 'portland_or'" },
+        "name": { "type": "string", "description": "Display name, e.g. 'City of Portland'" },
+        "region": { "type": "string", "description": "State/province/region" },
+        "country": { "type": "string", "description": "Country code (ISO 3166-1)" },
+        "population": { "type": "string" },
+        "description": { "type": "string" },
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          }
+        },
+        "lastUpdated": { "type": "string", "format": "date" },
+        "contributors": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "social": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": { "$ref": "#/definitions/dimension" },
+      "description": "12 social foundation dimensions"
+    },
+    "ecological": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": { "$ref": "#/definitions/dimension" },
+      "description": "9 ecological ceiling dimensions"
+    }
+  },
+  "definitions": {
+    "dimension": {
+      "type": "object",
+      "required": ["name", "level", "indicator", "value", "source", "sourceUrl"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": [
+            "food", "health", "education", "income & work", "housing",
+            "water & sanitation", "energy", "social equity",
+            "peace & justice", "political voice", "gender equality", "networks",
+            "climate change", "ocean acidification", "chemical pollution",
+            "nitrogen & phosphorus loading", "freshwater withdrawals",
+            "land conversion", "biodiversity loss", "air pollution",
+            "ozone layer depletion"
+          ]
+        },
+        "level": {
+          "type": ["number", "null"],
+          "minimum": -100,
+          "maximum": 150,
+          "description": "-100=no problem, -50=under control, 0=on track, 50=needs attention, 100=critical, 150=severe, null=unknown"
+        },
+        "indicator": { "type": "string", "description": "What metric is being measured" },
+        "value": { "type": "string", "description": "The actual data value with units" },
+        "year": { "type": ["integer", "null"] },
+        "target": { "type": "string" },
+        "context": { "type": "string", "description": "2-3 sentences of context" },
+        "source": { "type": "string", "description": "Primary source name" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "screenshot": { "type": ["string", "null"] },
+        "confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "default": "medium"
+        },
+        "geographicScale": {
+          "type": "string",
+          "enum": ["city", "county", "metro", "state", "national", "global"],
+          "description": "Geographic level of the data"
+        },
+        "actions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "3-5 concrete ways residents can get involved"
+        },
+        "subIndicators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "value": { "type": "string" },
+              "year": { "type": "integer" },
+              "source": { "type": "string" },
+              "sourceUrl": { "type": "string" }
+            }
+          },
+          "description": "Additional data points for this dimension"
+        }
+      }
+    }
+  }
+}

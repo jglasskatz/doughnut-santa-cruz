@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doughnut Economics — Interactive City Portrait</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f8f9fa;
+            color: #2d3436;
+        }
+        header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a8c1c 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        header h1 { font-size: 1.5rem; font-weight: 600; }
+        header p { opacity: 0.85; font-size: 0.9rem; }
+
+        .city-selector {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .city-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 2rem;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .city-btn:hover { border-color: white; background: rgba(255,255,255,0.1); }
+        .city-btn.active { background: white; color: #2d5016; border-color: white; }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .doughnut-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+        .city-info {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .city-info h2 { font-size: 1.3rem; color: #2d5016; }
+        .city-info .pop { color: #636e72; font-size: 0.9rem; }
+        .city-info .desc { color: #636e72; font-size: 0.85rem; max-width: 500px; margin-top: 0.3rem; }
+        #doughnutContainer {
+            width: 100%;
+            max-width: 640px;
+            position: relative;
+        }
+        .doughnut-hint {
+            text-align: center;
+            color: #b2bec3;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .legend {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Detail Panel */
+        .detail-panel {
+            background: white;
+            border-left: 1px solid #dfe6e9;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+            position: sticky;
+            top: 0;
+        }
+        .detail-empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #b2bec3;
+            font-size: 0.95rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        .detail-content { padding: 1.5rem; }
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .detail-ring {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .ring-ecological { background: #d63c36; }
+        .ring-social { background: #4a8c1c; }
+        .detail-header h3 { font-size: 1.1rem; text-transform: capitalize; }
+        .detail-status {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+        .status-good { background: #dfe6dc; color: #2d5016; }
+        .status-caution { background: #ffeaa7; color: #6c5c00; }
+        .status-bad { background: #fab1a0; color: #6b1a0e; }
+        .status-severe { background: #d63031; color: white; }
+        .status-unknown { background: #dfe6e9; color: #636e72; }
+
+        .detail-metric {
+            background: #f8f9fa;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .detail-metric .label { font-size: 0.8rem; color: #636e72; text-transform: uppercase; letter-spacing: 0.05em; }
+        .detail-metric .value { font-size: 1.4rem; font-weight: 700; color: #2d3436; margin-top: 0.2rem; }
+        .detail-metric .year { font-size: 0.8rem; color: #b2bec3; }
+        .detail-metric .target { font-size: 0.85rem; color: #6c5ce7; margin-top: 0.3rem; }
+        .detail-metric .context { font-size: 0.85rem; color: #636e72; margin-top: 0.5rem; line-height: 1.4; }
+
+        .detail-source { margin-bottom: 1rem; }
+        .detail-source h4 { font-size: 0.85rem; color: #636e72; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .detail-source a { color: #0984e3; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.3rem; }
+        .detail-source a:hover { text-decoration: underline; }
+        .source-screenshot {
+            width: 100%;
+            border: 1px solid #dfe6e9;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+        }
+
+        .detail-actions { margin-top: 1rem; }
+        .detail-actions h4 {
+            font-size: 0.85rem;
+            color: #2d5016;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .detail-actions ul { list-style: none; }
+        .detail-actions li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f3f5;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            line-height: 1.4;
+        }
+        .detail-actions li::before {
+            content: "\2192";
+            color: #4a8c1c;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .sub-indicators { margin-top: 1rem; }
+        .sub-indicators h4 { font-size: 0.85rem; color: #636e72; margin-bottom: 0.5rem; text-transform: uppercase; }
+        .sub-indicator {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f3f5;
+            font-size: 0.85rem;
+        }
+        .sub-indicator .name { color: #636e72; }
+        .sub-indicator .val { font-weight: 600; }
+
+        /* Energy deep-dive link */
+        .energy-deepdive {
+            display: block;
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: opacity 0.2s;
+        }
+        .energy-deepdive:hover { opacity: 0.9; }
+
+        /* Lightbox */
+        .lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); z-index: 1000; cursor: pointer;
+            justify-content: center; align-items: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 0.5rem; }
+
+        @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .detail-panel { max-height: none; border-left: none; border-top: 1px solid #dfe6e9; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>🍩 Doughnut Economics</h1>
+            <p>Interactive city portraits — social foundations & ecological ceilings</p>
+        </div>
+        <div class="city-selector" id="citySelector"></div>
+    </header>
+
+    <div class="main-layout">
+        <div class="doughnut-section">
+            <div class="city-info">
+                <h2 id="cityName"></h2>
+                <div class="pop" id="cityPop"></div>
+                <div class="desc" id="cityDesc"></div>
+            </div>
+            <div id="doughnutContainer"></div>
+            <div class="doughnut-hint">Hover for details • Click to expand • Keyboard 1-9 to switch cities</div>
+            <div class="legend">
+                <div class="legend-item"><div class="legend-swatch" style="background:#4a8c1c"></div> Under control</div>
+                <div class="legend-item"><div class="legend-swatch" style="background:#a8d65c"></div> On track</div>
+                <div class="legend-item"><div class="legend-swatch" style="background:#f0c929"></div> Needs attention</div>
+                <div class="legend-item"><div class="legend-swatch" style="background:#d63c36"></div> Critical</div>
+                <div class="legend-item"><div class="legend-swatch" style="background:#8b0000"></div> Severe</div>
+                <div class="legend-item"><div class="legend-swatch" style="background:#ccc"></div> Unknown</div>
+            </div>
+        </div>
+
+        <div class="detail-panel" id="detailPanel">
+            <div class="detail-empty" id="detailEmpty">
+                Select a dimension on the doughnut to explore data, primary sources, and ways to take action.
+            </div>
+            <div class="detail-content" id="detailContent" style="display:none;"></div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <img id="lightboxImg" src="" alt="Source document">
+    </div>
+
+    <script src="d3-doughnut.js"></script>
+    <script src="data.js"></script>
+    <script>
+        // ---- App Logic ----
+        let doughnut = null;
+        let currentKey = null;
+
+        function getStatusClass(level) {
+            if (level === null || level === undefined || isNaN(level)) return 'status-unknown';
+            if (level <= -50) return 'status-good';
+            if (level <= 50) return 'status-caution';
+            if (level <= 100) return 'status-bad';
+            return 'status-severe';
+        }
+        function getStatusLabel(level) {
+            if (level === null || level === undefined || isNaN(level)) return 'Unknown';
+            if (level <= -100) return 'No problem';
+            if (level <= -50) return 'Under control';
+            if (level <= 0) return 'On track';
+            if (level <= 50) return 'Needs attention';
+            if (level <= 100) return 'Critical';
+            return 'Severe';
+        }
+
+        function showDetail(dim) {
+            if (!dim) {
+                document.getElementById('detailEmpty').style.display = 'flex';
+                document.getElementById('detailContent').style.display = 'none';
+                return;
+            }
+
+            const content = document.getElementById('detailContent');
+            const isEco = dim.ring === 'ecological';
+            const level = (typeof dim.level === 'string' && dim.level === 'NaN') ? null : dim.level;
+            let html = '';
+
+            // Header
+            html += '<div class="detail-header">';
+            html += `<span class="detail-ring ${isEco ? 'ring-ecological' : 'ring-social'}"></span>`;
+            html += `<h3>${dim.name}</h3>`;
+            html += `<span class="detail-status ${getStatusClass(level)}">${getStatusLabel(level)}</span>`;
+            html += '</div>';
+
+            // Severity bar
+            if (level !== null && !isNaN(level)) {
+                const pct = Math.min(100, Math.max(0, (level + 100) / 2.5));
+                const barColor = level <= -50 ? '#4a8c1c' : level <= 0 ? '#a8d65c' : level <= 50 ? '#f0c929' : level <= 100 ? '#e17055' : '#d63031';
+                html += `<div style="background:#eee;border-radius:4px;height:8px;margin-bottom:1rem"><div style="width:${pct}%;height:100%;border-radius:4px;background:${barColor};transition:width 0.3s"></div></div>`;
+            }
+
+            // Metric
+            html += '<div class="detail-metric">';
+            html += `<div class="label">${dim.indicator || 'Indicator'}</div>`;
+            html += `<div class="value">${dim.value || 'Data needed'}</div>`;
+            if (dim.year) html += `<div class="year">Year: ${dim.year}</div>`;
+            if (dim.target) html += `<div class="target">Target: ${dim.target}</div>`;
+            if (dim.context) html += `<div class="context">${dim.context}</div>`;
+            html += '</div>';
+
+            // Sub-indicators
+            if (dim.subIndicators && dim.subIndicators.length > 0) {
+                html += '<div class="sub-indicators"><h4>Additional Data</h4>';
+                dim.subIndicators.forEach(si => {
+                    html += `<div class="sub-indicator"><span class="name">${si.name}:</span> <span class="val">${si.value}</span>`;
+                    if (si.year) html += ` <span style="color:#b2bec3;font-size:0.8rem">(${si.year})</span>`;
+                    if (si.sourceUrl) html += ` <a href="${si.sourceUrl}" target="_blank" style="font-size:0.8rem">[source]</a>`;
+                    html += '</div>';
+                });
+                html += '</div>';
+            }
+
+            // Source
+            if (dim.source) {
+                html += '<div class="detail-source"><h4>Primary Source</h4>';
+                if (dim.sourceUrl) html += `<a href="${dim.sourceUrl}" target="_blank">${dim.source}</a>`;
+                else html += `<span style="font-size:0.9rem">${dim.source}</span>`;
+                if (dim.confidence) html += `<div style="font-size:0.8rem;color:#b2bec3">Confidence: ${dim.confidence}${dim.geographicScale ? ' • Scale: ' + dim.geographicScale : ''}</div>`;
+                if (dim.screenshot) html += `<img class="source-screenshot" src="${dim.screenshot}" alt="Source document" onclick="openLightbox('${dim.screenshot}')">`;
+                html += '</div>';
+            }
+
+            // Actions
+            if (dim.actions && dim.actions.length > 0) {
+                html += '<div class="detail-actions"><h4>Ways to Get Involved</h4><ul>';
+                dim.actions.forEach(a => { html += `<li>${a}</li>`; });
+                html += '</ul></div>';
+            }
+
+            // Energy deep-dive link
+            if (dim.name === 'energy') {
+                html += '<a class="energy-deepdive" href="energy-deepdive.html">⚡ Energy Deep-Dive — Microgrid & Distributed Energy Analysis</a>';
+            }
+
+            content.innerHTML = html;
+            document.getElementById('detailEmpty').style.display = 'none';
+            content.style.display = 'block';
+        }
+
+        function loadCity(key) {
+            currentKey = key;
+            const data = JURISDICTIONS[key];
+            document.getElementById('cityName').textContent = data.name;
+            document.getElementById('cityPop').textContent = 'Population: ' + data.population;
+            document.getElementById('cityDesc').textContent = data.description;
+
+            document.querySelectorAll('.city-btn').forEach(b =>
+                b.classList.toggle('active', b.dataset.key === key));
+
+            doughnut.setData(data);
+            showDetail(null);
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+        document.getElementById('lightbox').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.remove('active');
+        });
+
+        // Build city buttons from JURISDICTIONS
+        const selector = document.getElementById('citySelector');
+        const keys = Object.keys(JURISDICTIONS);
+        keys.forEach((key, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'city-btn' + (i === 0 ? ' active' : '');
+            btn.dataset.key = key;
+            btn.textContent = JURISDICTIONS[key].name;
+            btn.addEventListener('click', () => loadCity(key));
+            selector.appendChild(btn);
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            const idx = parseInt(e.key) - 1;
+            if (idx >= 0 && idx < keys.length) loadCity(keys[idx]);
+        });
+
+        // Initialize
+        doughnut = new D3Doughnut('doughnutContainer', {
+            onSelect: (dim) => showDetail(dim)
+        });
+        loadCity(keys[0]);
+    </script>
+</body>
+</html>

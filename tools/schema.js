@@ -1,5 +1,5 @@
 // Doughnut Economics data schema
-// This defines the structure for city portrait data that the research agent produces
+// Defines the structure for city portrait data that the research agent produces
 
 const SOCIAL_DIMENSIONS = [
     "food", "health", "education", "income & work", "housing",
@@ -14,7 +14,7 @@ const ECOLOGICAL_DIMENSIONS = [
     "ozone layer depletion"
 ];
 
-// Level scale: -100 (no problem) to 150 (severe). NaN = unknown.
+// Level scale: -100 (no problem) to 150 (severe). null = unknown.
 const LEVEL_SCALE = {
     "-100": "No problem",
     "-50": "Under control",
@@ -29,41 +29,117 @@ const DIMENSION_SCHEMA = {
     type: "object",
     properties: {
         name: { type: "string", description: "Dimension name (e.g., 'food', 'climate change')" },
-        level: { type: "number", description: "Severity level from -100 (no problem) to 150 (severe). Use null if unknown." },
-        indicator: { type: "string", description: "What metric is being measured (e.g., 'Food insecurity rate')" },
-        value: { type: "string", description: "The actual data value with units (e.g., '15.1% below poverty line')" },
-        year: { type: "integer", description: "Year of the data" },
-        target: { type: "string", description: "What the target/goal is (e.g., 'Below 10%')" },
-        context: { type: "string", description: "2-3 sentences of context explaining the number, trends, comparisons" },
-        source: { type: "string", description: "Name of the primary source document or organization" },
-        sourceUrl: { type: "string", description: "URL to the source" },
-        confidence: { type: "string", enum: ["high", "medium", "low"], description: "Confidence in the data quality" },
+        level: { type: ["number", "null"], description: "Severity level from -100 to 150. null if unknown." },
+        indicator: { type: "string", description: "What metric is being measured" },
+        value: { type: "string", description: "The actual data value with units" },
+        year: { type: ["integer", "null"], description: "Year of the data" },
+        target: { type: "string", description: "Goal or threshold to compare against" },
+        context: { type: "string", description: "2-3 sentences of context" },
+        source: { type: "string", description: "Full citation of the primary source" },
+        sourceUrl: { type: "string", description: "Direct URL to the source data" },
+        screenshot: { type: ["string", "null"], description: "Path to source screenshot image" },
+        confidence: {
+            type: "string",
+            enum: ["high", "medium", "low"],
+            description: "Confidence in the data quality and accuracy"
+        },
+        geographicScale: {
+            type: "string",
+            enum: ["city", "county", "metro", "state", "national", "global", "unknown"],
+            description: "Geographic level of the data"
+        },
         actions: {
             type: "array",
             items: { type: "string" },
             description: "3-5 concrete ways residents can get involved"
+        },
+        subIndicators: {
+            type: "array",
+            items: {
+                type: "object",
+                properties: {
+                    name: { type: "string" },
+                    value: { type: "string" },
+                    year: { type: "integer" },
+                    source: { type: "string" },
+                    sourceUrl: { type: "string" }
+                }
+            },
+            description: "Additional data points for this dimension"
         }
     },
     required: ["name", "indicator", "value", "source", "sourceUrl", "confidence"]
 };
 
-// JSON Schema for a full jurisdiction
-const JURISDICTION_SCHEMA = {
+// JSON Schema for city metadata
+const META_SCHEMA = {
     type: "object",
     properties: {
+        id: { type: "string", description: "URL-safe identifier" },
         name: { type: "string" },
+        region: { type: "string" },
+        country: { type: "string" },
         population: { type: "string" },
         description: { type: "string" },
+        coordinates: {
+            type: "object",
+            properties: {
+                lat: { type: "number" },
+                lng: { type: "number" }
+            }
+        },
+        lastUpdated: { type: "string", format: "date" },
+        contributors: { type: "array", items: { type: "string" } }
+    },
+    required: ["id", "name", "region", "country", "population"]
+};
+
+// JSON Schema for a full city portrait
+const PORTRAIT_SCHEMA = {
+    type: "object",
+    properties: {
+        meta: META_SCHEMA,
         ecological: { type: "array", items: DIMENSION_SCHEMA },
         social: { type: "array", items: DIMENSION_SCHEMA }
     },
-    required: ["name", "population", "ecological", "social"]
+    required: ["meta", "social", "ecological"]
 };
+
+// Template for creating a new city portrait with empty dimensions
+function createEmptyPortrait(id, name, region, country, population, description) {
+    const emptyDim = (dimName) => ({
+        name: dimName,
+        level: null,
+        indicator: "Data needed",
+        value: "Not yet researched",
+        year: null,
+        target: "",
+        context: "",
+        source: "",
+        sourceUrl: "",
+        confidence: "low",
+        geographicScale: "unknown",
+        actions: [],
+        subIndicators: []
+    });
+
+    return {
+        meta: {
+            id, name, region, country, population, description,
+            lastUpdated: new Date().toISOString().split('T')[0],
+            contributors: []
+        },
+        social: SOCIAL_DIMENSIONS.map(emptyDim),
+        ecological: ECOLOGICAL_DIMENSIONS.map(emptyDim)
+    };
+}
 
 module.exports = {
     SOCIAL_DIMENSIONS,
     ECOLOGICAL_DIMENSIONS,
     LEVEL_SCALE,
     DIMENSION_SCHEMA,
-    JURISDICTION_SCHEMA
+    META_SCHEMA,
+    PORTRAIT_SCHEMA,
+    createEmptyPortrait
 };
