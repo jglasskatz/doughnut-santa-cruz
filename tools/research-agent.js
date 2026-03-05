@@ -40,6 +40,8 @@ class DoughnutResearchAgent {
         });
         this.model = options.model || process.env.LLM_MODEL || "gpt-4o";
         this.verbose = options.verbose || false;
+        // NVIDIA and some providers don't support response_format
+        this.supportsJsonFormat = !((options.baseURL || process.env.LLM_BASE_URL || "").includes("nvidia"));
     }
 
     log(msg) {
@@ -76,10 +78,12 @@ Return ONLY valid JSON. No markdown, no explanation — just the JSON object.`;
                 { role: "user", content: prompt }
             ],
             temperature: 0.2,
-            response_format: { type: "json_object" }
+            ...(this.supportsJsonFormat ? { response_format: { type: "json_object" } } : {})
         });
 
-        const content = response.choices[0].message.content;
+        let content = response.choices[0].message.content;
+        // Strip markdown code fences if present
+        content = content.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim();
         try {
             const data = JSON.parse(content);
             this.log(`  Got: ${data.value} (${data.confidence} confidence)`);
@@ -142,10 +146,10 @@ Return ONLY valid JSON. No markdown, no explanation — just the JSON object.`;
         return results;
     }
 
-    async buildPortrait(city, state, population, description) {
+    async buildPortrait(city, state, population, description, options = {}) {
         this.log(`Building full portrait for ${city}, ${state}...`);
 
-        const data = await this.researchCity(city, state);
+        const data = await this.researchCity(city, state, options);
 
         return {
             name: city,

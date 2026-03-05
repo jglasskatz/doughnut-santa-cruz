@@ -124,7 +124,8 @@ async function main() {
         city,
         state,
         args.population,
-        args.description
+        args.description,
+        options
     );
 
     const format = args.format || "json";
