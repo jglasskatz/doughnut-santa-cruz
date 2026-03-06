@@ -1,0 +1,437 @@
+{
+  "meta": {
+    "id": "portland_or",
+    "name": "City of Portland",
+    "region": "Oregon",
+    "country": "US",
+    "population": "~643,000",
+    "description": "Largest city in Oregon. Known for sustainability leadership, urban growth boundary, and progressive climate policy. Home to a major tech sector and significant houselessness crisis.",
+    "coordinates": { "lat": 45.5152, "lng": -122.6784 },
+    "lastUpdated": "2026-03-05",
+    "contributors": ["Robo (AI research agent)"]
+  },
+  "social": [
+    {
+      "name": "food",
+      "level": 50,
+      "indicator": "Food insecurity rate",
+      "value": "1 in 4 Oregonians food insecure; Multnomah County ~14%",
+      "year": 2023,
+      "target": "Zero hunger",
+      "context": "Oregon Food Bank distributed 50M+ meals in 2023. Multnomah County food insecurity ~14%, driven by high cost of living. Portland has strong community garden and farm-to-table culture but significant disparities in east Portland.",
+      "source": "Oregon Food Bank / Feeding America",
+      "sourceUrl": "https://www.oregonfoodbank.org/",
+      "confidence": "medium",
+      "geographicScale": "county",
+      "actions": [
+        "Donate to Oregon Food Bank",
+        "Volunteer at community food pantries",
+        "Support SNAP enrollment outreach",
+        "Shop at Portland Farmers Markets to support local agriculture",
+        "Advocate for school meal programs"
+      ]
+    },
+    {
+      "name": "health",
+      "level": 0,
+      "indicator": "Uninsured rate",
+      "value": "5.9% uninsured",
+      "year": 2023,
+      "target": "Universal coverage",
+      "context": "Oregon expanded Medicaid (Oregon Health Plan) covering ~1.4M residents statewide. Portland's uninsured rate of 5.9% is below the national average (8.0%). Mental health and substance abuse are significant challenges, especially among houseless population.",
+      "source": "U.S. Census Bureau ACS via Data USA",
+      "sourceUrl": "https://datausa.io/profile/geo/portland-or/",
+      "confidence": "high",
+      "geographicScale": "city",
+      "actions": [
+        "Support Oregon Health Plan enrollment",
+        "Advocate for mental health funding",
+        "Support harm reduction programs",
+        "Volunteer with Outside In or Central City Concern"
+      ]
+    },
+    {
+      "name": "education",
+      "level": 0,
+      "indicator": "High school graduation rate",
+      "value": "83.6% (Portland Public Schools)",
+      "year": 2023,
+      "target": "90%+ graduation rate",
+      "context": "Portland Public Schools graduation rate of 83.6% is near the state average (82.5%). Significant achievement gaps by race: White 88%, Black 72%, Hispanic 74%, Native 63%. Strong higher education access with PSU, Reed, Lewis & Clark.",
+      "source": "Oregon Department of Education",
+      "sourceUrl": "https://www.oregon.gov/ode/reports-and-data/students/pages/cohort-graduation-rate.aspx",
+      "confidence": "high",
+      "geographicScale": "city",
+      "actions": [
+        "Volunteer as a tutor with SMART Reading",
+        "Support SUN Community Schools",
+        "Advocate for equitable school funding",
+        "Mentor students through Big Brothers Big Sisters"
+      ]
+    },
+    {
+      "name": "income & work",
+      "level": 50,
+      "indicator": "Poverty rate",
+      "value": "14.0% below poverty line; median income $88,792",
+      "year": 2023,
+      "target": "Below 10% poverty",
+      "context": "Median household income $88,792 but 14% in poverty. Cost of living index 130 (30% above national average). Tech sector creates high-wage jobs but service sector wages lag. Gig economy and housing costs strain working families.",
+      "source": "U.S. Census Bureau ACS via Data USA",
+      "sourceUrl": "https://datausa.io/profile/geo/portland-or/",
+      "confidence": "high",
+      "geographicScale": "city",
+      "actions": [
+        "Support living wage campaigns",
+        "Buy from locally owned businesses",
+        "Support workforce development at WorkSystems",
+        "Advocate for affordable childcare"
+      ]
+    },
+    {
+      "name": "housing",
+      "level": 100,
+      "indicator": "Homelessness rate & rent burden",
+      "value": "~6,300 unhoused (2024 PIT); median rent $1,600+",
+      "year": 2024,
+      "target": "Functional zero homelessness; <30% rent burden",
+      "context": "Portland-metro 2024 PIT count: ~6,300 unhoused, one of highest per capita on West Coast. Median property value $557,600. Homeownership 52.8%. Voters approved $652M housing bond. Rent stabilization (10%+CPI cap) since 2019. 47% of renters cost-burdened.",
+      "source": "Multnomah County Joint Office of Homeless Services; Census ACS",
+      "sourceUrl": "https://www.multco.us/johs",
+      "confidence": "high",
+      "geographicScale": "metro",
+      "actions": [
+        "Volunteer at shelters (Blanchet House, Union Gospel Mission)",
+        "Support the Metro Housing Bond",
+        "Advocate for tenant protections",
+        "Support transitional housing programs"
+      ]
+    },
+    {
+      "name": "water & sanitation",
+      "level": -50,
+      "indicator": "Drinking water quality",
+      "value": "Meets all EPA standards; Bull Run watershed protected",
+      "year": 2024,
+      "target": "Full EPA compliance",
+      "context": "Portland's water comes from the Bull Run watershed (unfiltered surface water) and Columbia South Shore wellfield. Consistently meets all federal standards. $500M filtration plant under construction (required by EPA LT2 rule). Lead service line replacement program underway.",
+      "source": "Portland Water Bureau",
+      "sourceUrl": "https://www.portland.gov/water/water-quality",
+      "confidence": "high",
+      "geographicScale": "city",
+      "actions": [
+        "Check your home for lead pipes — free testing available",
+        "Conserve water during summer months",
+        "Support Bull Run watershed protection",
+        "Properly dispose of household chemicals"
+      ]
+    },
+    {
+      "name": "energy",
+      "level": -25,
+      "indicator": "Renewable electricity & energy burden",
+      "value": "~40% renewable grid (hydro dominant); avg 12¢/kWh",
+      "year": 2024,
+      "target": "100% renewable by 2040 (HB 2021)",
+      "context": "Oregon's grid is ~40% renewable, dominated by hydropower. Portland General Electric committed to 100% clean by 2040. Average residential rate ~12¢/kWh (below national avg). Portland Clean Energy Fund (PCEF) — voter-approved 1% surcharge on large retailers — funds clean energy projects in frontline communities. $116M+ distributed.",
+      "source": "Portland General Electric; Portland Clean Energy Fund",
+      "sourceUrl": "https://www.portland.gov/bps/cleanenergy",
+      "confidence": "high",
+      "geographicScale": "city",
+      "actions": [
+        "Apply for PCEF-funded home weatherization",
+        "Switch to PGE Green Future renewable option",
+        "Install solar — Oregon has 25% state tax credit",
+        "Support community solar projects"
+      ],
+      "subIndicators": [
+        {
+          "name": "PCEF funding distributed",
+          "value": "$116M+ since 2020",
+          "year": 2024,
+          "source": "Portland Clean Energy Fund",
+          "sourceUrl": "https://www.portland.gov/bps/cleanenergy"
+        },
+        {
+          "name": "Residential solar capacity",
+          "value": "~150 MW installed (Multnomah County)",
+          "year": 2023,
+          "source": "Oregon Department of Energy",
+          "sourceUrl": "https://www.oregon.gov/energy"
+        },
+        {
+          "name": "Energy burden (low-income)",
+          "value": "~8-12% of income for lowest quintile",
+          "year": 2023,
+          "source": "ACEEE / DOE LEAD Tool",
+          "sourceUrl": "https://www.energy.gov/scep/low-income-energy-affordability-data-lead-tool"
+        }
+      ]
+    },
+    {
+      "name": "social equity",
+      "level": 50,
+      "indicator": "Gini coefficient",
+      "value": "0.48 (Multnomah County)",
+      "year": 2023,
+      "target": "Below 0.40",
+      "context": "Gini of 0.48 indicates significant inequality. Portland has a history of exclusionary zoning and redlining (Albina neighborhood). East Portland has lower incomes, fewer services, more renters. Racial wealth gap is stark: median white household wealth ~10x Black household wealth.",
+      "source": "U.S. Census Bureau ACS",
+      "sourceUrl": "https://datausa.io/profile/geo/portland-or/",
+      "confidence": "medium",
+      "geographicScale": "city",
+      "actions": [
+        "Support community land trusts (Proud Ground)",
+        "Advocate for equitable development in east Portland",
+        "Support BIPOC-owned businesses",
+        "Engage with the Portland Clean Energy Fund equity work"
+      ]
+    },
+    {
+      "name": "peace & justice",
+      "level": 50,
+      "indicator": "Violent crime rate",
+      "value": "6.7 per 1,000 residents",
+      "year": 2023,
+      "target": "Below national average (4.0/1,000)",
+      "context": "Portland saw a spike in violent crime 2020-2022, peaking at 101 homicides in 2022. Down to 68 in 2023. Property crime remains high. Gun violence disproportionately affects communities of color. Police staffing crisis (lowest per capita of any major US city).",
+      "source": "Portland Police Bureau; FBI UCR",
+      "sourceUrl": "https://www.portland.gov/police/open-data",
+      "confidence": "medium",
+      "geographicScale": "city",
+      "actions": [
+        "Support community violence intervention programs",
+        "Engage with Portland Street Response (alternative to police for crisis)",
+        "Support gun violence prevention organizations",
+        "Participate in neighborhood safety programs"
+      ]
+    },
+    {
+      "name": "political voice",
+      "level": -50,
+      "indicator": "Voter turnout",
+      "value": "78.4% (Nov 2024 general)",
+      "year": 2024,
+      "target": "Above 75% in general elections",
+      "context": "Oregon pioneered vote-by-mail (since 2000) and automatic voter registration (2016). Portland turnout consistently above state average. 2023: Portland adopted ranked-choice voting and new 4-district council system (first election Nov 2024).",
+      "source": "Multnomah County Elections; Oregon Secretary of State",
+      "sourceUrl": "https://multco.us/elections",
+      "confidence": "medium",
+      "geographicScale": "city",
+      "actions": [
+        "Vote in every election — ballots come by mail",
+        "Attend City Council meetings (new district-based system)",
+        "Join a neighborhood association",
+        "Support voter engagement in underrepresented communities"
+      ]
+    },
+    {
+      "name": "gender equality",
+      "level": 0,
+      "indicator": "Gender pay ratio",
+      "value": "Women earn 88¢ per $1 earned by men",
+      "year": 2023,
+      "target": "Pay equity (1:1)",
+      "context": "Oregon's Equal Pay Act (2017) is among the strongest in the US, prohibiting salary history inquiries. Portland metro gender pay ratio ~0.88. Gap wider for women of color (Latina women: 0.54, Black women: 0.64). Oregon was first state to pass equal pay legislation (1955).",
+      "source": "Bureau of Labor Statistics; Oregon Bureau of Labor and Industries",
+      "sourceUrl": "https://www.oregon.gov/boli/workers/pages/equal-pay.aspx",
+      "confidence": "medium",
+      "geographicScale": "metro",
+      "actions": [
+        "Support pay transparency in your workplace",
+        "Advocate for enforcement of Oregon Equal Pay Act",
+        "Support women-owned businesses",
+        "Mentor women and non-binary individuals in your field"
+      ]
+    },
+    {
+      "name": "networks",
+      "level": 0,
+      "indicator": "Broadband access",
+      "value": "95%+ households with broadband access",
+      "year": 2023,
+      "target": "Universal broadband access",
+      "context": "Portland has strong broadband infrastructure with multiple ISPs. City-owned fiber backbone (IRNE) serves institutional users. Digital equity gap persists in east Portland and among low-income households. City Digital Equity Action Plan adopted 2023.",
+      "source": "City of Portland Office for Community Technology",
+      "sourceUrl": "https://www.portland.gov/oct",
+      "confidence": "medium",
+      "geographicScale": "city",
+      "actions": [
+        "Support digital equity programs",
+        "Donate devices to Free Geek Portland",
+        "Advocate for community broadband options",
+        "Support library digital access programs"
+      ]
+    }
+  ],
+  "ecological": [
+    {
+      "name": "climate change",
+      "level": 50,
+      "indicator": "Per capita GHG emissions",
+      "value": "~7.2 MT CO2e/person (Multnomah County)",
+      "year": 2022,
+      "target": "Net zero by 2050; 50% reduction from 1990 by 2030",
+      "context": "Portland+Multnomah County emissions peaked in 2000, now 38% below 1990 levels (as of 2022). Transportation ~40%, buildings ~35%, industrial ~15%. Oregon's Climate Protection Program (CPP) caps fossil fuel emissions. Portland declared climate emergency 2020.",
+      "source": "City of Portland Bureau of Planning & Sustainability",
+      "sourceUrl": "https://www.portland.gov/bps/climate-action/progress-toward-carbon-reductions",
+      "confidence": "high",
+      "geographicScale": "county",
+      "actions": [
+        "Ride TriMet, bike, or walk — transportation is 40% of emissions",
+        "Switch to an EV — Oregon offers $2,500 rebate + federal credit",
+        "Weatherize your home (PCEF funding available)",
+        "Support the Climate Emergency Workplan"
+      ]
+    },
+    {
+      "name": "ocean acidification",
+      "level": 25,
+      "indicator": "Oregon coast ocean pH",
+      "value": "Regional monitoring (NOAA/OSU)",
+      "year": 2024,
+      "target": "Maintain pre-industrial ocean pH",
+      "context": "Oregon coast experiences severe seasonal upwelling that brings naturally acidic deep water to the surface. Combined with CO2 absorption, pH drops threaten Dungeness crab and oyster industries. Oregon Ocean Acidification Task Force formed 2019.",
+      "source": "Oregon State University / NOAA Pacific Marine Environmental Lab",
+      "sourceUrl": "https://www.pmel.noaa.gov/co2/story/Ocean+Acidification",
+      "confidence": "medium",
+      "geographicScale": "state",
+      "actions": [
+        "Reduce carbon footprint — CO2 drives acidification",
+        "Support Oregon ocean acidification research funding",
+        "Buy sustainable local seafood"
+      ]
+    },
+    {
+      "name": "chemical pollution",
+      "level": 25,
+      "indicator": "Superfund sites & toxic releases",
+      "value": "Portland Harbor Superfund (10-mile stretch of Willamette)",
+      "year": 2024,
+      "target": "Complete Superfund cleanup; reduce TRI releases",
+      "context": "Portland Harbor is one of the largest Superfund sites in the US — 10 miles of the Willamette River contaminated by decades of industrial pollution (PCBs, heavy metals, pesticides). EPA cleanup plan approved 2017, estimated $1B+ over 13 years. Industrial TRI releases declining.",
+      "source": "EPA / Portland Harbor Superfund",
+      "sourceUrl": "https://www.epa.gov/superfund/portland-harbor",
+      "confidence": "high",
+      "geographicScale": "city",
+      "actions": [
+        "Follow fish consumption advisories for the Willamette River",
+        "Support Portland Harbor cleanup advocacy (Willamette Riverkeeper)",
+        "Properly dispose of household chemicals",
+        "Support Right to Know initiatives for toxic releases"
+      ]
+    },
+    {
+      "name": "nitrogen & phosphorus loading",
+      "level": 25,
+      "indicator": "Nutrient loading in waterways",
+      "value": "Moderate — agricultural runoff in Willamette Basin",
+      "year": 2023,
+      "target": "Meet TMDLs for all waterways",
+      "context": "Willamette Basin has nutrient pollution from agricultural runoff (primarily upstream of Portland). Portland's stormwater management (Green Streets, bioswales) has reduced urban nutrient runoff significantly. Combined sewer overflow (CSO) largely resolved by $1.4B Big Pipe project (2011).",
+      "source": "Oregon DEQ / City of Portland Bureau of Environmental Services",
+      "sourceUrl": "https://www.portland.gov/bes/stormwater",
+      "confidence": "medium",
+      "geographicScale": "city",
+      "actions": [
+        "Install rain gardens or bioswales",
+        "Reduce fertilizer use on lawns",
+        "Support Friends of Trees and watershed council work",
+        "Properly maintain septic systems if applicable"
+      ]
+    },
+    {
+      "name": "freshwater withdrawals",
+      "level": -25,
+      "indicator": "Water supply sustainability",
+      "value": "Bull Run watershed: ample supply with climate risks",
+      "year": 2024,
+      "target": "Sustainable water supply under climate scenarios",
+      "context": "Portland's Bull Run watershed provides high-quality unfiltered water from 102 sq mi of protected forest. Annual rainfall ~135 inches. Climate models project summer flows declining 10-30% by 2050. Columbia South Shore wellfield provides backup. $500M filtration plant under construction.",
+      "source": "Portland Water Bureau",
+      "sourceUrl": "https://www.portland.gov/water/water-quality/bull-run-watershed",
+      "confidence": "high",
+      "geographicScale": "city",
+      "actions": [
+        "Conserve water during summer dry season",
+        "Install water-efficient fixtures",
+        "Support Bull Run watershed protection",
+        "Report water waste"
+      ]
+    },
+    {
+      "name": "land conversion",
+      "level": -50,
+      "indicator": "Urban growth boundary effectiveness",
+      "value": "UGB limits sprawl; 16,000+ acres of parks/natural areas",
+      "year": 2024,
+      "target": "Maintain UGB; increase urban canopy to 33%",
+      "context": "Oregon's Urban Growth Boundary (UGB, since 1973) is nationally unique — limits development sprawl. Metro manages the Portland-area UGB. Forest Park (5,200 acres) is one of largest urban forests in US. Urban tree canopy ~31%. Metro bond measures protect natural areas.",
+      "source": "Metro Regional Government; Portland Parks & Recreation",
+      "sourceUrl": "https://www.oregonmetro.gov/urban-growth-boundary",
+      "confidence": "high",
+      "geographicScale": "metro",
+      "actions": [
+        "Support Friends of Trees planting events",
+        "Volunteer in Forest Park with Forest Park Conservancy",
+        "Support Metro natural areas bond measures",
+        "Advocate for infill development over UGB expansion"
+      ]
+    },
+    {
+      "name": "biodiversity loss",
+      "level": 25,
+      "indicator": "Native species and habitat health",
+      "value": "Salmon runs declining; urban habitat fragmented",
+      "year": 2024,
+      "target": "Recover ESA-listed salmon; protect native habitats",
+      "context": "Multiple salmon and steelhead runs in the Willamette/Columbia are ESA-listed. Portland has restored significant urban habitat (Crystal Springs, Oaks Bottom, Johnson Creek). Climate change and urban development pressure native species. 200+ bird species recorded in Portland.",
+      "source": "Oregon Department of Fish & Wildlife; Portland Audubon",
+      "sourceUrl": "https://audubonportland.org/",
+      "confidence": "medium",
+      "geographicScale": "city",
+      "actions": [
+        "Support Portland Audubon habitat restoration",
+        "Plant native species in your yard",
+        "Support salmon recovery efforts",
+        "Reduce pesticide use"
+      ]
+    },
+    {
+      "name": "air pollution",
+      "level": 0,
+      "indicator": "PM2.5 annual average",
+      "value": "7.2 µg/m³ (2023); wildfire spikes to 200+ AQI",
+      "year": 2023,
+      "target": "WHO guideline: 5 µg/m³ (2021 revised)",
+      "context": "Meets EPA standard (12 µg/m³) but exceeds revised WHO guideline (5). Wildfire smoke is the dominant concern — Sept 2020 smoke event was worst air quality in the world (AQI 500+). 2023 Canadian wildfire smoke also impacted Portland. Industrial emissions from NW Portland (Esco foundry) are a local environmental justice concern.",
+      "source": "Oregon DEQ; EPA AirNow",
+      "sourceUrl": "https://www.oregon.gov/deq/aq/pages/default.aspx",
+      "confidence": "high",
+      "geographicScale": "city",
+      "actions": [
+        "Check AQI daily during fire season (airnow.gov)",
+        "Support wildfire prevention funding",
+        "Use HEPA filters during smoke events",
+        "Advocate for industrial emission reductions in NW Portland"
+      ]
+    },
+    {
+      "name": "ozone layer depletion",
+      "level": -100,
+      "indicator": "Stratospheric ozone",
+      "value": "Global issue — recovering",
+      "year": 2024,
+      "target": "Full recovery by ~2066",
+      "context": "Montreal Protocol success story. Ozone layer recovering globally. Local contribution minimal.",
+      "source": "NOAA / EPA",
+      "sourceUrl": "https://www.epa.gov/ozone-layer-protection",
+      "confidence": "high",
+      "geographicScale": "global",
+      "actions": [
+        "Properly dispose of old refrigerants and AC units",
+        "Use climate-friendly refrigerants"
+      ]
+    }
+  ]
+}
