@@ -6,6 +6,27 @@ let currentData = null;
 // Map dimension names to data objects for detail panel lookup
 let dimensionDataMap = {};
 
+// --- Dark mode ---
+function toggleTheme() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    document.getElementById('themeIcon').innerHTML = isDark ? '&#9788;' : '&#9790;';
+    // Reload doughnut to pick up canvas background
+    loadDoughnut(currentJurisdiction);
+}
+
+// Init theme from localStorage
+(function initTheme() {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        const icon = document.getElementById('themeIcon');
+        if (icon) icon.innerHTML = '&#9788;';
+    }
+})();
+
+// --- Status helpers ---
 function getStatusClass(level) {
     if (typeof level === 'string' || isNaN(level)) return 'status-unknown';
     if (level <= -50) return 'status-good';
@@ -25,6 +46,30 @@ function getStatusLabel(level) {
     return 'Severe';
 }
 
+// --- Summary strip ---
+function updateSummaryStrip(data) {
+    const strip = document.getElementById('summaryStrip');
+    if (!strip) return;
+
+    const all = [...(data.social || []), ...(data.ecological || [])];
+    let good = 0, caution = 0, bad = 0, unknown = 0;
+    all.forEach(d => {
+        const l = d.level;
+        if (typeof l !== 'number' || isNaN(l)) unknown++;
+        else if (l <= 0) good++;
+        else if (l <= 50) caution++;
+        else bad++;
+    });
+
+    strip.innerHTML = `
+        <span class="summary-chip chip-good">${good} thriving</span>
+        <span class="summary-chip chip-caution">${caution} needs attention</span>
+        <span class="summary-chip chip-bad">${bad} critical</span>
+        ${unknown ? `<span class="summary-chip chip-unknown">${unknown} unknown</span>` : ''}
+    `;
+}
+
+// --- Load doughnut ---
 function loadDoughnut(jurisdictionKey) {
     currentJurisdiction = jurisdictionKey;
     currentData = JURISDICTIONS[jurisdictionKey];
@@ -48,7 +93,6 @@ function loadDoughnut(jurisdictionKey) {
 
     // Add social foundation (inner) dimensions
     currentData.social.forEach(dim => {
-        // Invert level for inner ring: positive values = shortfall (bad, shows inside doughnut)
         dimensionDataMap['inner:' + dim.name] = { ...dim, ring: 'social' };
         myDonut.addDimension("inner", dim.name, dim.level, "");
     });
@@ -59,6 +103,9 @@ function loadDoughnut(jurisdictionKey) {
         myDonut.addDimension("outer", dim.name, dim.level, "");
     });
 
+    // Update summary
+    updateSummaryStrip(currentData);
+
     // Hide detail panel content
     document.getElementById('detailEmpty').style.display = 'flex';
     document.getElementById('detailContent').style.display = 'none';
@@ -67,6 +114,7 @@ function loadDoughnut(jurisdictionKey) {
     setupClickInterceptor();
 }
 
+// --- Detail panel ---
 function showDetail(dimType, dimName) {
     const key = dimType + ':' + dimName;
     const data = dimensionDataMap[key];
@@ -87,10 +135,10 @@ function showDetail(dimType, dimName) {
     // Severity bar
     if (typeof data.level === 'number' && !isNaN(data.level)) {
         const pct = Math.min(100, Math.max(0, (data.level + 100) / 2.5));
-        const barColor = data.level <= -50 ? '#4a8c1c' : data.level <= 0 ? '#a8d65c' : data.level <= 50 ? '#f0c929' : data.level <= 100 ? '#e17055' : '#d63031';
-        html += '<div class="detail-bar">';
-        html += `<div style="background:#eee;border-radius:4px;height:8px;margin-bottom:0.5rem;"><div style="width:${pct}%;height:100%;border-radius:4px;background:${barColor};transition:width 0.3s;"></div></div>`;
-        html += '</div>';
+        const barColor = data.level <= -50 ? '#22c55e' : data.level <= 0 ? '#84cc16' : data.level <= 50 ? '#eab308' : data.level <= 100 ? '#ef4444' : '#dc2626';
+        html += `<div style="background:var(--border);border-radius:4px;height:6px;margin-bottom:0.75rem;overflow:hidden;">`;
+        html += `<div style="width:${pct}%;height:100%;border-radius:4px;background:${barColor};transition:width 0.4s ease;"></div>`;
+        html += `</div>`;
     }
 
     // Metric card
@@ -107,9 +155,9 @@ function showDetail(dimType, dimName) {
         html += '<div class="detail-source">';
         html += '<h4>Primary Source</h4>';
         if (data.sourceUrl) {
-            html += `<a href="${data.sourceUrl}" target="_blank">${data.source}</a>`;
+            html += `<a href="${data.sourceUrl}" target="_blank" rel="noopener">${data.source}</a>`;
         } else {
-            html += `<span style="font-size:0.9rem">${data.source}</span>`;
+            html += `<span style="font-size:0.85rem;color:var(--text-muted)">${data.source}</span>`;
         }
         if (data.screenshot) {
             html += `<img class="source-screenshot" src="${data.screenshot}" alt="Source document" onclick="openLightbox('${data.screenshot}')">`;
@@ -129,6 +177,11 @@ function showDetail(dimType, dimName) {
         html += '</div>';
     }
 
+    // AI Research button
+    const cityName = currentData.name.replace(/^City of /, '');
+    const stateName = 'California'; // TODO: make dynamic for non-CA cities
+    html += AgentUI.renderResearchButton(data.name, data.ring, cityName, stateName);
+
     content.innerHTML = html;
     document.getElementById('detailEmpty').style.display = 'none';
     content.style.display = 'block';
@@ -144,13 +197,10 @@ document.getElementById('lightbox').addEventListener('click', () => {
     document.getElementById('lightbox').classList.remove('active');
 });
 
-// Poll for doughnut clicks since the library uses its own event system
-// We override the canvas click handler to intercept dimension selections
+// Intercept canvas clicks for dimension detail
 function setupClickInterceptor() {
     const canvas = document.getElementById('doughnutCanvas');
-
-    canvas.addEventListener('click', (e) => {
-        // After the doughnut library processes the click, check what's selected
+    canvas.addEventListener('click', () => {
         setTimeout(() => {
             const dim = myDonut.getSelectedDimension();
             if (dim) {
@@ -167,12 +217,13 @@ document.querySelectorAll('.jurisdiction-btn').forEach(btn => {
     });
 });
 
-// Keyboard shortcuts for switching (only when not in an input)
+// Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
     if (e.key === '1') loadDoughnut('city_santa_cruz');
     if (e.key === '2') loadDoughnut('santa_cruz_county');
     if (e.key === '3') loadDoughnut('watsonville');
+    if (e.key === 'd') toggleTheme();
 });
 
 // Initialize
