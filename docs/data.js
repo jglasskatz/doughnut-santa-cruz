@@ -160,6 +160,24 @@ const JURISDICTIONS = {
                     "Properly dispose of old refrigerators and AC units",
                     "Use climate-friendly refrigerants"
                 ]
+            },
+            {
+                name: "waste & materials",
+                level: 0,
+                indicator: "Landfill diversion rate",
+                value: "~75% diverted (~25% to landfill)",
+                year: 2024,
+                target: "Zero Waste (long-term county goal)",
+                context: "County-wide 75% diversion target (set 2005, met by 2010). City operates Resource Recovery Facility at 605 Dimeo Lane. SB 1383 (2022) requires curbside organics collection. City-specific diversion rate not separately published from county.",
+                source: "City of Santa Cruz Resource Recovery; Santa Cruz County Public Works",
+                sourceUrl: "https://www.santacruzca.gov/Government/City-Departments/Public-Works/Resource-Recovery",
+                screenshot: null,
+                actions: [
+                    "Use the green bin — compost food scraps and yard waste (SB 1383)",
+                    "Repair and reuse before replacing — visit the Fixit Clinic",
+                    "Refuse single-use plastics; bring reusable bags and containers",
+                    "Donate usable items to Grey Bears, Goodwill, or local thrift stores"
+                ]
             }
         ],
         social: [
@@ -517,6 +535,24 @@ const JURISDICTIONS = {
                 sourceUrl: "https://www.epa.gov/ozone-layer-protection",
                 screenshot: null,
                 actions: ["Properly dispose of old refrigerants"]
+            },
+            {
+                name: "waste & materials",
+                level: 0,
+                indicator: "Landfill diversion rate",
+                value: "~75% diverted (~25% to landfill)",
+                year: 2024,
+                target: "Zero Waste (long-term goal)",
+                context: "County met 75% diversion target (set 2005). Buena Vista Drive Sanitary Landfill is primary facility. Solid waste = 8.3% of county GHG (32,700 MT CO2e in 2018). SB 1383 organics collection required.",
+                source: "Santa Cruz County Public Works; CalRecycle",
+                sourceUrl: "https://cdi.santacruzcountyca.gov/PublicWorks/RecyclingSolidWaste.aspx",
+                screenshot: null,
+                actions: [
+                    "Compost food and yard waste in the green bin",
+                    "Reduce single-use packaging; choose bulk and refill",
+                    "Donate or repair before discarding",
+                    "Support extended landfill life through diversion"
+                ]
             }
         ],
         social: [
@@ -783,6 +819,24 @@ const JURISDICTIONS = {
                 sourceUrl: "https://www.epa.gov/ozone-layer-protection",
                 screenshot: null,
                 actions: ["Properly dispose of old refrigerants"]
+            },
+            {
+                name: "waste & materials",
+                level: 50,
+                indicator: "Solid waste & diversion",
+                value: "City-specific diversion rate not published",
+                year: 2024,
+                target: "Extend landfill life; meet SB 1383 organics targets",
+                context: "Watsonville operates its own landfill and waste collection — one of the first US cities to implement mixed recyclable collection. Solid waste = 8% of city GHG (2017). SB 1383 organics collection now required. City goal: extend landfill life through recycling.",
+                source: "City of Watsonville Solid Waste Division",
+                sourceUrl: "https://www.watsonville.gov/1180/Solid-Waste-Division",
+                screenshot: null,
+                actions: [
+                    "Use the green bin for food scraps (SB 1383)",
+                    "Recycle correctly — Watsonville pioneered mixed-stream collection",
+                    "Reduce single-use plastics, especially from agricultural packaging",
+                    "Repair, reuse, and donate to extend landfill life"
+                ]
             }
         ],
         social: [
