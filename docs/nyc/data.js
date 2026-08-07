@@ -134,7 +134,7 @@ const JURISDICTIONS = {
         ]
       },
       {
-        "name": "extreme-heat",
+        "name": "Extreme Heat",
         "level": 148,
         "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
         "value": "41.9% of residents",
@@ -485,7 +485,7 @@ const JURISDICTIONS = {
         ]
       },
       {
-        "name": "extreme-heat",
+        "name": "Extreme Heat",
         "level": 147.8,
         "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
         "value": "15.58% of residents",
@@ -836,7 +836,7 @@ const JURISDICTIONS = {
         ]
       },
       {
-        "name": "extreme-heat",
+        "name": "Extreme Heat",
         "level": 147.8,
         "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
         "value": "56.9% of residents",
@@ -1187,7 +1187,7 @@ const JURISDICTIONS = {
         ]
       },
       {
-        "name": "extreme-heat",
+        "name": "Extreme Heat",
         "level": 147.8,
         "indicator": "Heat-exacerbated deaths per year (NYC citywide, carried at regional scale)",
         "value": "489 deaths/year",
@@ -1533,7 +1533,7 @@ const JURISDICTIONS = {
         ]
       },
       {
-        "name": "extreme-heat",
+        "name": "Extreme Heat",
         "level": 147.8,
         "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
         "value": "89.2% of residents",
@@ -1879,7 +1879,7 @@ const JURISDICTIONS = {
         ]
       },
       {
-        "name": "extreme-heat",
+        "name": "Extreme Heat",
         "level": 147.8,
         "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
         "value": "8.4% of residents",
