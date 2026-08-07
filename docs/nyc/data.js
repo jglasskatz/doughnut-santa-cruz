@@ -25,9 +25,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Ocean Acidification",
-        "level": null,
+        "level": 113.67,
+        "indicator": "Coastal aragonite saturation state (Ω)",
+        "value": "1.09 Ω aragonite",
+        "year": 2022,
+        "target": "3 Ω aragonite",
         "context": "",
-        "screenshot": null,
+        "source": "Barrett, L.J., Vlahos, P., McGuinness, M.A., Whitney, M.M., Vaudrey, J.M.P. (2024). \"Droughts and deluges: changes in river discharge and the carbonate chemistry of an urbanized temperate estuary,\" Frontiers in Marine Science 11:1398087.",
+        "sourceUrl": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2024.1398087/full",
+        "screenshot": "img/nyc_250b7ef66c0e.png",
         "actions": [
           "Join the Billion Oyster Project — oyster reefs buffer local acidification and restore harbor ecology.",
           "Support the state's Ocean Acidification Task Force recommendations for New York coastal waters."
@@ -62,9 +68,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Freshwater Withdrawals",
-        "level": null,
+        "level": 150,
+        "indicator": "Citywide water consumption per capita",
+        "value": "118.19 gallons per capita per day",
+        "year": 2024,
+        "target": "55 gallons per capita per day",
         "context": "",
-        "screenshot": null,
+        "source": "NYC DEP, \"Water Consumption in the City of New York\" (NYC Open Data dataset ia2d-e54m)",
+        "sourceUrl": "https://data.cityofnewyork.us/Environment/Water-Consumption-in-the-City-of-New-York/ia2d-e54m",
+        "screenshot": "img/nyc_23e8469f49e4.png",
         "actions": [
           "Request free water-saving fixtures through DEP's conservation programs.",
           "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
@@ -78,9 +90,9 @@ const JURISDICTIONS = {
         "year": 2021,
         "target": "30% of land area",
         "context": "",
-        "source": "Growing Greener: The State of Tree Canopy in New York City, 2017–2021 (The Nature Conservancy, NY Cities Program, with University of Vermont Spatial Analysis Lab; developed with NYC Dept. of Parks & Recreation subject-matter input)",
+        "source": "The Nature Conservancy, \"Growing Greener: The State of Tree Canopy in New York City, 2017-2021\" (June 30, 2026)",
         "sourceUrl": "https://www.nature.org/en-us/newsroom/growing-greener-report/",
-        "screenshot": null,
+        "screenshot": "img/nyc_c529e38f1d83.png",
         "actions": [
           "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
           "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
@@ -119,15 +131,6 @@ const JURISDICTIONS = {
           "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
-        ]
-      },
-      {
-        "name": "Ozone Layer Depletion",
-        "level": null,
-        "context": "",
-        "screenshot": null,
-        "actions": [
-          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
         ]
       }
     ],
@@ -202,9 +205,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Water & Sanitation",
-        "level": null,
+        "level": 0,
+        "indicator": "Population served by water systems with no health-based violations",
+        "value": "100% of served population",
+        "year": 2025,
+        "target": "100% of served population",
         "context": "",
-        "screenshot": null,
+        "source": "New York State Department of Health, 2025 Annual Report of Public Water Supply Violations — New York City system report (sourced from SDWIS/State, the state instance of EPA's Safe Drinking Water Information System)",
+        "sourceUrl": "https://www.health.ny.gov/environmental/water/drinking/violations/2025/new_york_city_compliance_report.htm",
+        "screenshot": "img/nyc_83c233dc3da4.png",
         "actions": [
           "Get your free lead service line inspection — DEP publishes line materials by address and replaces lead lines at no cost in many cases.",
           "Report water quality concerns to 311; every complaint feeds the DEP monitoring system.",
@@ -335,13 +344,13 @@ const JURISDICTIONS = {
         "name": "Climate Change",
         "level": 150,
         "indicator": "Community greenhouse gas emissions per capita",
-        "value": "12 tCO2e per resident per year",
-        "year": 2019,
+        "value": "5.66 tCO2e per resident per year",
+        "year": 2024,
         "target": "2.5 tCO2e per resident per year",
         "context": "",
-        "source": "NYC Mayor's Office of Climate & Environmental Justice — NYC Household Consumption-Based GHG Emissions Inventory (2019), Table 4, borough emissions comparison",
-        "sourceUrl": "https://www.nyc.gov/assets/climate/downloads/pdfs/NYC-Household-Consumption-GHG-Emissions-Inventory.pdf",
-        "screenshot": "img/manhattan_1baabad8bf17.png",
+        "source": "NYC Comptroller Climate Dashboard — Emissions (citywide total, republishing MOCEJ GHG inventory data) ÷ U.S. Census Bureau Vintage 2024 Population Estimate",
+        "sourceUrl": "https://comptroller.nyc.gov/services/for-the-public/nyc-climate-dashboard/emissions/",
+        "screenshot": "img/manhattan_e578fa53e32b.png",
         "actions": [
           "If you own or manage a building over 25,000 sq ft, start Local Law 97 compliance now — caps tighten sharply in 2030.",
           "Enroll in community solar: renters and co-op owners can cut bills without owning a roof.",
@@ -456,15 +465,6 @@ const JURISDICTIONS = {
           "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
-        ]
-      },
-      {
-        "name": "Ozone Layer Depletion",
-        "level": null,
-        "context": "",
-        "screenshot": null,
-        "actions": [
-          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
         ]
       }
     ],
@@ -584,15 +584,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Housing",
-        "level": 126.9,
+        "level": 150,
         "indicator": "Renter households paying over 30% of income on housing",
         "value": "46.2% of renter households",
         "year": 2024,
         "target": "30% of renter households",
         "context": "",
-        "source": "U.S. Census Bureau, 2024 ACS 1-Year Estimates, Table B25070 (Gross Rent as a Percentage of Household Income in the Past 12 Months), New York County, NY",
-        "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B25070?g=050XX00US36061",
-        "screenshot": "img/manhattan_4210a4fd3c4c.png",
+        "source": "NYC Rent Guidelines Board, \"2026 Income and Affordability Study\" (April 16, 2026), citing 2024 American Community Survey data",
+        "sourceUrl": "https://rentguidelinesboard.cityofnewyork.us/wp-content/uploads/2026/04/2026-IA.pdf",
+        "screenshot": "img/manhattan_b66456d32bad.png",
         "actions": [
           "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
           "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
@@ -693,9 +693,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Ocean Acidification",
-        "level": null,
+        "level": 113.67,
+        "indicator": "Coastal aragonite saturation state (Ω)",
+        "value": "1.09 Ω aragonite",
+        "year": 2022,
+        "target": "3 Ω aragonite",
         "context": "",
-        "screenshot": null,
+        "source": "Barrett, L.J., Vlahos, P., McGuinness, M.A., Whitney, M.M., & Vaudrey, J.M.P. (2024). \"Droughts and deluges: changes in river discharge and the carbonate chemistry of an urbanized temperate estuary.\" Frontiers in Marine Science, 11.",
+        "sourceUrl": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2024.1398087/full",
+        "screenshot": "img/brooklyn_250b7ef66c0e.png",
         "actions": [
           "Join the Billion Oyster Project — oyster reefs buffer local acidification and restore harbor ecology.",
           "Support the state's Ocean Acidification Task Force recommendations for New York coastal waters."
@@ -730,9 +736,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Freshwater Withdrawals",
-        "level": null,
+        "level": 150,
+        "indicator": "Residential water use (citywide per-capita water demand, carried at regional scale)",
+        "value": "118.19 gallons per capita per day",
+        "year": 2024,
+        "target": "55 gallons per capita per day",
         "context": "",
-        "screenshot": null,
+        "source": "NYC Department of Environmental Protection, \"Water Consumption in the City of New York\" (NYC Open Data, dataset ia2d-e54m)",
+        "sourceUrl": "https://data.cityofnewyork.us/Environment/Water-Consumption-In-The-New-York-City/ia2d-e54m",
+        "screenshot": "img/brooklyn_11ddf88c50b1.png",
         "actions": [
           "Request free water-saving fixtures through DEP's conservation programs.",
           "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
@@ -746,9 +758,9 @@ const JURISDICTIONS = {
         "year": 2021,
         "target": "30% of land area",
         "context": "",
-        "source": "The Nature Conservancy, \"Growing Greener: The State of Tree Canopy in New York City, 2017-2021\" (report summary page)",
-        "sourceUrl": "https://www.nature.org/en-us/newsroom/growing-greener-report/",
-        "screenshot": "img/brooklyn_c529e38f1d83.png",
+        "source": "NYC Urban Forest Plan (Mayor's Office of Climate & Environmental Justice), citing 2021 LiDAR-based tree canopy assessment (The Nature Conservancy 'Growing Greener' analysis)",
+        "sourceUrl": "https://www.urbanforestplan.nyc/",
+        "screenshot": "img/brooklyn_94ed9eaacf15.png",
         "actions": [
           "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
           "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
@@ -788,15 +800,6 @@ const JURISDICTIONS = {
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
         ]
-      },
-      {
-        "name": "Ozone Layer Depletion",
-        "level": null,
-        "context": "",
-        "screenshot": null,
-        "actions": [
-          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
-        ]
       }
     ],
     "social": [
@@ -819,15 +822,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Health",
-        "level": 32,
-        "indicator": "Residents without health insurance",
-        "value": "5.8% of residents",
-        "year": 2024,
-        "target": "5% of residents",
+        "level": 1.92,
+        "indicator": "Life expectancy at birth, Brooklyn (2013-2022 pooled)",
+        "value": "82.2 years",
+        "year": 2022,
+        "target": "83 years",
         "context": "",
-        "source": "New York State Department of Health, \"Kings County Health Indicators by Race and Ethnicity, 2021-2023\" (indicator row: Percentage of population with no health insurance, 2020-2024 ACS 5-year window)",
-        "sourceUrl": "https://www.health.ny.gov/community/health_equity/reports/county/kings.htm",
-        "screenshot": "img/brooklyn_7844b346a838.png",
+        "source": "NYC DOHMH Community Health Profiles — Public Use Dataset (CHP PUD), 2026 release",
+        "sourceUrl": "https://www.nyc.gov/assets/doh/downloads/excel/episrv/2026-chp-pud.xlsx",
+        "screenshot": "img/brooklyn_c18c5df76f20.png",
         "actions": [
           "Enroll in low- or no-cost coverage through NYC Care regardless of immigration status (nyccare.nyc).",
           "Comment on the HealthyNYC plan — the city is legally bound (Local Law 93) to close life-expectancy gaps, and public input shapes the update cycle.",
@@ -915,15 +918,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Housing",
-        "level": 123.3,
+        "level": 150,
         "indicator": "Renter households paying over 30% of income on housing",
         "value": "49.4% of renter households",
         "year": 2024,
         "target": "30% of renter households",
         "context": "",
-        "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B25070 (Gross Rent as a Percentage of Household Income in the Past 12 Months), Kings County, NY",
-        "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B25070?g=050XX00US36047",
-        "screenshot": "img/brooklyn_80053b1cb05d.png",
+        "source": "NYC Rent Guidelines Board, 2026 Income and Affordability Study (Apr. 16, 2026), citing 2024 American Community Survey",
+        "sourceUrl": "https://rentguidelinesboard.cityofnewyork.us/wp-content/uploads/2026/04/2026-IA.pdf",
+        "screenshot": "img/brooklyn_b66456d32bad.png",
         "actions": [
           "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
           "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
@@ -1024,9 +1027,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Ocean Acidification",
-        "level": null,
+        "level": 113.67,
+        "indicator": "Coastal aragonite saturation state (Ω)",
+        "value": "1.09 Ω aragonite",
+        "year": 2022,
+        "target": "3 Ω aragonite",
         "context": "",
-        "screenshot": null,
+        "source": "Barrett, L.J., Vlahos, P., McGuinness, M.A., Whitney, M.M., & Vaudrey, J.M.P. (2024). \"Droughts and deluges: changes in river discharge and the carbonate chemistry of an urbanized temperate estuary.\" Frontiers in Marine Science, 11, 1398087.",
+        "sourceUrl": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2024.1398087/full",
+        "screenshot": "img/queens_250b7ef66c0e.png",
         "actions": [
           "Join the Billion Oyster Project — oyster reefs buffer local acidification and restore harbor ecology.",
           "Support the state's Ocean Acidification Task Force recommendations for New York coastal waters."
@@ -1061,9 +1070,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Freshwater Withdrawals",
-        "level": null,
+        "level": 150,
+        "indicator": "Residential water use (citywide total per-capita water demand)",
+        "value": "118.19 gallons per capita per day",
+        "year": 2024,
+        "target": "55 gallons per capita per day",
         "context": "",
-        "screenshot": null,
+        "source": "NYC Department of Environmental Protection — \"Water Consumption in the City of New York\" (NYC Open Data, dataset ia2d-e54m)",
+        "sourceUrl": "https://data.cityofnewyork.us/Environment/Water-Consumption-in-the-City-of-New-York/ia2d-e54m",
+        "screenshot": "img/queens_23e8469f49e4.png",
         "actions": [
           "Request free water-saving fixtures through DEP's conservation programs.",
           "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
@@ -1077,9 +1092,9 @@ const JURISDICTIONS = {
         "year": 2021,
         "target": "30% of land area",
         "context": "",
-        "source": "NYC Urban Forest Plan (Mayor's Office of Climate & Environmental Justice, April 2026) — borough canopy-cover table, 2021 LiDAR data",
-        "sourceUrl": "https://www.nyc.gov/assets/climate/downloads/pdfs/NYC-Urban-Forest-Plan-2026.pdf",
-        "screenshot": "img/queens_914f7ccb8c0e.png",
+        "source": "NYC Urban Forest Plan (2026), Mayor's Office of Climate & Environmental Justice and NYC Parks — citywide and per-borough tree canopy cover, 2021 LiDAR data",
+        "sourceUrl": "https://report.urbanforestplan.nyc/NYC-Urban-Forest-Plan-2026.pdf",
+        "screenshot": "img/queens_3770e94861f4.png",
         "actions": [
           "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
           "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
@@ -1118,15 +1133,6 @@ const JURISDICTIONS = {
           "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
-        ]
-      },
-      {
-        "name": "Ozone Layer Depletion",
-        "level": null,
-        "context": "",
-        "screenshot": null,
-        "actions": [
-          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
         ]
       }
     ],
@@ -1246,15 +1252,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Housing",
-        "level": 130.1,
+        "level": 139.95,
         "indicator": "Renter households paying over 30% of income on housing",
         "value": "52.6% of renter households",
         "year": 2024,
         "target": "30% of renter households",
         "context": "",
-        "source": "NYU Furman Center, NYC Neighborhood Data Profiles — Queens (borough), 'Renters and Rental Conditions' section (total rent-burdened = moderately rent-burdened 24.6% + severely rent-burdened 28.0%), based on American Community Survey 1-year PUMS-derived tabulations",
-        "sourceUrl": "https://www.furmancenter.org/neighborhoods/queens/",
-        "screenshot": "img/queens_0f5afe4f5f00.png",
+        "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B25070 (Gross Rent as a Percentage of Household Income in the Past 12 Months), Queens County, NY",
+        "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B25070?g=0500000US36081",
+        "screenshot": "img/queens_bc663d677b64.png",
         "actions": [
           "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
           "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
@@ -1414,15 +1420,9 @@ const JURISDICTIONS = {
       },
       {
         "name": "Land Conversion",
-        "level": 44,
-        "indicator": "NYC tree canopy cover (citywide baseline for Bronx portrait)",
-        "value": "23.4% of land area",
-        "year": 2021,
-        "target": "30% of land area",
+        "level": null,
         "context": "",
-        "source": "The Nature Conservancy, 'Growing Greener: The State of Tree Canopy in New York City, 2017–2021' (the LiDAR-based study underlying the NYC Urban Forest Plan's 23.4% citywide 2021 baseline)",
-        "sourceUrl": "https://www.nature.org/en-us/newsroom/growing-greener-report/",
-        "screenshot": "img/bronx_c529e38f1d83.png",
+        "screenshot": null,
         "actions": [
           "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
           "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
@@ -1462,15 +1462,6 @@ const JURISDICTIONS = {
           "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
-        ]
-      },
-      {
-        "name": "Ozone Layer Depletion",
-        "level": null,
-        "context": "",
-        "screenshot": null,
-        "actions": [
-          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
         ]
       }
     ],
@@ -1593,13 +1584,13 @@ const JURISDICTIONS = {
         "name": "Housing",
         "level": 150,
         "indicator": "Renter households paying over 30% of income on housing",
-        "value": "61.18% of renter households",
+        "value": "61.2% of renter households",
         "year": 2024,
         "target": "30% of renter households",
         "context": "",
-        "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B25070 'Gross Rent as a Percentage of Household Income in the Past 12 Months', universe: renter-occupied housing units, Bronx County, NY (GEOID 05000US36005)",
-        "sourceUrl": "https://api.censusreporter.org/1.0/data/show/latest?table_ids=B25070&geo_ids=05000US36005",
-        "screenshot": null,
+        "source": "U.S. Census Bureau — American Community Survey 2024 1-Year Estimates, Table B25070 (Gross Rent as a Percentage of Household Income in the Past 12 Months), Bronx County, NY (accessed via Census Reporter API/table view, a documented pass-through of the Bureau's own ACS estimates)",
+        "sourceUrl": "https://censusreporter.org/data/table/?table=B25070&geo_ids=05000US36005&primary_geo_id=05000US36005",
+        "screenshot": "img/bronx_f73e0fdb413c.png",
         "actions": [
           "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
           "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
@@ -1737,9 +1728,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Freshwater Withdrawals",
-        "level": null,
+        "level": 150,
+        "indicator": "Per capita water consumption (NYC citywide, carried at regional scale for Staten Island)",
+        "value": "118.19 gallons per capita per day",
+        "year": 2024,
+        "target": "55 gallons per capita per day",
         "context": "",
-        "screenshot": null,
+        "source": "NYC Department of Environmental Protection, \"Water Consumption in the City of New York\" (NYC Open Data, dataset ia2d-e54m)",
+        "sourceUrl": "https://data.cityofnewyork.us/Environment/Water-Consumption-In-The-New-York-City/ia2d-e54m",
+        "screenshot": "img/staten-island_11ddf88c50b1.png",
         "actions": [
           "Request free water-saving fixtures through DEP's conservation programs.",
           "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
@@ -1747,15 +1744,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Land Conversion",
-        "level": 1.88,
-        "indicator": "Tree canopy cover — Staten Island",
+        "level": 1.42,
+        "indicator": "Tree canopy cover",
         "value": "33.1% of land area",
         "year": 2021,
         "target": "30% of land area",
         "context": "",
-        "source": "NYC Mayor's Office of Climate & Environmental Justice — NYC Urban Forest Plan (Apr 2026), borough canopy-cover table ('Canopy cover NYC-wide and by borough, 2021')",
-        "sourceUrl": "https://www.nyc.gov/content/climate/pages/news/urban-forest-plan-pr",
-        "screenshot": "img/staten-island_b4aac592cfd5.png",
+        "source": "NYC Urban Forest Plan (Mayor's Office of Climate & Environmental Justice, April 2026)",
+        "sourceUrl": "https://www.nyc.gov/assets/climate/downloads/pdfs/NYC-Urban-Forest-Plan-2026.pdf",
+        "screenshot": "img/staten-island_914f7ccb8c0e.png",
         "actions": [
           "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
           "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
@@ -1795,15 +1792,6 @@ const JURISDICTIONS = {
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
         ]
-      },
-      {
-        "name": "Ozone Layer Depletion",
-        "level": null,
-        "context": "",
-        "screenshot": null,
-        "actions": [
-          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
-        ]
       }
     ],
     "social": [
@@ -1826,15 +1814,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Health",
-        "level": -8,
-        "indicator": "Residents without health insurance",
-        "value": "4.8% of residents under 65",
-        "year": 2024,
-        "target": "5% of residents under 65",
+        "level": 5.78,
+        "indicator": "Life expectancy at birth",
+        "value": "80.6 years",
+        "year": 2022,
+        "target": "83 years",
         "context": "",
-        "source": "U.S. Census Bureau, QuickFacts: Richmond County, New York (derived from ACS 2020-2024 5-Year Estimates, Table S2701)",
-        "sourceUrl": "https://www.census.gov/quickfacts/fact/table/richmondcountynewyork/PST045223",
-        "screenshot": "img/staten-island_46727ab748e8.png",
+        "source": "NYC DOHMH Community Health Profiles — Public Use Dataset (2026 release)",
+        "sourceUrl": "https://www.nyc.gov/assets/doh/downloads/excel/episrv/2026-chp-pud.xlsx",
+        "screenshot": "img/staten-island_c18c5df76f20.png",
         "actions": [
           "Enroll in low- or no-cost coverage through NYC Care regardless of immigration status (nyccare.nyc).",
           "Comment on the HealthyNYC plan — the city is legally bound (Local Law 93) to close life-expectancy gaps, and public input shapes the update cycle.",
@@ -1922,15 +1910,15 @@ const JURISDICTIONS = {
       },
       {
         "name": "Housing",
-        "level": 149.73,
+        "level": 148.3,
         "indicator": "Renter households paying over 30% of income on housing",
-        "value": "53.75% of renter households",
+        "value": "59.5% of renter households",
         "year": 2024,
         "target": "30% of renter households",
         "context": "",
-        "source": "U.S. Census Bureau, American Community Survey 1-Year Estimates 2024, Table B25070 (Gross Rent as a Percentage of Household Income), Richmond County, NY — retrieved via Census Reporter's Census API mirror",
-        "sourceUrl": "https://censusreporter.org/data/table/?table=B25070&geo_ids=06000US3608570915&primary_geo_id=06000US3608570915",
-        "screenshot": "img/staten-island_8e386183ca09.png",
+        "source": "NYU Furman Center, CoreData.nyc — Staten Island neighborhood profile (tabulation of 2024 American Community Survey, 1-year)",
+        "sourceUrl": "https://www.furmancenter.org/neighborhoods/staten-island/",
+        "screenshot": "img/staten-island_6fe82f9ae883.png",
         "actions": [
           "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
           "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
