@@ -132,6 +132,23 @@ const JURISDICTIONS = {
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
         ]
+      },
+      {
+        "name": "extreme-heat",
+        "level": 148,
+        "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
+        "value": "41.9% of residents",
+        "year": 2024,
+        "target": "0% of residents",
+        "context": "",
+        "source": "NYC DOHMH Heat Vulnerability Index (HVI), Neighborhood Tabulation Area (NTA2020) rankings, joined with NYC DCP 2020 Census total population by NTA2020",
+        "sourceUrl": "https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/hvi/",
+        "screenshot": "img/nyc_0b761e3af90b.png",
+        "actions": [
+          "Get a free air conditioner through the HEAP cooling assistance program if you qualify — no heat-stress death reviewed by DOHMH had a working AC at home.",
+          "Check on elderly neighbors during heat emergencies and know your nearest cooling center (311 or the NYC Cool Options map).",
+          "Outdoor workers: the 2026 heat-safety executive order sets protections — report violations to 311."
+        ]
       }
     ],
     "social": [
@@ -465,6 +482,23 @@ const JURISDICTIONS = {
           "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
+        ]
+      },
+      {
+        "name": "extreme-heat",
+        "level": 147.8,
+        "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
+        "value": "15.58% of residents",
+        "year": 2023,
+        "target": "0% of residents",
+        "context": "",
+        "source": "NYC DOHMH Environment & Health Data Portal — Heat Vulnerability Index by NTA2020 (Indicator ID 2411, data year 2023), population-weighted using U.S. Census Bureau ACS 2024 1-year estimates (via Census Reporter) for Manhattan Community Districts 10 & 11 and New York County",
+        "sourceUrl": "https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/hvi/",
+        "screenshot": "img/manhattan_0b761e3af90b.png",
+        "actions": [
+          "Get a free air conditioner through the HEAP cooling assistance program if you qualify — no heat-stress death reviewed by DOHMH had a working AC at home.",
+          "Check on elderly neighbors during heat emergencies and know your nearest cooling center (311 or the NYC Cool Options map).",
+          "Outdoor workers: the 2026 heat-safety executive order sets protections — report violations to 311."
         ]
       }
     ],
@@ -800,6 +834,23 @@ const JURISDICTIONS = {
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
         ]
+      },
+      {
+        "name": "extreme-heat",
+        "level": 147.8,
+        "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
+        "value": "56.9% of residents",
+        "year": 2024,
+        "target": "0% of residents",
+        "context": "",
+        "source": "NYC DOHMH Heat Vulnerability Index, NTA-level rankings (hvi-nta-2020.csv), population-weighted using U.S. Census Bureau ACS 5-year tract population (B01003) aggregated via NYC DCP's 2020 Census Tract-to-NTA equivalency file",
+        "sourceUrl": "https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/hvi/",
+        "screenshot": "img/brooklyn_0b761e3af90b.png",
+        "actions": [
+          "Get a free air conditioner through the HEAP cooling assistance program if you qualify — no heat-stress death reviewed by DOHMH had a working AC at home.",
+          "Check on elderly neighbors during heat emergencies and know your nearest cooling center (311 or the NYC Cool Options map).",
+          "Outdoor workers: the 2026 heat-safety executive order sets protections — report violations to 311."
+        ]
       }
     ],
     "social": [
@@ -1134,6 +1185,23 @@ const JURISDICTIONS = {
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
         ]
+      },
+      {
+        "name": "extreme-heat",
+        "level": 147.8,
+        "indicator": "Heat-exacerbated deaths per year (NYC citywide, carried at regional scale)",
+        "value": "489 deaths/year",
+        "year": 2023,
+        "target": "0 deaths/year",
+        "context": "",
+        "source": "NYC Department of Health and Mental Hygiene, 2026 Heat-Related Mortality Report (via Environment & Health Data Portal)",
+        "sourceUrl": "https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/heat-report/",
+        "screenshot": "img/queens_34147e194c72.png",
+        "actions": [
+          "Get a free air conditioner through the HEAP cooling assistance program if you qualify — no heat-stress death reviewed by DOHMH had a working AC at home.",
+          "Check on elderly neighbors during heat emergencies and know your nearest cooling center (311 or the NYC Cool Options map).",
+          "Outdoor workers: the 2026 heat-safety executive order sets protections — report violations to 311."
+        ]
       }
     ],
     "social": [
@@ -1463,6 +1531,23 @@ const JURISDICTIONS = {
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
         ]
+      },
+      {
+        "name": "extreme-heat",
+        "level": 147.8,
+        "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
+        "value": "89.2% of residents",
+        "year": 2024,
+        "target": "0% of residents",
+        "context": "",
+        "source": "NYC DOHMH Heat Vulnerability Index Rankings (ZCTA-level, updated Sept 2024), population-weighted using DOHMH MODZCTA population denominators (Bureau of Epidemiology Services intercensal estimates, nychealth/coronavirus-data GitHub repo)",
+        "sourceUrl": "https://data.cityofnewyork.us/Health/Heat-Vulnerability-Index-Rankings/4mhf-duep",
+        "screenshot": "img/bronx_64f1b22db4d2.png",
+        "actions": [
+          "Get a free air conditioner through the HEAP cooling assistance program if you qualify — no heat-stress death reviewed by DOHMH had a working AC at home.",
+          "Check on elderly neighbors during heat emergencies and know your nearest cooling center (311 or the NYC Cool Options map).",
+          "Outdoor workers: the 2026 heat-safety executive order sets protections — report violations to 311."
+        ]
       }
     ],
     "social": [
@@ -1791,6 +1876,23 @@ const JURISDICTIONS = {
           "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
           "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
           "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
+        ]
+      },
+      {
+        "name": "extreme-heat",
+        "level": 147.8,
+        "indicator": "Residents in the highest heat-vulnerability classes (HVI 4-5)",
+        "value": "8.4% of residents",
+        "year": 2023,
+        "target": "0% of residents",
+        "context": "",
+        "source": "NYC DOHMH, Heat Vulnerability Index (interactive tool + hvi-nta-2020.csv), Environment & Health Data Portal; population weights from NYC Dept. of City Planning, 2020 Census Briefing Booklet",
+        "sourceUrl": "https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/hvi/hvi-nta-2020.csv",
+        "screenshot": "img/staten-island_0b761e3af90b.png",
+        "actions": [
+          "Get a free air conditioner through the HEAP cooling assistance program if you qualify — no heat-stress death reviewed by DOHMH had a working AC at home.",
+          "Check on elderly neighbors during heat emergencies and know your nearest cooling center (311 or the NYC Cool Options map).",
+          "Outdoor workers: the 2026 heat-safety executive order sets protections — report violations to 311."
         ]
       }
     ],
