@@ -10,94 +10,125 @@ const JURISDICTIONS = {
         "name": "Climate Change",
         "level": 150,
         "indicator": "Community greenhouse gas emissions per capita",
-        "value": 5.58,
+        "value": "5.58 tCO2e per resident per year",
         "year": 2024,
-        "target": 2.5,
+        "target": "2.5 tCO2e per resident per year",
         "context": "",
         "source": "NYC Mayor's Office of Climate & Environmental Justice — NYC Greenhouse Gas Emissions Inventory (NYC Open Data, dataset wq7q-htne)",
         "sourceUrl": "https://data.cityofnewyork.us/Environment/NYC-Greenhouse-Gas-Emissions-Inventory/wq7q-htne",
         "screenshot": "img/nyc_4b9d55e5e930.png",
-        "actions": []
+        "actions": [
+          "If you own or manage a building over 25,000 sq ft, start Local Law 97 compliance now — caps tighten sharply in 2030.",
+          "Enroll in community solar: renters and co-op owners can cut bills without owning a roof.",
+          "Comment on PlaNYC updates — the 80x50 mandate (Local Law 66) is enforceable, and public pressure sets the pace."
+        ]
       },
       {
         "name": "Ocean Acidification",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Join the Billion Oyster Project — oyster reefs buffer local acidification and restore harbor ecology.",
+          "Support the state's Ocean Acidification Task Force recommendations for New York coastal waters."
+        ]
       },
       {
         "name": "Chemical Pollution",
         "level": 136.06,
         "indicator": "Toxic Release Inventory on-site releases per capita",
-        "value": 0.02442,
+        "value": "0.02 lbs per resident per year",
         "year": 2024,
-        "target": 1,
+        "target": "1 lbs per resident per year",
         "context": "",
         "source": "EPA Toxics Release Inventory (TRI) Basic Data Files, Reporting Year 2024, New York State — county totals queried via EPA Envirofacts efservice (table MV_TRI_BASIC_DOWNLOAD, filtered st=NY, year=2024, county=<each NYC county>); population denominator from U.S. Census Bureau Population Estimates Program, Vintage 2024 county totals",
         "sourceUrl": "https://data.epa.gov/efservice/mv_tri_basic_download/st/NY/year/2024/JSON",
         "screenshot": "img/nyc_6c11e005577c.png",
-        "actions": []
+        "actions": [
+          "Separate organics — curbside composting is now citywide and mandatory; diversion is the zero-waste law's binding metric.",
+          "Take hazardous waste to DSNY SAFE disposal events instead of the trash.",
+          "Check EPA's Toxics Release Inventory for facilities near you and raise findings with your community board."
+        ]
       },
       {
         "name": "Nitrogen & Phosphorus Loading",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Report illegal dumping and sewer overflows to 311 — CSO reduction targets are consent-order commitments DEP must meet.",
+          "Volunteer with a green-infrastructure stewardship program: rain gardens and bioswales cut the overflows that load the harbor."
+        ]
       },
       {
         "name": "Freshwater Withdrawals",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Request free water-saving fixtures through DEP's conservation programs.",
+          "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
+        ]
       },
       {
         "name": "Land Conversion",
         "level": 44,
         "indicator": "Tree canopy cover",
-        "value": 23.4,
+        "value": "23.4% of land area",
         "year": 2021,
-        "target": 30,
+        "target": "30% of land area",
         "context": "",
         "source": "Growing Greener: The State of Tree Canopy in New York City, 2017–2021 (The Nature Conservancy, NY Cities Program, with University of Vermont Spatial Analysis Lab; developed with NYC Dept. of Parks & Recreation subject-matter input)",
         "sourceUrl": "https://www.nature.org/en-us/newsroom/growing-greener-report/",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
+          "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
+          "Advocate for the 1%-for-Parks budget pledge at council budget hearings."
+        ]
       },
       {
         "name": "Biodiversity Loss",
         "level": 70,
         "indicator": "Land under durable conservation protection",
-        "value": 19.5,
+        "value": "19.5% of jurisdiction land area",
         "year": 2023,
-        "target": 30,
+        "target": "30% of jurisdiction land area",
         "context": "",
         "source": "Protect the Adirondacks!, \"20% in 2023: An Assessment of the New York State 30 by 30 Act\" (Nov. 2023) — Appendix county tables for Bronx, Kings, New York, Queens, and Richmond Counties",
         "sourceUrl": "https://www.protectadks.org/wp-content/uploads/2023/11/Protect-the-Adirondacks-30-by-30-Report-NYS-Counties-web.pdf",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Volunteer with the Natural Areas Conservancy — forest and wetland restoration runs in every borough.",
+          "Plant native species; the Greenbelt Native Plant Center publishes NYC-appropriate lists.",
+          "Log wildlife sightings in iNaturalist — city ecologists use the data for the ecological assessments."
+        ]
       },
       {
         "name": "Air Pollution",
         "level": 50.2,
         "indicator": "Annual mean PM2.5 concentration",
-        "value": 6.255051193,
+        "value": "6.26 µg/m³",
         "year": 2024,
-        "target": 5,
+        "target": "5 µg/m³",
         "context": "",
         "source": "NYC Open Data — 'Air Quality' dataset (dataset id c3uy-2p5r), DOHMH/NYCCAS-sourced indicator 'Fine particles (PM 2.5)', measure 'Annual mean' (indicator_id 1425), geo_type_name 'Citywide', time_period 2024",
         "sourceUrl": "https://data.cityofnewyork.us/Environment/Air-Quality/c3uy-2p5r/about_data",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
+          "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
+          "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
+        ]
       },
       {
         "name": "Ozone Layer Depletion",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
+        ]
       }
     ],
     "social": [
@@ -105,145 +136,193 @@ const JURISDICTIONS = {
         "name": "Food",
         "level": 150,
         "indicator": "Food insecurity rate",
-        "value": 16.8,
+        "value": "16.8% of residents",
         "year": 2023,
-        "target": 5,
+        "target": "5% of residents",
         "context": "",
         "source": "NYC Food by the Numbers 2025, Mayor's Office of Food Policy (City of New York)",
         "sourceUrl": "https://www.nyc.gov/assets/foodpolicy/downloads/pdf/NYC-Food-by-the-Numbers-2025.pdf",
         "screenshot": "img/nyc_293d0164662d.png",
-        "actions": []
+        "actions": [
+          "Check SNAP eligibility and enroll at access.nyc.gov — roughly one in three eligible New Yorkers never claims benefits.",
+          "Weigh in on the city's municipal grocery pilot: NYCEDC takes public comment on store siting and the discounted core basket.",
+          "Volunteer or donate through City Harvest or Food Bank For NYC — Brooklyn alone has an 86-million-meal gap."
+        ]
       },
       {
         "name": "Health",
         "level": 136,
         "indicator": "Residents without health insurance",
-        "value": 9.3,
+        "value": "9.3% of adult New Yorkers (18+) reporting no health insurance",
         "year": 2024,
-        "target": 5,
+        "target": "5% of adult New Yorkers (18+) reporting no health insurance",
         "context": "",
         "source": "NYC Mayor's Management Report (MMR), Fiscal 2025 — Department of Health and Mental Hygiene (DOHMH) agency section, indicator 'Adult New Yorkers without health insurance (%)'",
         "sourceUrl": "https://www.nyc.gov/assets/operations/downloads/pdf/mmr2025/dohmh.pdf",
         "screenshot": "img/nyc_e51228a62071.png",
-        "actions": []
+        "actions": [
+          "Enroll in low- or no-cost coverage through NYC Care regardless of immigration status (nyccare.nyc).",
+          "Comment on the HealthyNYC plan — the city is legally bound (Local Law 93) to close life-expectancy gaps, and public input shapes the update cycle.",
+          "Use the NYC Health Map to find neighborhood clinics, mental-health support (988), and screening programs."
+        ]
       },
       {
         "name": "Education",
         "level": 72,
         "indicator": "Adults with a high-school credential",
-        "value": 83.8,
+        "value": "83.8% of residents 25+",
         "year": 2024,
-        "target": 95,
+        "target": "95% of residents 25+",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 1-Year Estimates 2024 — Educational Attainment (population 25 years and over), New York city, NY, republished via Census Reporter profile",
         "sourceUrl": "https://censusreporter.org/profiles/16000US3651000-new-york-ny/",
         "screenshot": "img/nyc_1778fc1b1383.png",
-        "actions": []
+        "actions": [
+          "Apply for free 2-K seats as they expand borough by borough — the first cohorts are enrolling now.",
+          "Track your school's class-size compliance in the DOE's public reports; the 2022 state law requires 100% by 2029-30.",
+          "Join your Community Education Council — the elected parent body with a formal voice on school policy."
+        ]
       },
       {
         "name": "Income & Work",
         "level": 150,
         "indicator": "Residents below the poverty line",
-        "value": 18,
+        "value": "18% of residents",
         "year": 2024,
-        "target": 8,
+        "target": "8% of residents",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table S1701 (Poverty Status in the Past 12 Months), New York city, New York — table figures accessed via Census Reporter's ACS data profile",
         "sourceUrl": "https://censusreporter.org/profiles/16000US3651000-new-york-ny/",
         "screenshot": "img/nyc_1778fc1b1383.png",
-        "actions": []
+        "actions": [
+          "Screen for every benefit you qualify for at access.nyc.gov — the True Cost of Living report shows 62% of New Yorkers fall short of basic needs.",
+          "File wage-theft complaints with DCWP; the city recovers millions annually for underpaid workers.",
+          "Support the $30-by-2030 minimum wage campaign — it requires Albany authorization, and constituent pressure moves state legislators."
+        ]
       },
       {
         "name": "Water & Sanitation",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Get your free lead service line inspection — DEP publishes line materials by address and replaces lead lines at no cost in many cases.",
+          "Report water quality concerns to 311; every complaint feeds the DEP monitoring system.",
+          "Join a harbor or tributary cleanup with the Billion Oyster Project or your local waterfront alliance."
+        ]
       },
       {
         "name": "Energy",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Apply for HEAP (Home Energy Assistance) before the season closes — energy burden above 6% of income is the affordability line.",
+          "Request a free home energy assessment through NYSERDA; income-eligible households get free weatherization.",
+          "If your building is over 25,000 sq ft, ask your board or landlord for its Local Law 97 compliance plan — 57% of covered buildings still exceed their 2030 cap."
+        ]
       },
       {
         "name": "Networks",
         "level": 50.2,
         "indicator": "Households with a fixed broadband subscription (cable, fiber optic, or DSL)",
-        "value": 74.9,
+        "value": "74.9% of households",
         "year": 2023,
-        "target": 100,
+        "target": "100% of households",
         "context": "",
         "source": "Office of the New York State Comptroller (Thomas P. DiNapoli), \"Broadband Availability, Access and Affordability in New York City,\" Report 20-2025",
         "sourceUrl": "https://www.osc.ny.gov/press/releases/2024/12/dinapoli-report-examines-broadband-availability-access-and-affordability-nyc",
         "screenshot": "img/nyc_ee506dff8b84.png",
-        "actions": []
+        "actions": [
+          "Check Big Apple Connect eligibility — free broadband is live at 220+ NYCHA developments.",
+          "Enroll in Fair Fares for half-price transit if your income qualifies; enrollment is far below eligibility.",
+          "Ride and advocate: the bus-priority program adds miles only where communities show up for them at DOT workshops."
+        ]
       },
       {
         "name": "Housing",
         "level": 150,
         "indicator": "Renter households paying over 30% of income on housing",
-        "value": 51.6,
+        "value": "51.6% of renter households",
         "year": 2024,
-        "target": 30,
+        "target": "30% of renter households",
         "context": "",
         "source": "NYC Rent Guidelines Board, 2026 Income and Affordability Study (presented April 16, 2026), headline citywide figure citing 2024 American Community Survey 1-year data",
         "sourceUrl": "https://rentguidelinesboard.cityofnewyork.us/wp-content/uploads/2026/04/2026-IA.pdf",
         "screenshot": "img/nyc_b66456d32bad.png",
-        "actions": []
+        "actions": [
+          "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
+          "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
+          "Attend your community board's land-use committee — the Block by Block plan (200,000 affordable homes) is siting projects borough by borough."
+        ]
       },
       {
         "name": "Gender Equality",
         "level": -8,
         "indicator": "Women's median earnings as a share of men's",
-        "value": 98.8,
+        "value": "98.8%",
         "year": 2024,
-        "target": 95,
+        "target": "95%",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B20017 (Median Earnings in the Past 12 Months by Sex by Work Experience in the Past 12 Months, Population 16+ with Earnings), geography: New York city, New York (place FIPS 3651000)",
         "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B20017?g=1600000US3651000",
         "screenshot": "img/nyc_311c47ceecc4.png",
-        "actions": []
+        "actions": [
+          "Know the salary-transparency law: NYC job postings must list pay ranges — report violations to the Commission on Human Rights.",
+          "Free doula and midwife programs are expanding citywide; DOHMH maternal-health programs prioritize the highest-mortality neighborhoods.",
+          "Universal 2-K childcare is the single strongest lever for mothers' workforce participation — apply early and often."
+        ]
       },
       {
         "name": "Social Equity",
         "level": 77.5,
         "indicator": "Income inequality (Gini index)",
-        "value": 0.555,
+        "value": "0.56 index 0–1",
         "year": 2023,
-        "target": 0.4,
+        "target": "0.4 index 0–1",
         "context": "",
         "source": "American Community Survey (U.S. Census Bureau), Table B19083 'Gini Index of Income Inequality', 1-year estimates 2023, for New York city, NY — as charted and cited in NYC Economic Development Corporation, 'State of the New York City Economy 2024' report, p.31 ('NYC Ranks Third Among Major US Cities in Income Inequity', source line: 'American Community Survey 1-year estimates, 2023')",
         "sourceUrl": "https://edc.nyc/sites/default/files/2025-01/NYCEDC-State-of-the-NYC-Economy-2024-v3.pdf",
         "screenshot": "img/nyc_016f5df6fd19.png",
-        "actions": []
+        "actions": [
+          "Read the charter-mandated Racial Equity Plan and file public comment — agencies must answer to it.",
+          "Report discrimination to the NYC Commission on Human Rights (it has real enforcement power).",
+          "Bank locally: community development credit unions reinvest deposits in the neighborhoods the TCOL report shows furthest below the line."
+        ]
       },
       {
         "name": "Political Voice",
         "level": 81.14,
         "indicator": "Turnout of registered voters, most recent general election",
-        "value": 41.6,
+        "value": "41.6% of registered voters",
         "year": 2025,
-        "target": 70,
+        "target": "70% of registered voters",
         "context": "",
         "source": "NYC Campaign Finance Board, Voter Analysis Report: 2025",
         "sourceUrl": "https://nyccfb.info/media/reports/voter-analysis-report-2025/",
         "screenshot": "img/nyc_8cacf31b1a36.png",
-        "actions": []
+        "actions": [
+          "Register to vote and check your poll site at vote.nyc — municipal turnout hovers near 41%.",
+          "Join participatory budgeting in your council district: residents directly allocate real capital dollars every spring.",
+          "Testify at City Council hearings — remote testimony is accepted, and hearing calendars are public at council.nyc.gov."
+        ]
       },
       {
         "name": "Peace & Justice",
         "level": 118.6,
         "indicator": "Violent crime rate",
-        "value": 5.48,
+        "value": "5.48 per 1,000 residents",
         "year": 2025,
-        "target": 4,
+        "target": "4 per 1,000 residents",
         "context": "",
         "source": "NYPD Complaint Data Historic (NYC Open Data)",
         "sourceUrl": "https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i",
         "screenshot": "img/nyc_ca6056839410.png",
-        "actions": []
+        "actions": [
+          "Learn about the Office of Community Safety's non-police mental-health response — and use 988, not 911, for mental-health crises where available.",
+          "Attend your precinct community council meeting; commanding officers answer to residents there monthly.",
+          "Support court-watching and jail-oversight programs tracking the Rikers closure mandate."
+        ]
       }
     ]
   },
@@ -256,106 +335,137 @@ const JURISDICTIONS = {
         "name": "Climate Change",
         "level": 150,
         "indicator": "Community greenhouse gas emissions per capita",
-        "value": 12,
+        "value": "12 tCO2e per resident per year",
         "year": 2019,
-        "target": 2.5,
+        "target": "2.5 tCO2e per resident per year",
         "context": "",
         "source": "NYC Mayor's Office of Climate & Environmental Justice — NYC Household Consumption-Based GHG Emissions Inventory (2019), Table 4, borough emissions comparison",
         "sourceUrl": "https://www.nyc.gov/assets/climate/downloads/pdfs/NYC-Household-Consumption-GHG-Emissions-Inventory.pdf",
         "screenshot": "img/manhattan_1baabad8bf17.png",
-        "actions": []
+        "actions": [
+          "If you own or manage a building over 25,000 sq ft, start Local Law 97 compliance now — caps tighten sharply in 2030.",
+          "Enroll in community solar: renters and co-op owners can cut bills without owning a roof.",
+          "Comment on PlaNYC updates — the 80x50 mandate (Local Law 66) is enforceable, and public pressure sets the pace."
+        ]
       },
       {
         "name": "Ocean Acidification",
         "level": 13.34,
         "indicator": "Coastal aragonite saturation state (Ω)",
-        "value": 2.8,
+        "value": "2.8 Ω aragonite",
         "year": 2022,
-        "target": 3,
+        "target": "3 Ω aragonite",
         "context": "",
         "source": "Findlay, H.S. et al. 2025, 'Ocean Acidification: Another Planetary Boundary Crossed,' Global Change Biology (citing Richardson et al. 2023 for the year-2022 global average ΩArag estimate)",
         "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12147064/",
         "screenshot": "img/manhattan_3ca5edfd19e7.png",
-        "actions": []
+        "actions": [
+          "Join the Billion Oyster Project — oyster reefs buffer local acidification and restore harbor ecology.",
+          "Support the state's Ocean Acidification Task Force recommendations for New York coastal waters."
+        ]
       },
       {
         "name": "Chemical Pollution",
         "level": 125.86,
         "indicator": "Toxic Release Inventory on-site releases per capita",
-        "value": 7.199e-7,
+        "value": "0 lbs per resident per year",
         "year": 2023,
-        "target": 1,
+        "target": "1 lbs per resident per year",
         "context": "",
         "source": "US EPA Toxics Release Inventory (TRI) Program, Envirofacts data service — tri_facility, tri_reporting_form, and tri_release_qty tables, reporting year 2023, New York County, NY",
         "sourceUrl": "https://data.epa.gov/efservice/tri_facility/county_name/NEW%20YORK/state_abbr/NY/tri_reporting_form/reporting_year/2023/JSON",
         "screenshot": "img/manhattan_f4c344a1682a.png",
-        "actions": []
+        "actions": [
+          "Separate organics — curbside composting is now citywide and mandatory; diversion is the zero-waste law's binding metric.",
+          "Take hazardous waste to DSNY SAFE disposal events instead of the trash.",
+          "Check EPA's Toxics Release Inventory for facilities near you and raise findings with your community board."
+        ]
       },
       {
         "name": "Nitrogen & Phosphorus Loading",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Report illegal dumping and sewer overflows to 311 — CSO reduction targets are consent-order commitments DEP must meet.",
+          "Volunteer with a green-infrastructure stewardship program: rain gardens and bioswales cut the overflows that load the harbor."
+        ]
       },
       {
         "name": "Freshwater Withdrawals",
         "level": 150,
         "indicator": "Residential water use",
-        "value": 115,
+        "value": "115 gallons per capita per day",
         "year": 2025,
-        "target": 55,
+        "target": "55 gallons per capita per day",
         "context": "",
         "source": "NYC DEP, One Water NYC: Water Demand Management 2026 Annual Update (June 2026)",
         "sourceUrl": "https://www.nyc.gov/assets/dep/downloads/pdf/water/drinking-water/water-conservation-report2026.pdf",
         "screenshot": "img/manhattan_5c1a57c5deb2.png",
-        "actions": []
+        "actions": [
+          "Request free water-saving fixtures through DEP's conservation programs.",
+          "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
+        ]
       },
       {
         "name": "Land Conversion",
         "level": 48.66,
         "indicator": "Tree canopy cover",
-        "value": 22.7,
+        "value": "22.7% of land area",
         "year": 2021,
-        "target": 30,
+        "target": "30% of land area",
         "context": "",
         "source": "NYC Urban Forest Plan (2026) — canopy-cover-by-borough data, 2021 LiDAR assessment; Mayor's Office of Climate & Environmental Justice (MOCEJ) with NYC Parks, published April 2026",
         "sourceUrl": "https://www.urbanforestplan.nyc/",
         "screenshot": "img/manhattan_94ed9eaacf15.png",
-        "actions": []
+        "actions": [
+          "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
+          "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
+          "Advocate for the 1%-for-Parks budget pledge at council budget hearings."
+        ]
       },
       {
         "name": "Biodiversity Loss",
         "level": 139.93,
         "indicator": "Land under durable conservation protection (NYC Parks \"Forever Wild\" natural areas), Manhattan",
-        "value": 3.02,
+        "value": "3.02% of jurisdiction land area",
         "year": 2026,
-        "target": 30,
+        "target": "30% of jurisdiction land area",
         "context": "",
         "source": "NYC Parks Forever Wild (NYC Open Data, dataset 48va-85tp; DPR-attributed), filtered to Manhattan (gispropnum prefix 'M'); denominator from U.S. Census Bureau 2020 Gazetteer county land area for New York County",
         "sourceUrl": "https://data.cityofnewyork.us/Environment/NYC-Parks-Forever-Wild/48va-85tp",
         "screenshot": "img/manhattan_a45927658edb.png",
-        "actions": []
+        "actions": [
+          "Volunteer with the Natural Areas Conservancy — forest and wetland restoration runs in every borough.",
+          "Plant native species; the Greenbelt Native Plant Center publishes NYC-appropriate lists.",
+          "Log wildlife sightings in iNaturalist — city ecologists use the data for the ecological assessments."
+        ]
       },
       {
         "name": "Air Pollution",
         "level": 106.8,
         "indicator": "Annual mean PM2.5 concentration",
-        "value": 7.84,
+        "value": "7.84 µg/m³",
         "year": 2024,
-        "target": 5,
+        "target": "5 µg/m³",
         "context": "",
         "source": "NYC DOHMH, New York City Community Air Survey (NYCCAS) Report 2008–2024, Appendix 3: Community District Average Pollutant Levels, Table A3-1",
         "sourceUrl": "https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/nyccas/pdf/Appendix3.pdf",
         "screenshot": "img/manhattan_60dd2abd0d2e.png",
-        "actions": []
+        "actions": [
+          "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
+          "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
+          "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
+        ]
       },
       {
         "name": "Ozone Layer Depletion",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
+        ]
       }
     ],
     "social": [
@@ -363,151 +473,199 @@ const JURISDICTIONS = {
         "name": "Food",
         "level": 150,
         "indicator": "Food insecurity rate",
-        "value": 14.9,
+        "value": "14.9% of residents",
         "year": 2023,
-        "target": 5,
+        "target": "5% of residents",
         "context": "",
         "source": "NYC Mayor's Office of Food Policy, \"Food by the Numbers\" (January 2025)",
         "sourceUrl": "https://www.nyc.gov/assets/foodpolicy/downloads/pdf/NYC-Food-by-the-Numbers-2024.pdf",
         "screenshot": "img/manhattan_c64a20c338cc.png",
-        "actions": []
+        "actions": [
+          "Check SNAP eligibility and enroll at access.nyc.gov — roughly one in three eligible New Yorkers never claims benefits.",
+          "Weigh in on the city's municipal grocery pilot: NYCEDC takes public comment on store siting and the discounted core basket.",
+          "Volunteer or donate through City Harvest or Food Bank For NYC — Brooklyn alone has an 86-million-meal gap."
+        ]
       },
       {
         "name": "Health",
         "level": 12,
         "indicator": "Residents without health insurance",
-        "value": 5.3,
+        "value": "5.3% of residents under 65",
         "year": 2024,
-        "target": 5,
+        "target": "5% of residents under 65",
         "context": "",
         "source": "U.S. Census Bureau, QuickFacts — New York County, New York (Persons without health insurance, under age 65 years, percent; ACS 2020–2024 5-year estimates)",
         "sourceUrl": "https://www.census.gov/quickfacts/newyorkcountynewyork",
         "screenshot": "img/manhattan_9b78065925ba.png",
-        "actions": []
+        "actions": [
+          "Enroll in low- or no-cost coverage through NYC Care regardless of immigration status (nyccare.nyc).",
+          "Comment on the HealthyNYC plan — the city is legally bound (Local Law 93) to close life-expectancy gaps, and public input shapes the update cycle.",
+          "Use the NYC Health Map to find neighborhood clinics, mental-health support (988), and screening programs."
+        ]
       },
       {
         "name": "Education",
         "level": 72,
         "indicator": "Adults with a high-school credential",
-        "value": 89.7,
+        "value": "89.7% of residents 25+",
         "year": 2024,
-        "target": 95,
+        "target": "95% of residents 25+",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table S1501 (Educational Attainment), Population 25 years and over, New York County/Manhattan borough — rendered via Census Reporter",
         "sourceUrl": "http://censusreporter.org/profiles/06000US3606144919-manhattan-borough-new-york-county-ny/",
         "screenshot": "img/manhattan_4a748bb48a84.png",
-        "actions": []
+        "actions": [
+          "Apply for free 2-K seats as they expand borough by borough — the first cohorts are enrolling now.",
+          "Track your school's class-size compliance in the DOE's public reports; the 2022 state law requires 100% by 2029-30.",
+          "Join your Community Education Council — the elected parent body with a formal voice on school policy."
+        ]
       },
       {
         "name": "Income & Work",
         "level": 145,
         "indicator": "Residents below the poverty line",
-        "value": 15.6,
+        "value": "15.6% of residents",
         "year": 2024,
-        "target": 8,
+        "target": "8% of residents",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 1-Year Estimates, Table S1701 (Poverty Status in the Past 12 Months), New York County, NY",
         "sourceUrl": "https://data.census.gov/table/ACSST1Y2024.S1701?g=050XX00US36061",
         "screenshot": "img/manhattan_c7f9bbbe315e.png",
-        "actions": []
+        "actions": [
+          "Screen for every benefit you qualify for at access.nyc.gov — the True Cost of Living report shows 62% of New Yorkers fall short of basic needs.",
+          "File wage-theft complaints with DCWP; the city recovers millions annually for underpaid workers.",
+          "Support the $30-by-2030 minimum wage campaign — it requires Albany authorization, and constituent pressure moves state legislators."
+        ]
       },
       {
         "name": "Water & Sanitation",
         "level": 0,
         "indicator": "Population served by water systems with no health-based violations",
-        "value": 100,
+        "value": "100% of served population",
         "year": 2024,
-        "target": 100,
+        "target": "100% of served population",
         "context": "",
         "source": "NYS Department of Health — New York City Public Water System Compliance Report (SDWIS/State), 2024 Annual Report of Public Water Supply Violations",
         "sourceUrl": "https://healthweb-back.health.ny.gov/environmental/water/drinking/violations/2024/new_york_city_compliance_report.htm",
         "screenshot": "img/manhattan_75c555003837.png",
-        "actions": []
+        "actions": [
+          "Get your free lead service line inspection — DEP publishes line materials by address and replaces lead lines at no cost in many cases.",
+          "Report water quality concerns to 311; every complaint feeds the DEP monitoring system.",
+          "Join a harbor or tributary cleanup with the Billion Oyster Project or your local waterfront alliance."
+        ]
       },
       {
         "name": "Energy",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Apply for HEAP (Home Energy Assistance) before the season closes — energy burden above 6% of income is the affordability line.",
+          "Request a free home energy assessment through NYSERDA; income-eligible households get free weatherization.",
+          "If your building is over 25,000 sq ft, ask your board or landlord for its Local Law 97 compliance plan — 57% of covered buildings still exceed their 2030 cap."
+        ]
       },
       {
         "name": "Networks",
         "level": 10.4,
         "indicator": "Households with a broadband internet subscription",
-        "value": 94.8,
+        "value": "94.8% of households",
         "year": 2024,
-        "target": 100,
+        "target": "100% of households",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 1-Year Estimates, Table B28002 (Presence and Types of Internet Subscriptions in Household), New York County, NY",
         "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B28002?g=050XX00US36061",
         "screenshot": "img/manhattan_58e54ff7985b.png",
-        "actions": []
+        "actions": [
+          "Check Big Apple Connect eligibility — free broadband is live at 220+ NYCHA developments.",
+          "Enroll in Fair Fares for half-price transit if your income qualifies; enrollment is far below eligibility.",
+          "Ride and advocate: the bus-priority program adds miles only where communities show up for them at DOT workshops."
+        ]
       },
       {
         "name": "Housing",
         "level": 126.9,
         "indicator": "Renter households paying over 30% of income on housing",
-        "value": 46.2,
+        "value": "46.2% of renter households",
         "year": 2024,
-        "target": 30,
+        "target": "30% of renter households",
         "context": "",
         "source": "U.S. Census Bureau, 2024 ACS 1-Year Estimates, Table B25070 (Gross Rent as a Percentage of Household Income in the Past 12 Months), New York County, NY",
         "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B25070?g=050XX00US36061",
         "screenshot": "img/manhattan_4210a4fd3c4c.png",
-        "actions": []
+        "actions": [
+          "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
+          "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
+          "Attend your community board's land-use committee — the Block by Block plan (200,000 affordable homes) is siting projects borough by borough."
+        ]
       },
       {
         "name": "Gender Equality",
         "level": 25.26,
         "indicator": "Women's median earnings as a share of men's",
-        "value": 83,
+        "value": "83%",
         "year": 2024,
-        "target": 95,
+        "target": "95%",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B20017 (Median Earnings in the Past 12 Months by Sex and Work Experience), New York County, NY — data retrieved via Census Reporter, a nonprofit mirror of the official Census API",
         "sourceUrl": "https://censusreporter.org/data/table/?table=B20017&geo_ids=05000US36061&primary_geo_id=05000US36061",
         "screenshot": "img/manhattan_68db201386cc.png",
-        "actions": []
+        "actions": [
+          "Know the salary-transparency law: NYC job postings must list pay ranges — report violations to the Commission on Human Rights.",
+          "Free doula and midwife programs are expanding citywide; DOHMH maternal-health programs prioritize the highest-mortality neighborhoods.",
+          "Universal 2-K childcare is the single strongest lever for mothers' workforce participation — apply early and often."
+        ]
       },
       {
         "name": "Social Equity",
         "level": 97.2,
         "indicator": "Income inequality (Gini index)",
-        "value": 0.5944,
+        "value": "0.59 index 0-1",
         "year": 2024,
-        "target": 0.4,
+        "target": "0.4 index 0-1",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B19083 (Gini Index of Income Inequality of Households), New York County, NY",
         "sourceUrl": "https://api.censusreporter.org/1.0/data/show/latest?table_ids=B19083&geo_ids=05000US36061",
         "screenshot": "img/manhattan_3c372f88b808.png",
-        "actions": []
+        "actions": [
+          "Read the charter-mandated Racial Equity Plan and file public comment — agencies must answer to it.",
+          "Report discrimination to the NYC Commission on Human Rights (it has real enforcement power).",
+          "Bank locally: community development credit unions reinvest deposits in the neighborhoods the TCOL report shows furthest below the line."
+        ]
       },
       {
         "name": "Political Voice",
         "level": 61.4,
         "indicator": "Turnout of registered voters, most recent general election",
-        "value": 48.5,
+        "value": "48.5% of registered voters",
         "year": 2025,
-        "target": 70,
+        "target": "70% of registered voters",
         "context": "",
         "source": "NYC Campaign Finance Board, 2025 Voter Analysis Report (Figure 2.18, Figure 2.22)",
         "sourceUrl": "https://www.nyccfb.info/pdf/2025_VoterAnalysisReport.pdf",
         "screenshot": "img/manhattan_86de9bb8284b.png",
-        "actions": []
+        "actions": [
+          "Register to vote and check your poll site at vote.nyc — municipal turnout hovers near 41%.",
+          "Join participatory budgeting in your council district: residents directly allocate real capital dollars every spring.",
+          "Testify at City Council hearings — remote testimony is accepted, and hearing calendars are public at council.nyc.gov."
+        ]
       },
       {
         "name": "Peace & Justice",
         "level": 70.5,
         "indicator": "Violent crime rate",
-        "value": 5.41,
+        "value": "5.41 per 1,000 residents",
         "year": 2025,
-        "target": 4,
+        "target": "4 per 1,000 residents",
         "context": "",
         "source": "NYPD Complaint Data Historic (NYC Open Data)",
         "sourceUrl": "https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i",
         "screenshot": "img/manhattan_ca6056839410.png",
-        "actions": []
+        "actions": [
+          "Learn about the Office of Community Safety's non-police mental-health response — and use 988, not 911, for mental-health crises where available.",
+          "Attend your precinct community council meeting; commanding officers answer to residents there monthly.",
+          "Support court-watching and jail-oversight programs tracking the Rikers closure mandate."
+        ]
       }
     ]
   },
@@ -520,94 +678,125 @@ const JURISDICTIONS = {
         "name": "Climate Change",
         "level": 150,
         "indicator": "Community greenhouse gas emissions per capita",
-        "value": 5.66,
+        "value": "5.66 tCO2e per resident per year",
         "year": 2024,
-        "target": 2.5,
+        "target": "2.5 tCO2e per resident per year",
         "context": "",
         "source": "NYC Greenhouse Gas Emissions Inventory — NYC Open Data (Mayor's Office of Climate & Environmental Justice)",
         "sourceUrl": "https://data.cityofnewyork.us/Environment/NYC-Greenhouse-Gas-Emissions-Inventory/wq7q-htne",
         "screenshot": "img/brooklyn_4b9d55e5e930.png",
-        "actions": []
+        "actions": [
+          "If you own or manage a building over 25,000 sq ft, start Local Law 97 compliance now — caps tighten sharply in 2030.",
+          "Enroll in community solar: renters and co-op owners can cut bills without owning a roof.",
+          "Comment on PlaNYC updates — the 80x50 mandate (Local Law 66) is enforceable, and public pressure sets the pace."
+        ]
       },
       {
         "name": "Ocean Acidification",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Join the Billion Oyster Project — oyster reefs buffer local acidification and restore harbor ecology.",
+          "Support the state's Ocean Acidification Task Force recommendations for New York coastal waters."
+        ]
       },
       {
         "name": "Chemical Pollution",
         "level": 143.23,
         "indicator": "Toxic Release Inventory (TRI) on-site releases per capita (Kings County)",
-        "value": 0.016921,
+        "value": "0.02 lbs per resident per year",
         "year": 2024,
-        "target": 1,
+        "target": "1 lbs per resident per year",
         "context": "",
         "source": "EPA Toxics Release Inventory (TRI) Basic Data File, New York State, reporting year 2024, filtered to COUNTY=KINGS; denominator from U.S. Census Bureau Vintage 2024 county population estimate",
         "sourceUrl": "https://data.epa.gov/efservice/downloads/tri/mv_tri_basic_download/2024_NY/csv",
         "screenshot": "img/brooklyn_6c11e005577c.png",
-        "actions": []
+        "actions": [
+          "Separate organics — curbside composting is now citywide and mandatory; diversion is the zero-waste law's binding metric.",
+          "Take hazardous waste to DSNY SAFE disposal events instead of the trash.",
+          "Check EPA's Toxics Release Inventory for facilities near you and raise findings with your community board."
+        ]
       },
       {
         "name": "Nitrogen & Phosphorus Loading",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Report illegal dumping and sewer overflows to 311 — CSO reduction targets are consent-order commitments DEP must meet.",
+          "Volunteer with a green-infrastructure stewardship program: rain gardens and bioswales cut the overflows that load the harbor."
+        ]
       },
       {
         "name": "Freshwater Withdrawals",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Request free water-saving fixtures through DEP's conservation programs.",
+          "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
+        ]
       },
       {
         "name": "Land Conversion",
         "level": 44,
         "indicator": "Tree canopy cover",
-        "value": 23.4,
+        "value": "23.4% of land area",
         "year": 2021,
-        "target": 30,
+        "target": "30% of land area",
         "context": "",
         "source": "The Nature Conservancy, \"Growing Greener: The State of Tree Canopy in New York City, 2017-2021\" (report summary page)",
         "sourceUrl": "https://www.nature.org/en-us/newsroom/growing-greener-report/",
         "screenshot": "img/brooklyn_c529e38f1d83.png",
-        "actions": []
+        "actions": [
+          "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
+          "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
+          "Advocate for the 1%-for-Parks budget pledge at council budget hearings."
+        ]
       },
       {
         "name": "Biodiversity Loss",
         "level": 114.23,
         "indicator": "Land under durable conservation protection",
-        "value": 10.73,
+        "value": "10.73% of jurisdiction land area",
         "year": 2026,
-        "target": 30,
+        "target": "30% of jurisdiction land area",
         "context": "",
         "source": "NYC Open Data — Parks Properties dataset (NYC Dept. of Parks & Recreation)",
         "sourceUrl": "https://data.cityofnewyork.us/Recreation/Parks-Properties/enfh-gkve",
         "screenshot": "img/brooklyn_2a572c179f67.png",
-        "actions": []
+        "actions": [
+          "Volunteer with the Natural Areas Conservancy — forest and wetland restoration runs in every borough.",
+          "Plant native species; the Greenbelt Native Plant Center publishes NYC-appropriate lists.",
+          "Log wildlife sightings in iNaturalist — city ecologists use the data for the ecological assessments."
+        ]
       },
       {
         "name": "Air Pollution",
         "level": 61.6,
         "indicator": "Annual mean PM2.5 concentration",
-        "value": 6.54,
+        "value": "6.54 µg/m³",
         "year": 2024,
-        "target": 5,
+        "target": "5 µg/m³",
         "context": "",
         "source": "NYC DOHMH — NYC Community Air Survey (NYCCAS) Annual Report, Appendix 3: Community District Average Pollutant Levels, Table A3-1 (PM2.5, community district annual averages 2009–2024)",
         "sourceUrl": "https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/nyccas/pdf/Appendix3.pdf",
         "screenshot": "img/brooklyn_60dd2abd0d2e.png",
-        "actions": []
+        "actions": [
+          "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
+          "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
+          "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
+        ]
       },
       {
         "name": "Ozone Layer Depletion",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
+        ]
       }
     ],
     "social": [
@@ -615,151 +804,199 @@ const JURISDICTIONS = {
         "name": "Food",
         "level": 150,
         "indicator": "Food insecurity rate",
-        "value": 17.1,
+        "value": "17.1% of residents",
         "year": 2023,
-        "target": 5,
+        "target": "5% of residents",
         "context": "",
         "source": "Food Bank For New York City, 'NYC Boroughs Hunger & Poverty Fast Facts' (FY2026-Q1 edition), citing Feeding America Map the Meal Gap 2025 report (2023 data)",
         "sourceUrl": "https://foodbanknyc.github.io/borofastfacts_2.pdf",
         "screenshot": "img/brooklyn_b4a0cdf2abf5.png",
-        "actions": []
+        "actions": [
+          "Check SNAP eligibility and enroll at access.nyc.gov — roughly one in three eligible New Yorkers never claims benefits.",
+          "Weigh in on the city's municipal grocery pilot: NYCEDC takes public comment on store siting and the discounted core basket.",
+          "Volunteer or donate through City Harvest or Food Bank For NYC — Brooklyn alone has an 86-million-meal gap."
+        ]
       },
       {
         "name": "Health",
         "level": 32,
         "indicator": "Residents without health insurance",
-        "value": 5.8,
+        "value": "5.8% of residents",
         "year": 2024,
-        "target": 5,
+        "target": "5% of residents",
         "context": "",
         "source": "New York State Department of Health, \"Kings County Health Indicators by Race and Ethnicity, 2021-2023\" (indicator row: Percentage of population with no health insurance, 2020-2024 ACS 5-year window)",
         "sourceUrl": "https://www.health.ny.gov/community/health_equity/reports/county/kings.htm",
         "screenshot": "img/brooklyn_7844b346a838.png",
-        "actions": []
+        "actions": [
+          "Enroll in low- or no-cost coverage through NYC Care regardless of immigration status (nyccare.nyc).",
+          "Comment on the HealthyNYC plan — the city is legally bound (Local Law 93) to close life-expectancy gaps, and public input shapes the update cycle.",
+          "Use the NYC Health Map to find neighborhood clinics, mental-health support (988), and screening programs."
+        ]
       },
       {
         "name": "Education",
         "level": 72,
         "indicator": "Adults with a high-school credential",
-        "value": 84.3,
+        "value": "84.3% of residents 25+",
         "year": 2024,
-        "target": 95,
+        "target": "95% of residents 25+",
         "context": "",
         "source": "Census Reporter — Kings County, NY profile (U.S. Census Bureau ACS 2024 1-year estimates, Table S1501 Educational Attainment)",
         "sourceUrl": "http://censusreporter.org/profiles/05000US36047-kings-county-ny/",
         "screenshot": "img/brooklyn_834d1b706428.png",
-        "actions": []
+        "actions": [
+          "Apply for free 2-K seats as they expand borough by borough — the first cohorts are enrolling now.",
+          "Track your school's class-size compliance in the DOE's public reports; the 2022 state law requires 100% by 2029-30.",
+          "Join your Community Education Council — the elected parent body with a formal voice on school policy."
+        ]
       },
       {
         "name": "Income & Work",
         "level": 150,
         "indicator": "Residents below the poverty line",
-        "value": 19.2,
+        "value": "19.2% of residents",
         "year": 2024,
-        "target": 8,
+        "target": "8% of residents",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 1-Year Estimates, Table S1701 (Poverty Status in the Past 12 Months), Kings County, NY, 2024",
         "sourceUrl": "https://data.census.gov/table/ACSST1Y2024.S1701?g=050XX00US36047",
         "screenshot": "img/brooklyn_52ee8b183d01.png",
-        "actions": []
+        "actions": [
+          "Screen for every benefit you qualify for at access.nyc.gov — the True Cost of Living report shows 62% of New Yorkers fall short of basic needs.",
+          "File wage-theft complaints with DCWP; the city recovers millions annually for underpaid workers.",
+          "Support the $30-by-2030 minimum wage campaign — it requires Albany authorization, and constituent pressure moves state legislators."
+        ]
       },
       {
         "name": "Water & Sanitation",
         "level": 150,
         "indicator": "Population served by water systems with no health-based violations",
-        "value": 0,
+        "value": "0% of served population",
         "year": 2026,
-        "target": 100,
+        "target": "100% of served population",
         "context": "",
         "source": "US EPA Enforcement and Compliance History Online (ECHO) — SDWIS Compliance data, Detailed Facility Report for PWSID NY7003493 (\"New York City System\")",
         "sourceUrl": "https://echo.epa.gov/detailed-facility-report?fid=NY7003493&sys=SDWIS",
         "screenshot": "img/brooklyn_5b2b0371bbab.png",
-        "actions": []
+        "actions": [
+          "Get your free lead service line inspection — DEP publishes line materials by address and replaces lead lines at no cost in many cases.",
+          "Report water quality concerns to 311; every complaint feeds the DEP monitoring system.",
+          "Join a harbor or tributary cleanup with the Billion Oyster Project or your local waterfront alliance."
+        ]
       },
       {
         "name": "Energy",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Apply for HEAP (Home Energy Assistance) before the season closes — energy burden above 6% of income is the affordability line.",
+          "Request a free home energy assessment through NYSERDA; income-eligible households get free weatherization.",
+          "If your building is over 25,000 sq ft, ask your board or landlord for its Local Law 97 compliance plan — 57% of covered buildings still exceed their 2030 cap."
+        ]
       },
       {
         "name": "Networks",
         "level": 15.34,
         "indicator": "Households with a broadband subscription",
-        "value": 92.33,
+        "value": "92.33% of households",
         "year": 2024,
-        "target": 100,
+        "target": "100% of households",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 1-Year Estimates, Table B28002 (Presence and Types of Internet Subscriptions in Household), Kings County, NY",
         "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B28002?g=050XX00US36047",
         "screenshot": "img/brooklyn_50520b4bb2e3.png",
-        "actions": []
+        "actions": [
+          "Check Big Apple Connect eligibility — free broadband is live at 220+ NYCHA developments.",
+          "Enroll in Fair Fares for half-price transit if your income qualifies; enrollment is far below eligibility.",
+          "Ride and advocate: the bus-priority program adds miles only where communities show up for them at DOT workshops."
+        ]
       },
       {
         "name": "Housing",
         "level": 123.3,
         "indicator": "Renter households paying over 30% of income on housing",
-        "value": 49.4,
+        "value": "49.4% of renter households",
         "year": 2024,
-        "target": 30,
+        "target": "30% of renter households",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B25070 (Gross Rent as a Percentage of Household Income in the Past 12 Months), Kings County, NY",
         "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B25070?g=050XX00US36047",
         "screenshot": "img/brooklyn_80053b1cb05d.png",
-        "actions": []
+        "actions": [
+          "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
+          "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
+          "Attend your community board's land-use committee — the Block by Block plan (200,000 affordable homes) is siting projects borough by borough."
+        ]
       },
       {
         "name": "Gender Equality",
         "level": -6.1,
         "indicator": "Women's median earnings as a share of men's",
-        "value": 97.9,
+        "value": "97.9%",
         "year": 2024,
-        "target": 95,
+        "target": "95%",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey (ACS) 2024 1-Year Estimates, Table B20017 — Median Earnings in the Past 12 Months by Sex by Work Experience, full-time year-round workers 16+, Kings County, NY (data year 2024). Accessed via Census Reporter's ACS data API, which queries and mirrors the Census Bureau's own API output verbatim.",
         "sourceUrl": "https://api.censusreporter.org/1.0/data/show/latest?table_ids=B20017&geo_ids=05000US36047",
         "screenshot": "img/brooklyn_b2a6a173d41c.png",
-        "actions": []
+        "actions": [
+          "Know the salary-transparency law: NYC job postings must list pay ranges — report violations to the Commission on Human Rights.",
+          "Free doula and midwife programs are expanding citywide; DOHMH maternal-health programs prioritize the highest-mortality neighborhoods.",
+          "Universal 2-K childcare is the single strongest lever for mothers' workforce participation — apply early and often."
+        ]
       },
       {
         "name": "Social Equity",
         "level": 67.4,
         "indicator": "Income inequality (Gini index)",
-        "value": 0.5347,
+        "value": "0.53 index 0-1",
         "year": 2024,
-        "target": 0.4,
+        "target": "0.4 index 0-1",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B19083 (Gini Index of Income Inequality), Kings County, NY",
         "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B19083?g=050XX00US36047",
         "screenshot": "img/brooklyn_5cf70339565d.png",
-        "actions": []
+        "actions": [
+          "Read the charter-mandated Racial Equity Plan and file public comment — agencies must answer to it.",
+          "Report discrimination to the NYC Commission on Human Rights (it has real enforcement power).",
+          "Bank locally: community development credit unions reinvest deposits in the neighborhoods the TCOL report shows furthest below the line."
+        ]
       },
       {
         "name": "Political Voice",
         "level": 78,
         "indicator": "Turnout of registered voters, most recent general election",
-        "value": 42.7,
+        "value": "42.7% of registered voters",
         "year": 2025,
-        "target": 70,
+        "target": "70% of registered voters",
         "context": "",
         "source": "NYC Campaign Finance Board, 2025 Voter Analysis Report (Fast Facts: Voter turnout by borough, General Election)",
         "sourceUrl": "https://www.nyccfb.info/pdf/2025_VoterAnalysisReport.pdf",
         "screenshot": "img/brooklyn_8cacf31b1a36.png",
-        "actions": []
+        "actions": [
+          "Register to vote and check your poll site at vote.nyc — municipal turnout hovers near 41%.",
+          "Join participatory budgeting in your council district: residents directly allocate real capital dollars every spring.",
+          "Testify at City Council hearings — remote testimony is accepted, and hearing calendars are public at council.nyc.gov."
+        ]
       },
       {
         "name": "Peace & Justice",
         "level": 44,
         "indicator": "Violent crime rate",
-        "value": 4.88,
+        "value": "4.88 per 1,000 residents",
         "year": 2025,
-        "target": 4,
+        "target": "4 per 1,000 residents",
         "context": "",
         "source": "NYPD Complaint Data Historic (NYC Open Data, Socrata id qgea-i56i)",
         "sourceUrl": "https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i",
         "screenshot": "img/brooklyn_ca6056839410.png",
-        "actions": []
+        "actions": [
+          "Learn about the Office of Community Safety's non-police mental-health response — and use 988, not 911, for mental-health crises where available.",
+          "Attend your precinct community council meeting; commanding officers answer to residents there monthly.",
+          "Support court-watching and jail-oversight programs tracking the Rikers closure mandate."
+        ]
       }
     ]
   },
@@ -772,94 +1009,125 @@ const JURISDICTIONS = {
         "name": "Climate Change",
         "level": 150,
         "indicator": "Community greenhouse gas emissions per capita",
-        "value": 5.66,
+        "value": "5.66 tCO2e per resident per year",
         "year": 2024,
-        "target": 2.5,
+        "target": "2.5 tCO2e per resident per year",
         "context": "",
         "source": "NYC Greenhouse Gas Emissions Inventory (Mayor's Office of Climate & Environmental Justice), 'Total/Total/Total' aggregate row, via NYC Open Data",
         "sourceUrl": "https://data.cityofnewyork.us/Environment/NYC-Greenhouse-Gas-Emissions-Inventory/wq7q-htne",
         "screenshot": "img/queens_4b9d55e5e930.png",
-        "actions": []
+        "actions": [
+          "If you own or manage a building over 25,000 sq ft, start Local Law 97 compliance now — caps tighten sharply in 2030.",
+          "Enroll in community solar: renters and co-op owners can cut bills without owning a roof.",
+          "Comment on PlaNYC updates — the 80x50 mandate (Local Law 66) is enforceable, and public pressure sets the pace."
+        ]
       },
       {
         "name": "Ocean Acidification",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Join the Billion Oyster Project — oyster reefs buffer local acidification and restore harbor ecology.",
+          "Support the state's Ocean Acidification Task Force recommendations for New York coastal waters."
+        ]
       },
       {
         "name": "Chemical Pollution",
         "level": 134.44,
         "indicator": "Toxic Release Inventory on-site releases per capita",
-        "value": 0.0564,
+        "value": "0.06 lbs per resident per year",
         "year": 2024,
-        "target": 1,
+        "target": "1 lbs per resident per year",
         "context": "",
         "source": "EPA Toxics Release Inventory (TRI) Basic Data Files via Envirofacts efservice (table MV_TRI_BASIC_DOWNLOAD), New York State, Queens County, reporting year 2024",
         "sourceUrl": "https://data.epa.gov/efservice/MV_TRI_BASIC_DOWNLOAD/st/NY/year/2024/county/QUEENS/JSON",
         "screenshot": "img/queens_8cdeb8e6d0a5.png",
-        "actions": []
+        "actions": [
+          "Separate organics — curbside composting is now citywide and mandatory; diversion is the zero-waste law's binding metric.",
+          "Take hazardous waste to DSNY SAFE disposal events instead of the trash.",
+          "Check EPA's Toxics Release Inventory for facilities near you and raise findings with your community board."
+        ]
       },
       {
         "name": "Nitrogen & Phosphorus Loading",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Report illegal dumping and sewer overflows to 311 — CSO reduction targets are consent-order commitments DEP must meet.",
+          "Volunteer with a green-infrastructure stewardship program: rain gardens and bioswales cut the overflows that load the harbor."
+        ]
       },
       {
         "name": "Freshwater Withdrawals",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Request free water-saving fixtures through DEP's conservation programs.",
+          "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
+        ]
       },
       {
         "name": "Land Conversion",
         "level": 70,
         "indicator": "Tree canopy cover",
-        "value": 19.5,
+        "value": "19.5% of land area",
         "year": 2021,
-        "target": 30,
+        "target": "30% of land area",
         "context": "",
         "source": "NYC Urban Forest Plan (Mayor's Office of Climate & Environmental Justice, April 2026) — borough canopy-cover table, 2021 LiDAR data",
         "sourceUrl": "https://www.nyc.gov/assets/climate/downloads/pdfs/NYC-Urban-Forest-Plan-2026.pdf",
         "screenshot": "img/queens_914f7ccb8c0e.png",
-        "actions": []
+        "actions": [
+          "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
+          "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
+          "Advocate for the 1%-for-Parks budget pledge at council budget hearings."
+        ]
       },
       {
         "name": "Biodiversity Loss",
         "level": 113.13,
         "indicator": "Land under durable conservation protection",
-        "value": 11.06,
+        "value": "11.06% of jurisdiction land area",
         "year": 2026,
-        "target": 30,
+        "target": "30% of jurisdiction land area",
         "context": "",
         "source": "NYC Open Data — Parks Properties dataset (NYC Dept. of Parks & Recreation), aggregated for borough='Q'",
         "sourceUrl": "https://data.cityofnewyork.us/Recreation/Parks-Properties/enfh-gkve",
         "screenshot": "img/queens_2a572c179f67.png",
-        "actions": []
+        "actions": [
+          "Volunteer with the Natural Areas Conservancy — forest and wetland restoration runs in every borough.",
+          "Plant native species; the Greenbelt Native Plant Center publishes NYC-appropriate lists.",
+          "Log wildlife sightings in iNaturalist — city ecologists use the data for the ecological assessments."
+        ]
       },
       {
         "name": "Air Pollution",
         "level": 42.8,
         "indicator": "Annual mean PM2.5 concentration",
-        "value": 6.07,
+        "value": "6.07 µg/m³",
         "year": 2024,
-        "target": 5,
+        "target": "5 µg/m³",
         "context": "",
         "source": "NYC DOHMH, New York City Community Air Survey (NYCCAS), Appendix 3: Community District Average Pollutant Levels, Table A3-1 (Annual Average PM2.5 by Community District, 2009–2024)",
         "sourceUrl": "https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/nyccas/",
         "screenshot": "img/queens_60dd2abd0d2e.png",
-        "actions": []
+        "actions": [
+          "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
+          "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
+          "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
+        ]
       },
       {
         "name": "Ozone Layer Depletion",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
+        ]
       }
     ],
     "social": [
@@ -867,138 +1135,199 @@ const JURISDICTIONS = {
         "name": "Food",
         "level": 150,
         "indicator": "Food insecurity rate",
-        "value": 15.5,
+        "value": "15.5% of residents",
         "year": 2024,
-        "target": 5,
+        "target": "5% of residents",
         "context": "",
         "source": "Feeding America, Map the Meal Gap — county-level food insecurity estimates (2024 data, published mid-2026)",
         "sourceUrl": "https://map.feedingamerica.org/county/2024/overall/new-york/county/queens",
         "screenshot": "img/queens_237c65840e13.png",
-        "actions": []
+        "actions": [
+          "Check SNAP eligibility and enroll at access.nyc.gov — roughly one in three eligible New Yorkers never claims benefits.",
+          "Weigh in on the city's municipal grocery pilot: NYCEDC takes public comment on store siting and the discounted core basket.",
+          "Volunteer or donate through City Harvest or Food Bank For NYC — Brooklyn alone has an 86-million-meal gap."
+        ]
       },
       {
         "name": "Health",
         "level": 130,
         "indicator": "Residents without health insurance",
-        "value": 9,
+        "value": "9% of residents under 65",
         "year": 2023,
-        "target": 5,
+        "target": "5% of residents under 65",
         "context": "",
         "source": "County Health Rankings & Roadmaps — 'Uninsured' measure (Census Bureau Small Area Health Insurance Estimates, SAHIE), Queens County, NY",
         "sourceUrl": "https://www.countyhealthrankings.org/health-data/new-york/queens",
         "screenshot": "img/queens_11c6f051e971.png",
-        "actions": []
+        "actions": [
+          "Enroll in low- or no-cost coverage through NYC Care regardless of immigration status (nyccare.nyc).",
+          "Comment on the HealthyNYC plan — the city is legally bound (Local Law 93) to close life-expectancy gaps, and public input shapes the update cycle.",
+          "Use the NYC Health Map to find neighborhood clinics, mental-health support (988), and screening programs."
+        ]
       },
       {
         "name": "Education",
         "level": 72,
         "indicator": "Adults with a high-school credential",
-        "value": 82.3,
+        "value": "82.3% of residents 25+",
         "year": 2024,
-        "target": 95,
+        "target": "95% of residents 25+",
         "context": "",
         "source": "Census Reporter, ACS 2024 1-year estimates, table S1501 (Educational Attainment), Queens County, NY",
         "sourceUrl": "http://censusreporter.org/profiles/05000US36081-queens-county-ny/",
         "screenshot": "img/queens_d91463141fd2.png",
-        "actions": []
+        "actions": [
+          "Apply for free 2-K seats as they expand borough by borough — the first cohorts are enrolling now.",
+          "Track your school's class-size compliance in the DOE's public reports; the 2022 state law requires 100% by 2029-30.",
+          "Join your Community Education Council — the elected parent body with a formal voice on school policy."
+        ]
       },
       {
         "name": "Income & Work",
         "level": 117.5,
         "indicator": "Residents below the poverty line",
-        "value": 13.4,
+        "value": "13.4% of residents",
         "year": 2024,
-        "target": 8,
+        "target": "8% of residents",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table S1701 (Poverty Status in the Past 12 Months), Queens County, NY — accessed via Census Reporter",
         "sourceUrl": "http://censusreporter.org/profiles/05000US36081-queens-county-ny/",
         "screenshot": "img/queens_d91463141fd2.png",
-        "actions": []
+        "actions": [
+          "Screen for every benefit you qualify for at access.nyc.gov — the True Cost of Living report shows 62% of New Yorkers fall short of basic needs.",
+          "File wage-theft complaints with DCWP; the city recovers millions annually for underpaid workers.",
+          "Support the $30-by-2030 minimum wage campaign — it requires Albany authorization, and constituent pressure moves state legislators."
+        ]
+      },
+      {
+        "name": "Water & Sanitation",
+        "level": null,
+        "indicator": "Population served by water systems with no health-based violations",
+        "value": "Data needed",
+        "year": null,
+        "target": "100% of served population",
+        "context": "",
+        "source": "",
+        "sourceUrl": "",
+        "screenshot": null,
+        "actions": [
+          "Get your free lead service line inspection — DEP publishes line materials by address and replaces lead lines at no cost in many cases.",
+          "Report water quality concerns to 311; every complaint feeds the DEP monitoring system.",
+          "Join a harbor or tributary cleanup with the Billion Oyster Project or your local waterfront alliance."
+        ]
       },
       {
         "name": "Energy",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Apply for HEAP (Home Energy Assistance) before the season closes — energy burden above 6% of income is the affordability line.",
+          "Request a free home energy assessment through NYSERDA; income-eligible households get free weatherization.",
+          "If your building is over 25,000 sq ft, ask your board or landlord for its Local Law 97 compliance plan — 57% of covered buildings still exceed their 2030 cap."
+        ]
       },
       {
         "name": "Networks",
         "level": 11.2,
         "indicator": "Households with a broadband subscription",
-        "value": 94.4,
+        "value": "94.4% of households",
         "year": 2024,
-        "target": 100,
+        "target": "100% of households",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 1-Year Estimates, Geographic Comparison Table GCT2801 'Percent of Households with a Broadband Internet Subscription' (derived from Subject Table S2801), 2024 vintage",
         "sourceUrl": "https://www2.census.gov/programs-surveys/acs/data/2024/1_year_geographic_comparison_tables/GCT2801.csv",
         "screenshot": "img/queens_ede1e0b9c78e.png",
-        "actions": []
+        "actions": [
+          "Check Big Apple Connect eligibility — free broadband is live at 220+ NYCHA developments.",
+          "Enroll in Fair Fares for half-price transit if your income qualifies; enrollment is far below eligibility.",
+          "Ride and advocate: the bus-priority program adds miles only where communities show up for them at DOT workshops."
+        ]
       },
       {
         "name": "Housing",
         "level": 130.1,
         "indicator": "Renter households paying over 30% of income on housing",
-        "value": 52.6,
+        "value": "52.6% of renter households",
         "year": 2024,
-        "target": 30,
+        "target": "30% of renter households",
         "context": "",
         "source": "NYU Furman Center, NYC Neighborhood Data Profiles — Queens (borough), 'Renters and Rental Conditions' section (total rent-burdened = moderately rent-burdened 24.6% + severely rent-burdened 28.0%), based on American Community Survey 1-year PUMS-derived tabulations",
         "sourceUrl": "https://www.furmancenter.org/neighborhoods/queens/",
         "screenshot": "img/queens_0f5afe4f5f00.png",
-        "actions": []
+        "actions": [
+          "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
+          "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
+          "Attend your community board's land-use committee — the Block by Block plan (200,000 affordable homes) is siting projects borough by borough."
+        ]
       },
       {
         "name": "Gender Equality",
         "level": -12,
         "indicator": "Women's median earnings as a share of men's",
-        "value": 100.7,
+        "value": "100.7%",
         "year": 2024,
-        "target": 95,
+        "target": "95%",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B20017 (Median Earnings in the Past 12 Months by Sex by Work Experience, Population 16+ With Earnings), Queens County, NY — accessed via Census Reporter, which mirrors unmodified Census Bureau ACS API estimates",
         "sourceUrl": "https://censusreporter.org/data/table/?table=B20017&geo_ids=05000US36081&primary_geo_id=05000US36081",
         "screenshot": "img/queens_02fa139e536a.png",
-        "actions": []
+        "actions": [
+          "Know the salary-transparency law: NYC job postings must list pay ranges — report violations to the Commission on Human Rights.",
+          "Free doula and midwife programs are expanding citywide; DOHMH maternal-health programs prioritize the highest-mortality neighborhoods.",
+          "Universal 2-K childcare is the single strongest lever for mothers' workforce participation — apply early and often."
+        ]
       },
       {
         "name": "Social Equity",
         "level": 34.7,
         "indicator": "Gini Index of Income Inequality (household income)",
-        "value": 0.4694,
+        "value": "0.47 index 0-1",
         "year": 2024,
-        "target": 0.4,
+        "target": "0.4 index 0-1",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B19083 (Gini Index of Income Inequality), Queens County, NY, served via Census Reporter data API",
         "sourceUrl": "https://api.censusreporter.org/1.0/data/show/latest?table_ids=B19083&geo_ids=05000US36081",
         "screenshot": "img/queens_cdf2486be6b6.png",
-        "actions": []
+        "actions": [
+          "Read the charter-mandated Racial Equity Plan and file public comment — agencies must answer to it.",
+          "Report discrimination to the NYC Commission on Human Rights (it has real enforcement power).",
+          "Bank locally: community development credit unions reinvest deposits in the neighborhoods the TCOL report shows furthest below the line."
+        ]
       },
       {
         "name": "Political Voice",
         "level": 85.42,
         "indicator": "Turnout of registered voters, most recent general election",
-        "value": 40.1,
+        "value": "40.1% of registered voters",
         "year": 2025,
-        "target": 70,
+        "target": "70% of registered voters",
         "context": "",
         "source": "New York City Campaign Finance Board, 2025 Voter Analysis Report — Figure 2.22 (Voter turnout by borough, general elections, 2021 and 2025)",
         "sourceUrl": "https://www.nyccfb.info/pdf/2025_VoterAnalysisReport.pdf",
         "screenshot": "img/queens_8cacf31b1a36.png",
-        "actions": []
+        "actions": [
+          "Register to vote and check your poll site at vote.nyc — municipal turnout hovers near 41%.",
+          "Join participatory budgeting in your council district: residents directly allocate real capital dollars every spring.",
+          "Testify at City Council hearings — remote testimony is accepted, and hearing calendars are public at council.nyc.gov."
+        ]
       },
       {
         "name": "Peace & Justice",
         "level": 38.12,
         "indicator": "Violent crime rate",
-        "value": 3.97,
+        "value": "3.97 per 1,000 residents",
         "year": 2025,
-        "target": 4,
+        "target": "4 per 1,000 residents",
         "context": "",
         "source": "NYPD Complaint Data Historic (NYC Open Data), denominator from U.S. Census Bureau Population Estimates Program Vintage 2024",
         "sourceUrl": "https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i",
         "screenshot": "img/queens_ca6056839410.png",
-        "actions": []
+        "actions": [
+          "Learn about the Office of Community Safety's non-police mental-health response — and use 988, not 911, for mental-health crises where available.",
+          "Attend your precinct community council meeting; commanding officers answer to residents there monthly.",
+          "Support court-watching and jail-oversight programs tracking the Rikers closure mandate."
+        ]
       }
     ]
   },
@@ -1011,106 +1340,138 @@ const JURISDICTIONS = {
         "name": "Climate Change",
         "level": 150,
         "indicator": "Community greenhouse gas emissions per capita",
-        "value": 5.66,
+        "value": "5.66 tCO2e per resident per year",
         "year": 2024,
-        "target": 2.5,
+        "target": "2.5 tCO2e per resident per year",
         "context": "",
         "source": "NYC Greenhouse Gas Emissions Inventory (Mayor's Office of Climate & Environmental Justice, via NYC Open Data)",
         "sourceUrl": "https://data.cityofnewyork.us/Environment/NYC-Greenhouse-Gas-Emissions-Inventory/wq7q-htne",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "If you own or manage a building over 25,000 sq ft, start Local Law 97 compliance now — caps tighten sharply in 2030.",
+          "Enroll in community solar: renters and co-op owners can cut bills without owning a roof.",
+          "Comment on PlaNYC updates — the 80x50 mandate (Local Law 66) is enforceable, and public pressure sets the pace."
+        ]
       },
       {
         "name": "Ocean Acidification",
         "level": 113.7,
         "indicator": "Coastal aragonite saturation state (Ω)",
-        "value": 1.09,
+        "value": "1.09 Ω aragonite",
         "year": 2022,
-        "target": 3,
+        "target": "3 Ω aragonite",
         "context": "",
         "source": "Barrett, L.J., Vlahos, P., McGuinness, M.A., Whitney, M.M., Vaudrey, J.M.P. (2024). 'Droughts and deluges: changes in river discharge and the carbonate chemistry of an urbanized temperate estuary.' Frontiers in Marine Science 11:1398087. Table 1 — western Long Island Sound (WLIS) July–September average bottom-water aragonite saturation state.",
         "sourceUrl": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2024.1398087/full",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Join the Billion Oyster Project — oyster reefs buffer local acidification and restore harbor ecology.",
+          "Support the state's Ocean Acidification Task Force recommendations for New York coastal waters."
+        ]
       },
       {
         "name": "Chemical Pollution",
         "level": 142.49,
         "indicator": "Toxic Release Inventory on-site releases per capita",
-        "value": 0.000964,
+        "value": "0 lbs per resident per year",
         "year": 2024,
-        "target": 1,
+        "target": "1 lbs per resident per year",
         "context": "",
         "source": "EPA Toxics Release Inventory (TRI) Program — Envirofacts data service (TRI_FACILITY, TRI_REPORTING_FORM, TRI_RELEASE_QTY tables), reporting year 2024, cross-checked against all historically Bronx-registered facilities; population from NYS Dept. of Health Annual Population Estimates (Census Bureau-derived postcensal estimate)",
         "sourceUrl": "https://data.epa.gov/efservice/TRI_FACILITY/county_name/BRONX/state_abbr/NY/JSON",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Separate organics — curbside composting is now citywide and mandatory; diversion is the zero-waste law's binding metric.",
+          "Take hazardous waste to DSNY SAFE disposal events instead of the trash.",
+          "Check EPA's Toxics Release Inventory for facilities near you and raise findings with your community board."
+        ]
       },
       {
         "name": "Nitrogen & Phosphorus Loading",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Report illegal dumping and sewer overflows to 311 — CSO reduction targets are consent-order commitments DEP must meet.",
+          "Volunteer with a green-infrastructure stewardship program: rain gardens and bioswales cut the overflows that load the harbor."
+        ]
       },
       {
         "name": "Freshwater Withdrawals",
         "level": 150,
         "indicator": "Residential water use",
-        "value": 118.19,
+        "value": "118.19 gallons per capita per day",
         "year": 2024,
-        "target": 55,
+        "target": "55 gallons per capita per day",
         "context": "",
         "source": "NYC Department of Environmental Protection — \"Water Consumption in the City of New York\" (NYC Open Data, dataset ia2d-e54m)",
         "sourceUrl": "https://data.cityofnewyork.us/Environment/Water-Consumption-in-the-City-of-New-York/ia2d-e54m",
         "screenshot": "img/bronx_23e8469f49e4.png",
-        "actions": []
+        "actions": [
+          "Request free water-saving fixtures through DEP's conservation programs.",
+          "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
+        ]
       },
       {
         "name": "Land Conversion",
         "level": 44,
         "indicator": "NYC tree canopy cover (citywide baseline for Bronx portrait)",
-        "value": 23.4,
+        "value": "23.4% of land area",
         "year": 2021,
-        "target": 30,
+        "target": "30% of land area",
         "context": "",
         "source": "The Nature Conservancy, 'Growing Greener: The State of Tree Canopy in New York City, 2017–2021' (the LiDAR-based study underlying the NYC Urban Forest Plan's 23.4% citywide 2021 baseline)",
         "sourceUrl": "https://www.nature.org/en-us/newsroom/growing-greener-report/",
         "screenshot": "img/bronx_c529e38f1d83.png",
-        "actions": []
+        "actions": [
+          "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
+          "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
+          "Advocate for the 1%-for-Parks budget pledge at council budget hearings."
+        ]
       },
       {
         "name": "Biodiversity Loss",
         "level": 19.8,
         "indicator": "Land under durable conservation protection",
-        "value": 27.03,
+        "value": "27.03% of jurisdiction land area",
         "year": 2026,
-        "target": 30,
+        "target": "30% of jurisdiction land area",
         "context": "",
         "source": "NYC Open Data — Parks Properties dataset (NYC Parks Department jurisdictional acreage, queried and summed by borough)",
         "sourceUrl": "https://data.cityofnewyork.us/resource/enfh-gkve.json?$select=borough,sum(acres)&$group=borough",
         "screenshot": "img/bronx_246990a4568b.png",
-        "actions": []
+        "actions": [
+          "Volunteer with the Natural Areas Conservancy — forest and wetland restoration runs in every borough.",
+          "Plant native species; the Greenbelt Native Plant Center publishes NYC-appropriate lists.",
+          "Log wildlife sightings in iNaturalist — city ecologists use the data for the ecological assessments."
+        ]
       },
       {
         "name": "Air Pollution",
         "level": 55.6,
         "indicator": "Annual mean PM2.5 concentration",
-        "value": 6.39,
+        "value": "6.39 µg/m³",
         "year": 2024,
-        "target": 5,
+        "target": "5 µg/m³",
         "context": "",
         "source": "NYC Department of Health and Mental Hygiene (DOHMH), \"Air Quality and Health Impacts\" dataset (NYC Open Data, id c3uy-2p5r) — indicator_id 1425 \"Fine particles (PM 2.5)\", measure \"Annual mean\", geo_type_name \"Borough\", geo_place_name \"Bronx\", time_period 2024",
         "sourceUrl": "https://data.cityofnewyork.us/resource/c3uy-2p5r.json?name=Fine%20particles%20(PM%202.5)&measure=Annual%20mean&geo_type_name=Borough&geo_place_name=Bronx&$order=time_period%20DESC&$limit=10",
         "screenshot": "img/bronx_cb3bb0214d96.png",
-        "actions": []
+        "actions": [
+          "The $20M congestion-pricing asthma investment targets Bronx neighborhoods — DOHMH community programs are enrolling now.",
+          "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
+          "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
+          "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
+        ]
       },
       {
         "name": "Ozone Layer Depletion",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
+        ]
       }
     ],
     "social": [
@@ -1118,151 +1479,200 @@ const JURISDICTIONS = {
         "name": "Food",
         "level": 150,
         "indicator": "Food insecurity rate",
-        "value": 20.2,
+        "value": "20.2% of residents",
         "year": 2022,
-        "target": 5,
+        "target": "5% of residents",
         "context": "",
         "source": "NYC Mayor's Office of Food Policy, \"NYC Food by the Numbers\" (2024 edition, published January 2025), section \"Food Insecurity By Borough\"",
         "sourceUrl": "https://www.nyc.gov/assets/foodpolicy/downloads/pdf/NYC-Food-by-the-Numbers-2024.pdf",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "The first city-owned grocery store opens in Hunts Point — attend Bronx Community Board 2 meetings to shape its basket and hours.",
+          "Check SNAP eligibility and enroll at access.nyc.gov — roughly one in three eligible New Yorkers never claims benefits.",
+          "Weigh in on the city's municipal grocery pilot: NYCEDC takes public comment on store siting and the discounted core basket.",
+          "Volunteer or donate through City Harvest or Food Bank For NYC — Brooklyn alone has an 86-million-meal gap."
+        ]
       },
       {
         "name": "Health",
         "level": 150,
         "indicator": "Residents without health insurance",
-        "value": 11,
+        "value": "11% of residents under 65",
         "year": 2024,
-        "target": 5,
+        "target": "5% of residents under 65",
         "context": "",
         "source": "NYC DOHMH Community Health Profiles — Public Use Dataset (2026 release), borough-level row for Bronx, 'Uninsured' indicator sourced from the NYC Community Health Survey (CHS)",
         "sourceUrl": "https://www.nyc.gov/assets/doh/downloads/excel/episrv/2026-chp-pud.xlsx",
         "screenshot": "img/bronx_37e32eae92b3.png",
-        "actions": []
+        "actions": [
+          "Enroll in low- or no-cost coverage through NYC Care regardless of immigration status (nyccare.nyc).",
+          "Comment on the HealthyNYC plan — the city is legally bound (Local Law 93) to close life-expectancy gaps, and public input shapes the update cycle.",
+          "Use the NYC Health Map to find neighborhood clinics, mental-health support (988), and screening programs."
+        ]
       },
       {
         "name": "Education",
         "level": 72,
         "indicator": "Adults with a high-school credential",
-        "value": 75.5,
+        "value": "75.5% of residents 25+",
         "year": 2024,
-        "target": 95,
+        "target": "95% of residents 25+",
         "context": "",
         "source": "Census Reporter profile of ACS 2024 1-year estimates, Table S1501 (Educational Attainment) — Bronx County, NY",
         "sourceUrl": "https://censusreporter.org/profiles/05000US36005-bronx-county-ny/",
         "screenshot": "img/bronx_341bf5a45a17.png",
-        "actions": []
+        "actions": [
+          "Apply for free 2-K seats as they expand borough by borough — the first cohorts are enrolling now.",
+          "Track your school's class-size compliance in the DOE's public reports; the 2022 state law requires 100% by 2029-30.",
+          "Join your Community Education Council — the elected parent body with a formal voice on school policy."
+        ]
       },
       {
         "name": "Income & Work",
         "level": 150,
         "indicator": "Residents below the poverty line",
-        "value": 28.7,
+        "value": "28.7% of residents",
         "year": 2024,
-        "target": 8,
+        "target": "8% of residents",
         "context": "",
         "source": "U.S. Census Bureau, QuickFacts: Bronx County, New York — \"Persons in poverty, percent\" (2020-2024 ACS 5-Year Estimates)",
         "sourceUrl": "https://www.census.gov/quickfacts/fact/table/bronxcountynewyork/PST045224",
         "screenshot": "img/bronx_051f5897c344.png",
-        "actions": []
+        "actions": [
+          "Screen for every benefit you qualify for at access.nyc.gov — the True Cost of Living report shows 62% of New Yorkers fall short of basic needs.",
+          "File wage-theft complaints with DCWP; the city recovers millions annually for underpaid workers.",
+          "Support the $30-by-2030 minimum wage campaign — it requires Albany authorization, and constituent pressure moves state legislators."
+        ]
       },
       {
         "name": "Water & Sanitation",
         "level": 0,
         "indicator": "Population served by water systems with no health-based violations",
-        "value": 100,
+        "value": "100% of served population",
         "year": 2025,
-        "target": 100,
+        "target": "100% of served population",
         "context": "",
         "source": "New York State Department of Health, 2025 Annual Report of Public Water Supply Violations — New York City Compliance Report (data drawn from SDWIS/State)",
         "sourceUrl": "https://www.health.ny.gov/environmental/water/drinking/violations/2025/new_york_city_compliance_report.htm",
         "screenshot": "img/bronx_3fa6bf8c4138.png",
-        "actions": []
+        "actions": [
+          "Get your free lead service line inspection — DEP publishes line materials by address and replaces lead lines at no cost in many cases.",
+          "Report water quality concerns to 311; every complaint feeds the DEP monitoring system.",
+          "Join a harbor or tributary cleanup with the Billion Oyster Project or your local waterfront alliance."
+        ]
       },
       {
         "name": "Energy",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Apply for HEAP (Home Energy Assistance) before the season closes — energy burden above 6% of income is the affordability line.",
+          "Request a free home energy assessment through NYSERDA; income-eligible households get free weatherization.",
+          "If your building is over 25,000 sq ft, ask your board or landlord for its Local Law 97 compliance plan — 57% of covered buildings still exceed their 2030 cap."
+        ]
       },
       {
         "name": "Networks",
         "level": 73.4,
         "indicator": "Households with a broadband subscription",
-        "value": 63.3,
+        "value": "63.3% of households",
         "year": 2023,
-        "target": 100,
+        "target": "100% of households",
         "context": "",
         "source": "New York State Office of the State Comptroller, \"Broadband Availability, Access and Affordability in New York City\" (Report 20-2025), Dec. 2024, citing 2023 ACS 1-Year Estimates",
         "sourceUrl": "https://www.osc.ny.gov/press/releases/2024/12/dinapoli-report-examines-broadband-availability-access-and-affordability-nyc",
         "screenshot": "img/bronx_ee506dff8b84.png",
-        "actions": []
+        "actions": [
+          "Check Big Apple Connect eligibility — free broadband is live at 220+ NYCHA developments.",
+          "Enroll in Fair Fares for half-price transit if your income qualifies; enrollment is far below eligibility.",
+          "Ride and advocate: the bus-priority program adds miles only where communities show up for them at DOT workshops."
+        ]
       },
       {
         "name": "Housing",
         "level": 150,
         "indicator": "Renter households paying over 30% of income on housing",
-        "value": 61.18,
+        "value": "61.18% of renter households",
         "year": 2024,
-        "target": 30,
+        "target": "30% of renter households",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B25070 'Gross Rent as a Percentage of Household Income in the Past 12 Months', universe: renter-occupied housing units, Bronx County, NY (GEOID 05000US36005)",
         "sourceUrl": "https://api.censusreporter.org/1.0/data/show/latest?table_ids=B25070&geo_ids=05000US36005",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
+          "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
+          "Attend your community board's land-use committee — the Block by Block plan (200,000 affordable homes) is siting projects borough by borough."
+        ]
       },
       {
         "name": "Gender Equality",
         "level": -13.7,
         "indicator": "Women's median earnings as a share of men's",
-        "value": 101.51,
+        "value": "101.51%",
         "year": 2024,
-        "target": 95,
+        "target": "95%",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B20017 (Median Earnings in the Past 12 Months by Sex by Work Experience for the Population 16 Years and Over with Earnings), Bronx County, NY — accessed via Census Reporter's ACS data interface",
         "sourceUrl": "https://censusreporter.org/data/table/?table=B20017&geo_ids=05000US36005&primary_geo_id=05000US36005",
         "screenshot": "img/bronx_2d7699137e87.png",
-        "actions": []
+        "actions": [
+          "Know the salary-transparency law: NYC job postings must list pay ranges — report violations to the Commission on Human Rights.",
+          "Free doula and midwife programs are expanding citywide; DOHMH maternal-health programs prioritize the highest-mortality neighborhoods.",
+          "Universal 2-K childcare is the single strongest lever for mothers' workforce participation — apply early and often."
+        ]
       },
       {
         "name": "Social Equity",
         "level": 66.8,
         "indicator": "Income inequality (Gini index)",
-        "value": 0.5336,
+        "value": "0.53 index 0–1",
         "year": 2024,
-        "target": 0.4,
+        "target": "0.4 index 0–1",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey (ACS) 2024 1-Year Estimates, Table B19083: Gini Index of Income Inequality",
         "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B19083?g=0500000US36005",
         "screenshot": "img/bronx_83aa22a95fcc.png",
-        "actions": []
+        "actions": [
+          "Read the charter-mandated Racial Equity Plan and file public comment — agencies must answer to it.",
+          "Report discrimination to the NYC Commission on Human Rights (it has real enforcement power).",
+          "Bank locally: community development credit unions reinvest deposits in the neighborhoods the TCOL report shows furthest below the line."
+        ]
       },
       {
         "name": "Political Voice",
         "level": 106.7,
         "indicator": "Turnout of registered voters, most recent general election",
-        "value": 30.3,
+        "value": "30.3% of registered voters",
         "year": 2025,
-        "target": 70,
+        "target": "70% of registered voters",
         "context": "",
         "source": "New York City Campaign Finance Board, 2025 Voter Analysis Report — Fast Facts, Voter Turnout table (p.10)",
         "sourceUrl": "https://www.nyccfb.info/pdf/2025_VoterAnalysisReport.pdf",
         "screenshot": "img/bronx_86de9bb8284b.png",
-        "actions": []
+        "actions": [
+          "Register to vote and check your poll site at vote.nyc — municipal turnout hovers near 41%.",
+          "Join participatory budgeting in your council district: residents directly allocate real capital dollars every spring.",
+          "Testify at City Council hearings — remote testimony is accepted, and hearing calendars are public at council.nyc.gov."
+        ]
       },
       {
         "name": "Peace & Justice",
         "level": 150,
         "indicator": "Violent crime rate",
-        "value": 10.02,
+        "value": "10.02 per 1,000 residents",
         "year": 2025,
-        "target": 4,
+        "target": "4 per 1,000 residents",
         "context": "",
         "source": "NYPD Complaint Data Historic (NYC Open Data)",
         "sourceUrl": "https://data.cityofnewyork.us/resource/qgea-i56i.json?$select=ofns_desc,count(*)%20as%20cnt&$where=boro_nm=%27BRONX%27%20AND%20law_cat_cd=%27FELONY%27%20AND%20cmplnt_fr_dt%20between%20%272025-01-01T00:00:00%27%20and%20%272025-12-31T23:59:59%27&$group=ofns_desc&$order=cnt%20DESC&$limit=30",
         "screenshot": "img/bronx_bb3b58ef5b67.png",
-        "actions": []
+        "actions": [
+          "Learn about the Office of Community Safety's non-police mental-health response — and use 988, not 911, for mental-health crises where available.",
+          "Attend your precinct community council meeting; commanding officers answer to residents there monthly.",
+          "Support court-watching and jail-oversight programs tracking the Rikers closure mandate."
+        ]
       }
     ]
   },
@@ -1275,94 +1685,125 @@ const JURISDICTIONS = {
         "name": "Climate Change",
         "level": 150,
         "indicator": "Community greenhouse gas emissions per capita",
-        "value": 5.66,
+        "value": "5.66 tCO2e per resident per year",
         "year": 2024,
-        "target": 2.5,
+        "target": "2.5 tCO2e per resident per year",
         "context": "",
         "source": "NYC Greenhouse Gas Emissions Inventory (NYC Open Data, sourced from MOCEJ Citywide-GPC inventory) — total citywide emissions (100-yr GWP, all sectors: Stationary Energy + Transportation + Waste) divided by NYC Dept. of City Planning's Vintage-2024 population estimate",
         "sourceUrl": "https://data.cityofnewyork.us/Environment/NYC-Greenhouse-Gas-Emissions-Inventory/wq7q-htne",
         "screenshot": "img/staten-island_4b9d55e5e930.png",
-        "actions": []
+        "actions": [
+          "If you own or manage a building over 25,000 sq ft, start Local Law 97 compliance now — caps tighten sharply in 2030.",
+          "Enroll in community solar: renters and co-op owners can cut bills without owning a roof.",
+          "Comment on PlaNYC updates — the 80x50 mandate (Local Law 66) is enforceable, and public pressure sets the pace."
+        ]
       },
       {
         "name": "Ocean Acidification",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Join the Billion Oyster Project — oyster reefs buffer local acidification and restore harbor ecology.",
+          "Support the state's Ocean Acidification Task Force recommendations for New York coastal waters."
+        ]
       },
       {
         "name": "Chemical Pollution",
         "level": 120.09,
         "indicator": "Toxic Release Inventory on-site releases per capita",
-        "value": 0.0103,
+        "value": "0.01 lbs per resident per year",
         "year": 2023,
-        "target": 1,
+        "target": "1 lbs per resident per year",
         "context": "",
         "source": "US EPA Toxics Release Inventory (Envirofacts data service): tri_facility, tri_reporting_form, and tri_release_qty tables for Richmond County, NY, reporting year 2023",
         "sourceUrl": "https://data.epa.gov/efservice/tri_facility/county_name/RICHMOND/state_abbr/NY/tri_reporting_form/reporting_year/2023/JSON",
         "screenshot": "img/staten-island_342e86042749.png",
-        "actions": []
+        "actions": [
+          "Separate organics — curbside composting is now citywide and mandatory; diversion is the zero-waste law's binding metric.",
+          "Take hazardous waste to DSNY SAFE disposal events instead of the trash.",
+          "Check EPA's Toxics Release Inventory for facilities near you and raise findings with your community board."
+        ]
       },
       {
         "name": "Nitrogen & Phosphorus Loading",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Report illegal dumping and sewer overflows to 311 — CSO reduction targets are consent-order commitments DEP must meet.",
+          "Volunteer with a green-infrastructure stewardship program: rain gardens and bioswales cut the overflows that load the harbor."
+        ]
       },
       {
         "name": "Freshwater Withdrawals",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Request free water-saving fixtures through DEP's conservation programs.",
+          "Support watershed protection east and upstate — NYC's unfiltered supply depends on Catskill/Delaware land conservation."
+        ]
       },
       {
         "name": "Land Conversion",
         "level": 1.88,
         "indicator": "Tree canopy cover — Staten Island",
-        "value": 33.1,
+        "value": "33.1% of land area",
         "year": 2021,
-        "target": 30,
+        "target": "30% of land area",
         "context": "",
         "source": "NYC Mayor's Office of Climate & Environmental Justice — NYC Urban Forest Plan (Apr 2026), borough canopy-cover table ('Canopy cover NYC-wide and by borough, 2021')",
         "sourceUrl": "https://www.nyc.gov/content/climate/pages/news/urban-forest-plan-pr",
         "screenshot": "img/staten-island_b4aac592cfd5.png",
-        "actions": []
+        "actions": [
+          "Request a free street tree from NYC Parks — the Urban Forest Plan needs 30% canopy by 2040 and plants where residents ask.",
+          "Join a Parks stewardship group or \"It's My Park\" day in your neighborhood.",
+          "Advocate for the 1%-for-Parks budget pledge at council budget hearings."
+        ]
       },
       {
         "name": "Biodiversity Loss",
         "level": 60.2,
         "indicator": "Land under durable conservation protection",
-        "value": 20.97,
+        "value": "20.97% of jurisdiction land area",
         "year": 2026,
-        "target": 30,
+        "target": "30% of jurisdiction land area",
         "context": "",
         "source": "NYC Open Data — Parks Properties dataset (NYC Dept. of Parks & Recreation), borough=R aggregate",
         "sourceUrl": "https://data.cityofnewyork.us/Recreation/Parks-Properties/enfh-gkve",
         "screenshot": "img/staten-island_2a572c179f67.png",
-        "actions": []
+        "actions": [
+          "Volunteer with the Natural Areas Conservancy — forest and wetland restoration runs in every borough.",
+          "Plant native species; the Greenbelt Native Plant Center publishes NYC-appropriate lists.",
+          "Log wildlife sightings in iNaturalist — city ecologists use the data for the ecological assessments."
+        ]
       },
       {
         "name": "Air Pollution",
         "level": 40,
         "indicator": "Annual mean PM2.5 concentration",
-        "value": 6,
+        "value": "6 µg/m³",
         "year": 2024,
-        "target": 5,
+        "target": "5 µg/m³",
         "context": "",
         "source": "NYC DOHMH, NYC Community Air Survey (NYCCAS) Annual Report, Appendix 3: Community District Average Pollutant Levels, Table A3-1",
         "sourceUrl": "https://a816-dohbesp.nyc.gov/IndicatorPublic/data-features/nyccas/pdf/Appendix3.pdf",
         "screenshot": "img/staten-island_60dd2abd0d2e.png",
-        "actions": []
+        "actions": [
+          "Report idling trucks and buses to 311 — citizens can even claim a bounty under the Citizens Air Complaint Program.",
+          "Support congestion-pricing-funded transit and asthma programs — zone PM2.5 is down 22% and the revenue is committed by law.",
+          "Check your neighborhood's NYCCAS air data and bring it to your community board — exposure varies more within boroughs than between them."
+        ]
       },
       {
         "name": "Ozone Layer Depletion",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Dispose of old refrigerators and ACs through DSNY appliance pickup so refrigerants are recovered, not vented."
+        ]
       }
     ],
     "social": [
@@ -1370,151 +1811,199 @@ const JURISDICTIONS = {
         "name": "Food",
         "level": 150,
         "indicator": "Food insecurity rate",
-        "value": 11.5,
+        "value": "11.5% of residents",
         "year": 2023,
-        "target": 5,
+        "target": "5% of residents",
         "context": "",
         "source": "NYC Mayor's Office of Food Policy, \"NYC Food by the Numbers\" (Jan. 2025 edition), Richmond County (Staten Island) entry",
         "sourceUrl": "https://www.nyc.gov/assets/foodpolicy/downloads/pdf/NYC-Food-by-the-Numbers-2024.pdf",
         "screenshot": "img/staten-island_c64a20c338cc.png",
-        "actions": []
+        "actions": [
+          "Check SNAP eligibility and enroll at access.nyc.gov — roughly one in three eligible New Yorkers never claims benefits.",
+          "Weigh in on the city's municipal grocery pilot: NYCEDC takes public comment on store siting and the discounted core basket.",
+          "Volunteer or donate through City Harvest or Food Bank For NYC — Brooklyn alone has an 86-million-meal gap."
+        ]
       },
       {
         "name": "Health",
         "level": -8,
         "indicator": "Residents without health insurance",
-        "value": 4.8,
+        "value": "4.8% of residents under 65",
         "year": 2024,
-        "target": 5,
+        "target": "5% of residents under 65",
         "context": "",
         "source": "U.S. Census Bureau, QuickFacts: Richmond County, New York (derived from ACS 2020-2024 5-Year Estimates, Table S2701)",
         "sourceUrl": "https://www.census.gov/quickfacts/fact/table/richmondcountynewyork/PST045223",
         "screenshot": "img/staten-island_46727ab748e8.png",
-        "actions": []
+        "actions": [
+          "Enroll in low- or no-cost coverage through NYC Care regardless of immigration status (nyccare.nyc).",
+          "Comment on the HealthyNYC plan — the city is legally bound (Local Law 93) to close life-expectancy gaps, and public input shapes the update cycle.",
+          "Use the NYC Health Map to find neighborhood clinics, mental-health support (988), and screening programs."
+        ]
       },
       {
         "name": "Education",
         "level": 100,
         "indicator": "Adults with a high-school credential",
-        "value": 88.3,
+        "value": "88.3% of residents 25+",
         "year": 2024,
-        "target": 95,
+        "target": "95% of residents 25+",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B15003 (Educational Attainment for the Population 25 Years and Over) — the ACS S1501-equivalent detailed table, geography 'Staten Island borough, Richmond County, NY,' retrieved via Census Reporter's ACS API mirror",
         "sourceUrl": "http://censusreporter.org/profiles/06000US3608570915-staten-island-borough-richmond-county-ny/",
         "screenshot": "img/staten-island_d66a5e26af4c.png",
-        "actions": []
+        "actions": [
+          "Apply for free 2-K seats as they expand borough by borough — the first cohorts are enrolling now.",
+          "Track your school's class-size compliance in the DOE's public reports; the 2022 state law requires 100% by 2029-30.",
+          "Join your Community Education Council — the elected parent body with a formal voice on school policy."
+        ]
       },
       {
         "name": "Income & Work",
         "level": 96.4,
         "indicator": "Residents below the poverty line",
-        "value": 11.1,
+        "value": "11.1% of residents",
         "year": 2024,
-        "target": 8,
+        "target": "8% of residents",
         "context": "",
         "source": "NYC Department of Social Services (DSS), Office of Evaluation and Research (OER) — 'Poverty and Health Insurance Coverage' presentation, using American Community Survey (ACS) official/federal poverty measure, 2024 estimates",
         "sourceUrl": "https://www.nyc.gov/assets/hra/downloads/pdf/about/DSS-Resource-Corner/NYCDSS-OER-Poverty-and-Health-Insurance-Presentation-2024-ACS.pdf",
         "screenshot": "img/staten-island_bab956ef5108.png",
-        "actions": []
+        "actions": [
+          "Screen for every benefit you qualify for at access.nyc.gov — the True Cost of Living report shows 62% of New Yorkers fall short of basic needs.",
+          "File wage-theft complaints with DCWP; the city recovers millions annually for underpaid workers.",
+          "Support the $30-by-2030 minimum wage campaign — it requires Albany authorization, and constituent pressure moves state legislators."
+        ]
       },
       {
         "name": "Water & Sanitation",
         "level": 0,
         "indicator": "Population served by water systems with no health-based violations",
-        "value": 100,
+        "value": "100% of served population",
         "year": 2024,
-        "target": 100,
+        "target": "100% of served population",
         "context": "",
         "source": "NYC Department of Environmental Protection, 2024 Drinking Water Supply and Quality Report",
         "sourceUrl": "https://www.nyc.gov/assets/dep/downloads/pdf/water/drinking-water/drinking-water-supply-quality-report/2024-drinking-water-supply-quality-report.pdf",
         "screenshot": "img/staten-island_fe167ed6542a.png",
-        "actions": []
+        "actions": [
+          "Get your free lead service line inspection — DEP publishes line materials by address and replaces lead lines at no cost in many cases.",
+          "Report water quality concerns to 311; every complaint feeds the DEP monitoring system.",
+          "Join a harbor or tributary cleanup with the Billion Oyster Project or your local waterfront alliance."
+        ]
       },
       {
         "name": "Energy",
         "level": null,
         "context": "",
         "screenshot": null,
-        "actions": []
+        "actions": [
+          "Apply for HEAP (Home Energy Assistance) before the season closes — energy burden above 6% of income is the affordability line.",
+          "Request a free home energy assessment through NYSERDA; income-eligible households get free weatherization.",
+          "If your building is over 25,000 sq ft, ask your board or landlord for its Local Law 97 compliance plan — 57% of covered buildings still exceed their 2030 cap."
+        ]
       },
       {
         "name": "Networks",
         "level": 47,
         "indicator": "Households with a broadband subscription",
-        "value": 76.5,
+        "value": "76.5% of households",
         "year": 2023,
-        "target": 100,
+        "target": "100% of households",
         "context": "",
         "source": "NYS Office of the State Comptroller (OSC), \"Broadband Availability, Access and Affordability in New York City,\" Report 20-2025 (December 2024), Figure 4 — borough-level table citing U.S. Census Bureau American Community Survey 1-year files, 2023, OSC analysis",
         "sourceUrl": "https://www.osc.ny.gov/files/reports/pdf/report-20-2025.pdf",
         "screenshot": "img/staten-island_ee506dff8b84.png",
-        "actions": []
+        "actions": [
+          "Check Big Apple Connect eligibility — free broadband is live at 220+ NYCHA developments.",
+          "Enroll in Fair Fares for half-price transit if your income qualifies; enrollment is far below eligibility.",
+          "Ride and advocate: the bus-priority program adds miles only where communities show up for them at DOT workshops."
+        ]
       },
       {
         "name": "Housing",
         "level": 149.73,
         "indicator": "Renter households paying over 30% of income on housing",
-        "value": 53.75,
+        "value": "53.75% of renter households",
         "year": 2024,
-        "target": 30,
+        "target": "30% of renter households",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 1-Year Estimates 2024, Table B25070 (Gross Rent as a Percentage of Household Income), Richmond County, NY — retrieved via Census Reporter's Census API mirror",
         "sourceUrl": "https://censusreporter.org/data/table/?table=B25070&geo_ids=06000US3608570915&primary_geo_id=06000US3608570915",
         "screenshot": "img/staten-island_8e386183ca09.png",
-        "actions": []
+        "actions": [
+          "Facing eviction? You have a right to a free lawyer in housing court — call 311 and say 'right to counsel' before your first appearance.",
+          "Report unsafe conditions to 311 and check your building's open violations on HPD Online.",
+          "Attend your community board's land-use committee — the Block by Block plan (200,000 affordable homes) is siting projects borough by borough."
+        ]
       },
       {
         "name": "Gender Equality",
         "level": 7.76,
         "indicator": "Women's median earnings as a share of men's (full-time, year-round workers)",
-        "value": 91.31,
+        "value": "91.31%",
         "year": 2024,
-        "target": 95,
+        "target": "95%",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 2024 1-Year Estimates, Table B20017 — Median Earnings in the Past 12 Months by Sex by Work Experience, Richmond County, NY (geoid 05000US36085)",
         "sourceUrl": "https://data.census.gov/table/ACSDT1Y2024.B20017?g=050XX00US36085",
         "screenshot": "img/staten-island_3cd10945421d.png",
-        "actions": []
+        "actions": [
+          "Know the salary-transparency law: NYC job postings must list pay ranges — report violations to the Commission on Human Rights.",
+          "Free doula and midwife programs are expanding citywide; DOHMH maternal-health programs prioritize the highest-mortality neighborhoods.",
+          "Universal 2-K childcare is the single strongest lever for mothers' workforce participation — apply early and often."
+        ]
       },
       {
         "name": "Social Equity",
         "level": 18.7,
         "indicator": "Income inequality (Gini index)",
-        "value": 0.4374,
+        "value": "0.44 index 0–1",
         "year": 2024,
-        "target": 0.4,
+        "target": "0.4 index 0–1",
         "context": "",
         "source": "U.S. Census Bureau, American Community Survey 1-Year Estimates, Table B19083 (Gini Index of Income Inequality), Staten Island borough (Richmond County), NY",
         "sourceUrl": "https://api.censusreporter.org/1.0/data/show/latest?table_ids=B19083&geo_ids=06000US3608570915",
         "screenshot": "img/staten-island_178516e01a43.png",
-        "actions": []
+        "actions": [
+          "Read the charter-mandated Racial Equity Plan and file public comment — agencies must answer to it.",
+          "Report discrimination to the NYC Commission on Human Rights (it has real enforcement power).",
+          "Bank locally: community development credit unions reinvest deposits in the neighborhoods the TCOL report shows furthest below the line."
+        ]
       },
       {
         "name": "Political Voice",
         "level": 69.8,
         "indicator": "Turnout of registered voters, most recent general election",
-        "value": 45.6,
+        "value": "45.6% of registered voters",
         "year": 2025,
-        "target": 70,
+        "target": "70% of registered voters",
         "context": "",
         "source": "NYC Campaign Finance Board, 2025 Voter Analysis Report, Figure 2.22 (\"Voter turnout by borough, general elections, 2021 and 2025\")",
         "sourceUrl": "https://www.nyccfb.info/pdf/2025_VoterAnalysisReport.pdf",
         "screenshot": "img/staten-island_8cacf31b1a36.png",
-        "actions": []
+        "actions": [
+          "Register to vote and check your poll site at vote.nyc — municipal turnout hovers near 41%.",
+          "Join participatory budgeting in your council district: residents directly allocate real capital dollars every spring.",
+          "Testify at City Council hearings — remote testimony is accepted, and hearing calendars are public at council.nyc.gov."
+        ]
       },
       {
         "name": "Peace & Justice",
         "level": 8.6,
         "indicator": "Violent crime rate",
-        "value": 2.62,
+        "value": "2.62 per 1,000 residents",
         "year": 2024,
-        "target": 4,
+        "target": "4 per 1,000 residents",
         "context": "",
         "source": "NYC Open Data — NYPD Complaint Data Historic (dataset qgea-i56i), queried for BORO_NM='STATEN ISLAND', LAW_CAT_CD='FELONY', OFNS_DESC in (Murder & Non-Negl. Manslaughter, Rape, Robbery, Felony Assault), CMPLNT_FR_DT in calendar year 2024",
         "sourceUrl": "https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i",
         "screenshot": "img/staten-island_ca6056839410.png",
-        "actions": []
+        "actions": [
+          "Learn about the Office of Community Safety's non-police mental-health response — and use 988, not 911, for mental-health crises where available.",
+          "Attend your precinct community council meeting; commanding officers answer to residents there monthly.",
+          "Support court-watching and jail-oversight programs tracking the Rikers closure mandate."
+        ]
       }
     ]
   }
