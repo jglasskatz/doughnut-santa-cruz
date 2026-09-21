@@ -19,7 +19,6 @@ Open `docs/index-d3.html` in a browser — no build step needed.
 - **D3.js interactive doughnut chart** with hover tooltips, click-to-expand details, responsive design
 - **Color-coded segments** showing severity (no problem → severe)
 - **Detail panel** with indicator values, sources, targets, and community actions
-- **Energy deep-dive** connecting to [microgridme.xyz](https://microgridme.xyz) for distributed energy analysis
 - **Multi-city support** — switch between cities with keyboard shortcuts
 - **AI research agent** to auto-populate new city portraits with sourced data
 - **Templatized data schema** (JSON) for easy replication
